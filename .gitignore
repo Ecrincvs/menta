@@ -1,0 +1,16 @@
+node_modules
+dist
+*.log
+.DS_Store
+test-results
+screenshots
+
+# gizli anahtarlar
+.env
+.env.*
+!.env.example
+public/assets/art/raw
+
+# MEB ders kitapları (büyük PDF, yerel analiz için)
+docs/meb-kitaplar/**/*.pdf
+*.tsbuildinfo

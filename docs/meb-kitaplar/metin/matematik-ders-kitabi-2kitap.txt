@@ -1,0 +1,3389 @@
+      İLKOKUL
+
+MATEMATİK
+
+        1. SINIF
+    DERS KİTABI
+
+       2. KİTAP
+
+                YAZARLAR
+
+       Dr. Emine SELMANOĞLU
+                 Akile AVCI
+
+              Berna ARGÜN
+              Güldeniz ÇELİK
+             İbrahim GÜMÜŞ
+            Ramazan AKTÜRK
+              Ramazan EYİCE
+����� E����� ������I�I ���I���RI .............................................................................................� 2023
+DERS �������RI D���S� ..................................................................................................................� 9602
+
+     Her hakk sakldr ve Millî Eğitim Bakanlğna aittir. Kitabn metin, soru ve şekilleri
+                         ksmen de olsa hiçbir surette alnp yaymlanamaz.
+
+                        Editör Doç. Dr. Okan KUZU
+                                Doç. Dr. Ahmet Oğuz AKÇAY
+                                Doç. Dr. Emel ÇİLİNGİR ALTINER
+
+                  Dil Uzmanı Hikmet ÇİFÇİ
+
+           Görsel Tasarımcı Gökhan YILMAZEL
+                                Murat YARDIM
+
+  Çoklu Ortam Tasarımcısı Gülseren KARATAŞ
+                                Hafize AÇAR KAŞTAN
+                                Nebi PALANCI
+                                Osman Yasin KÜÇÜKBALLI
+
+        Program Geliştirme Dr. Halil ÇOBAN
+                      Uzmanı
+
+  Ölçme ve Değerlendirme Handegül SANDIKÇIOĞLU
+                      Uzmanı
+
+           Rehberlik Uzmanı Selin ÇALIŞKAN
+
+                                           ISBN 978-975-11-8012-4
+
+          Millî Eğitim Bakanlığı, TaIlSimBNve Terbiye Kurulunun 17.07.2024 tarih ve
+110460159 sayılı Kurul kararı ile 2025/2026 öğretim yılından itibaren 5 (beş) yıl süre
+Millî Eğitim Bakanlığı, Talim ivlee DTeerrbsiykeitaKbuıruolluanruank .k.a..b...u..l..e..d..i.l.m. tişatriirh. ve .............. sayılı yazısı ile
+eğitim aKruarcuıloclaarbauk kkaitbaublınedkialmbuişltier.dilmiş olması ders kitabından yayınevi ve yazarların
+
+                                   sorumluluğunu kaldırmaz.
+                İçindekiler
+
+Kitabımızı Tanıyalım ..................................................................................................... 9
+
+    4. Tema: İşlemlerden Cebirsel Düşünmeye ............ 11
+
+  Toplama ve Çıkarma İşlemlerini Çözümleme ................................ 12
+        Çıkarma İşlemi .......................................................................................... 35
+        Birbirine Eşit İki Sayının Farkı ........................................................ 46
+        Toplama ve Çıkarma İşleminde Sıfırın Etkisi ..................... 48
+
+  Toplama ve Çıkarma İşlemlerinin Sonuçlarını
+  Tahmin Etme ve Zihinden İşlem ................................................................ 58
+
+        Zihinden Toplama İşlemi .................................................................... 60
+        Çıkarma İşleminin Sonucunu Tahmin Etme ......................... 66
+        Zihinden Çıkarma İşlemi .................................................................... 68
+  Toplama ve Çıkarma İşlemlerinde Eşitlik ........................................... 71
+  Toplama ve Çıkarma İşlemlerinin İlişkisi ............................................. 76
+  4. Tema Değerlendirme .................................................................................... 85
+
+    5. Tema: Sayılar ve Nicelikler 3 .................................. 91
+
+  Paralarımız ................................................................................................................... 92
+  5. Tema Değerlendirme .......................................................................................104
+
+                                                              7
+    6. Tema: Nesnelerin Geometrisi 2 ............................. 109
+
+  Nesnelerin Biçimsel Özellikleri ................................................................... 110
+  Geometrik Yapılardaki Geometrik Şekiller .................................... 115
+  Geometrik Şekilleri Sınıflandırma ............................................................ 118
+  6. Tema Değerlendirme ..................................................................................... 126
+
+    7. Tema: Veriye Dayalı Araştırma ............................. 129
+
+  Veriyle Çalışma ve Veriye Dayalı Karar Verme....................130
+  7. Tema Değerlendirme ......................................................................................143
+
+Sözlük ..................................................................................................................................... 146
+Kaynakça ............................................................................................................................. 149
+
+Cevap Anahtarı ............................................................................................................ 149
+
+Görsel ve Genel Ağ Kaynakçası .................................................................... 149
+
+Ekler ........................................................................................................................................ 151
+Türkiye’nin Mülki İdare Bölümleri ile
+Kara ve Deniz Komşuları Haritası .................................................................. 158
+Türk Dünyası Haritası ............................................................................................... 159
+
+  8
+              Kitabımızı Tanıyalım
+
+Konu Başlığı                         Etkinlik
+
+  Bölüm                               Sayfa
+ Numarası                           Numarası
+
+Etkinlik Sembolü: Verilen konuyla ilgili işaretleme, eşleş-
+tirme, boş yerleri doldurma, işlem yapma gibi etkinlikleri
+yapmanızı isterim.
+
+        İnceleme Sembolü: Verilen sayı, şekil, resim,
+        metin veya problemi incelemenizi isterim.
+
+Konuşma Sembolü: Belirtilen konu hakkında konuşmanızı
+isterim.
+
+          Boyama Sembolü: Belirtilen yerleri boyama-
+          nızı isterim.
+
+    Yönlendirme Sembolü: Belirtilen sayfaya gitmeniz
+    gerektiğini anlatırım.
+
+                                                        9
+     Araştırma Sembolü: Verilen konuyla ilgili bilgi
+     kaynaklarından araştırma yapmanızı isterim.
+
+   U Oyun Zamanı Sembolü: Verilen konuyla ilgili öğren-
+AAM MAA I me becerilerinizi geliştirecek oyunlar oynamanızı isterim.
+
+  DÜŞÜNELİM: Konu ile ilgili akıl yürütmenizi, düşünmenizi
+                   isterim.
+
+  BAĞLANTI KURALIM: Konular arasında ilişki kurmanızı,
+                             konuları karşılaştırmanızı isterim.
+
+    ÖĞRENELİM: Konularla ilgili bilgi edinmenizi,
+                     beceri kazanmanızı isterim.
+
+        Biz Zeynep ve Mert, konularla ilgili bilgilerin
+        verildiği konuşmalar yaparız.
+
+                      Tema Değerlendirmesi: Bu bölümde
+                      tema içinde öğrendiğimiz bilgileri
+                      kullanarak kendimizi değerlendireceğimiz
+                      sorular yer alır.
+
+Karekod: Öğretmenlerin ve öğrencilerin karekodu
+okutarak kitapla ilgili EBA (Eğitim Bilişim Ağı)
+içeriklerine, cevap anahtarına, genel ağ ve görsel
+ağ kaynakçasına ulaşmaları sağlanır.
+
+10
+                                                                                                 4. TEMA
+
+                                                                                   23 Nisan                               8
+                                                                               Ulusal Egemenlik                        2+ 6
+
+                                                                                       ve                        3+4=
+                                                                                    Çocuk
+                                                                                   Bayramı
+
+12 - 0 = .......
+
+İşlemlerden Cebirsel Düşünmeye
+
+Toplama ve Çıkarma İşlemlerini Çözümleme
+Toplama ve Çıkarma İşlemlerinin Sonuçlarını
+
+       Tahmin Etme ve Zihinden İşlem
+  Toplama ve Çıkarma İşlemlerinde Eşitlik
+   Toplama ve Çıkarma İşlemlerinin İlişkisi
+
+                                                                                                 EBA tema alanı        Özet içerik
+
+                                                                                                                                     11
+ DÜŞÜNELİM
+ Toplama ve Çıkarma İşlemlerini Çözümleme
+
+    1
+
+                                       Görseldeki ördek
+                                       sayısını tahmin edip
+                                       söyleyelim.
+                                      Gölün içindeki ve dışındaki
+                                      ördek sayısı aynı mı?
+                              Göle 2 ördek daha girdiğinde
+                              göldeki ördek sayısı artar mı,
+                              azalır mı?
+
+12
+Ağaçtan 1 kuş daha
+uçarsa ağaçtaki kuş
+sayısıyla uçan kuş
+sayısı eşit olur mu?
+
+              Ağaçtan 2 kuş daha
+              uçtuğunda ağaçtaki kuş
+              sayısı artar mı, azalır mı?
+
+                                                            13
+U           Arttıralım mı, Azaltalım mı Oyunu
+
+AAM M AA I
+
+               Oyun Kuralları
+
+   Öğretmen, öğrencileri iki gruba ayırır. Sınıfta
+   her iki grup için birer bölüm oluşturur.
+
+   Öğretmen tahtaya bölümlerde bulunması
+   gereken öğrenci sayılarını yazar.
+
+   Gruplar bu sayılara göre bölümlerine
+   öğrenci gönderirler ya da bölümlerinden
+   öğrenci azaltırlar.
+
+   Öğretmen yeni sayılar yazarak etkinliğe
+   devam eder.
+
+   Bu şekilde gruplar artma ya da azaltma
+   kararlarını doğru vererek puan alır.
+
+   En çok puanı alan grup kazanır.
+
+                                     Gözlem formu için
+                                       karekodu akıllı
+                                      cihaza okutalım.
+
+14
+2 Melike’nin 3 tane inciri vardır. Babası Melike’ye
+    tabağındaki incirlerden 1 tane daha verir.
+    Melike ve babasının incirlerinin artma ve azalma
+    durumlarını söyleyelim. Son durumda Melike ve
+    babasının incir sayılarını karşılaştıralım. Tabak-
+    lardaki incir sayıları için artma ve azalma dışın-
+    da hangi kelimeler kullanılabilir? Söyleyelim.
+
+                                                       15
+BAĞLANTI KURALIM
+
+3 Aşağıdaki durumlardan hangisinde nesne sayı-
+    sında artma ya da azalma olacağına karar
+    verelim. Örnekteki gibi “ ” ile işaretleyelim.
+
+Durum                                Artma Azalma
+
+Tabaktaki muzlardan bir kısmını
+yedim. Buna göre muzların sayısı
+artar mı, azalır mı?
+
+Manava bugün 1 kasa daha erik
+geldi. Buna göre eriklerin sayısı
+artar mı, azalır mı?
+
+Aynur, elindeki fındıkların bir
+kısmını komşusuna verdi. Buna
+göre Aynur’un elindeki fındıkların
+sayısı artar mı, azalır mı?
+
+Sezer, kırtasiyeden 3 tane
+daha kalem aldı. Bu durumda
+Sezer’in kalem sayısı artar mı,
+azalır mı?
+
+Ümit, bir tabak kirazın bir kısmını
+yedi. Buna göre tabaktaki kiraz
+sayısı artar mı, azalır mı?
+
+ 16
+   4 Satranç turnuvasında Emre ile Ayşe yarışmıştır.
+       Emre maçı kazanmıştır. Emre, Ayşe’yi iyi bir oyun
+       çıkardığı için tebrik etmiştir. Emre’ye ödül olarak
+       7 boya kalemi verilmiştir. Emre, kalemlerinin
+       3 tanesini Ayşe’ye vermiştir. Bu durumda
+       Emre’nin kalemleri artmış mıdır, azalmış mıdır?
+
+91011 12 1 2
+        3
+8       4
+   765
+
+              17
+    23 Nisan Ulusal Egemenlik ve Çocuk Bayramı için
+    sınıf süslenecektir. Şule, sınıfa 7 balon getirmiştir.
+    Balonlardan birkaç tanesini şişirmiştir. Şişirmediği
+    balonları sıranın üzerine bırakmıştır.
+
+                                                           23 Nisan
+                                                       Ulusal Egemenlik
+
+                                                               ve
+                                                            Çocuk
+                                                           Bayramı
+
+    5 Soruları görsele göre cevaplayalım.
+         Şule, kaç balon şişirmiştir?
+         Sıranın üzerinde kaç balon vardır?
+         Şule, 2 balon daha şişirirse Şule’nin elindeki
+         balonlar artar mı, azalır mı?
+
+18
+ÖĞRENELİM
+
+1/A sınıfında geçen hafta 6 öğrenci okuma yazma
+öğrenmiştir. Bu hafta 3 öğrenci daha okuma yazma
+öğrenmiştir. Okuma yazma öğrenen öğrenciler,
+öğretmenleri tarafından tebrik edilmiştir.
+
+      Mert, 1/A sınıfında okuma
+      yazma öğrenenlerin sayısı
+      geçen haftaya göre değişmiştir.
+
+                   Evet Zeynep, okuma
+                   yazmayı öğrenenlerin sayısı
+                   artmıştır yani çoğalmıştır.
+
+       Mert, öyleyse okuma yazmayı
+       öğrenenlerin toplam sayısını
+       bulmak için toplama işlemi
+       yapmak gerekir.
+
+                                                       19
+   6 öğrenci      3 öğrenci daha okuma yazmayı
+okuma yazmayı       öğrendi. Toplam 9 öğrenci
+                      okuma yazmayı öğrendi.
+    öğrendi.
+
+6              +  3  =                            9
+
+   Zeynep, yukarıdaki toplama işlemini
+
+     “Altı artı üç eşittir dokuz.”
+     “Altı üç daha dokuz eder.”
+     “Altı ile üçü toplarsak dokuz eder.”
+     şeklinde söyleyebiliriz.
+
+             Mert, toplama işlemi varlıkları bir
+             araya getirme ve birbirine ekleme
+             işlemidir.
+
+20
+Yeliz’in 5 kalemi vardır. Yeliz’e 2 kalem de arkadaşı
+hediye etmiştir. Buna göre Yeliz’in toplam kalem
+sayısı aşağıdaki gibi farklı şekillerde söylenebilir.
+
+              +
+
+......5....... +     .....2........		 =		      .....7.......
+......5....... artı  .....2........ eşittir		  .....7.......
+......5....... ’e    .....2........ eklersek   .....7....... eder.
+......5....... ’in   ....2......... fazlası    .....7....... eder.
+
+6 Aşağıdaki toplama işlemlerini yapalım.
+   Noktalı yerleri dolduralım. Yazdığımız
+   cümleleri okuyalım.
+
+                     +
+
+............. + ............. =		              ............
+                                               ............
+............. artı ............. eşittir		     ............ eder.
+                                               ............ eder.
+............. ’e     ............. eklersek
+
+............. ’in    ............. fazlası		
+
+                                                                    21
+          7 Aşağıdaki toplama işlemlerini yapalım.
+             Toplama işlemlerine ait cümleleri örnekteki
+             gibi yazalım. Yazdığımız cümleleri okuyalım.
+
+          +
+
+    ..2...... +  ..2......       =  ..4......
+
+İki artı iki eşittir dört eder.
+
+          +
+
+........  +      ........        =  ........
+
+          +
+
+........  +      ........        =  ........
+
+          +
+
+........  +      ........        =  ........
+
+22
+ Zeynep, annemle kurabiye yaptık. Ben önce 3
+ tane sonra 2 tane daha kurabiye yaptım.
+ Toplam kaç tane kurabiye yaptım?
+
+       +
+Mert, 5 tane kurabiye yapmışsın.
+
+        +
+   Evet Zeynep, toplam 5 tane kurabiye yaptım.
+
+                                                    23
+    Ben kurabiyelerin sayısını yan yana
+    toplama işlemi yaparak buldum. Toplama
+    işleminin sembolü olan “+” (artı) işaretini
+    kullandım. İşlemi yan yana yaptığım için
+    “=” (eşit) işareti de kullandım.
+
+          3 + 2 =5
+
+         Toplanan Toplanan Toplam
+
+              Artı işareti Eşit işareti
+
+    Ben de kurabiyelerin sayısını alt alta
+    toplama işlemi yaparak buldum. Alt alta
+    toplama işlemi yaparken toplananların
+    altına işlem çizgisini çizdim.
+
+     Artı       3  Toplanan
+    işareti  +2
+                   Toplanan
+                5  İşlem çizgisi
+                   Toplam
+
+24
+8 Aşağıda verilen toplama işlemlerini örnekteki gibi
+   yapalım.
+
++             3
+
+           +2 +
+
+3+2 =   5     5
+     +
+
+           +     +
+
++  =
+
++
+
+           +     +
+
++  =
+
++
+
+           +     +
+
++  =
+
++
+
+           +     +
+
++  =
+
+                    25
+    9 Aşağıda yan yana ve alt alta verilen toplama
+       işlemlerini örnekteki gibi yapalım.
+
+1.                            2.
+                                                   5
+    7+4=.1..1..    7
+                 +4                 5+2=..... + 2
+                                                    .....
+                 .1..1..
+
+3.                            4.
+                     8                              3
+
+      8 + 1 =..... + 1              3+3=..... + 3
+
+                      .....                          .....
+
+5.                            6.
+                      4                             9
+
+      4 + 3 =.... + 3               9+3=..... + 3
+                       .....
+                                                    .....
+
+7.                            8.
+                      8
+                                  9+7=.....    9
+      8+2=..... + 2                          +7
+                       .....
+                                             .....
+ 26
+10 Aşağıdaki kutuları, kutuların altında verilen
+    sayılara göre farklı renklerle boyayalım.
+    Toplama işlemlerini örnekteki gibi yapalım.
+
+5 + 4 = ..9.....  1 + 9 = .......
+3 + 4 = .......   2 + 6 =.......
+6 + 5 = .......   8 + 5 = .......
+7 + 7 = .......   9 + 8 = .......
+8 + 7 = .......
+                                   27
+Efe’nin 3 boya kalemi
+
+vardır. Çağla’nın ise
+
+4 boya kalemi var- Efe     Çağla
+dır. Efe, kalemlerini
+
+Çağla’nın kalemleri-
+
+ne eklemiştir. Toplam      3 + 4=7
+kalem sayısı yanda
+
+gösterilmiştir.
+
+Çağla, kalemlerini         Efe
+
+Efe’nin kalemlerine Çağla
+eklemiştir. Toplam
+
+kalem sayısı yanda
+
+gösterilmiştir.            4 + 3=7
+
+Arkadaşlar Efe’nin kalemlerini Çağla’nın
+kalemlerine eklediğimizde toplam kalem sayısı
+3 + 4 = 7 oluyor. Çağla’nın kalemlerini
+Efe’nin kalemlerine eklediğimizde 4 + 3 = 7
+oluyor. Yani her iki toplama işleminde de
+toplam kalem sayısı değişmemiştir.
+
+     Mert öyleyse toplama işleminde
+     toplananların yerleri değiştiğinde toplam
+     değişmez. Ayrıca toplama işlemini yaparken
+     büyük sayıdan başlamak işimizi kolaylaştırır.
+
+28
+11 Aşağıdaki toplama işlemlerini örnekteki gibi
+   yapalım.
+
+1 + 6 =7  6 + 1 =7
+
++  =      +  =
+
++  =      +  =
+
+                                                 29
+12 Penguenlerin üstündeki işlemleri yapalım.
+    İşlemlerin yer aldığı kutuları, evlerdeki
+    sayıların kutularıyla örnekteki gibi aynı
+    renge boyayalım.
+
+               6
+
+5                       7
+
+        5+1=6     3+4=
+        4+3=      3+2=
+         2+3=     1+5=
+
+30
+13 Toplama işlemlerini yapalım. İşlem sonuçlarını
+    uçurtmanın kuyruğunda yer alan sayılarla
+    örnekteki gibi oklarla gösterelim.
+
+4 + 8 = 12              5+9=
+
+  9+5=            12    8 + 4 = 12
+8+5=                13    5+8=
+                    14
+  7+8=                  7+9=
+8 + 10 =        15        8+9=
+            16
+  9+7=                  8+7=
+9+8=          17         10 + 8 =
+                 18                   31
+                   19
+14 Toplama işlemleriyle işlem sonuçlarını örnekteki
+    gibi eşleştirelim.
+
+9+2=                        15+4=
+
+        10
+
+6+5=        10+3=
+
+        11
+
+7+6=        15+5=
+
+        13
+
+10+10=      8+5=
+
+        19
+
+ 17+2=                       13+6=
+
+32      20
+      15 Aşağıdaki toplama işlemlerini yapalım. So-
+          nuçlara göre görseli uygun renklerle örnek-
+
+          teki gibi boyayalım.
+
+7 + 3 = 10      11 + 7 =                 7+4=
+
+8+5=            8+9=                     12 + 3 =
+
+                13 + 7 =                 11 + 5 =
+
+13 16
+
+                          17
+
+       11                            18      17
+                                  10
+                                               18
+       16                         16           11
+                                              17
+                17 17         13 20
+                                                     11
+13 20 13                      17         13      13
+
+15          15                           17       17
+
+                                                   33
+    16 Her hayvan bir sayıyı göstermektedir. Buna göre
+       aşağıdaki toplama işlemlerini örnekteki gibi
+       yapalım.
+
+   12 3      4 567
+
+       3
+
++   +4 +     +  +  +
+
+       7
+
++   +     +  +  +  +
+
++   +     +  +  +  +
+
++   +     +  +  +  +
+
+34
+DÜŞÜNELİM
+               Çıkarma İşlemi
+
+   1 Görseldeki 8 rüzgâr türbininden 3 tanesi
+       bakıma alınmıştır. Çalışır durumda kaç rüzgâr
+       türbini kalmıştır?
+
+                                                          35
+     BAĞLANTI KURALIM
+
+Sabiha Gökçen Havalimanı’nda 4 uçak vardır. Bu 4
+uçaktan 3 tanesi uçuş saati geldiği için havalanmıştır.
+
+             Mert, havalimanından 3 uçak
+             havalandığı için havalimanındaki
+             uçak sayısı değişmiştir.
+
+                      Evet Zeynep, havalimanındaki
+                      uçakların sayısı azalmıştır yani
+                      eksilmiştir.
+
+           Bu durumda havalimanında kalan uçak
+           sayısını bulmak için çıkarma işlemi yapmak
+           gerekir.
+ 36
+4-3  =                                   1
+
+Zeynep, yukarıdaki çıkarma işlemini
+
+ “Dört eksi üç eşittir bir.”
+ “Dörtten üç çıktı bir kaldı.”
+ “Dört ile üçün farkı birdir.” şeklinde
+ söyleyebiliriz.
+
+Evet Mert, bir grup varlıktan belirli bir
+sayıdaki varlığı ayırmak için çıkarma
+işlemi yapılır. Çıkarma işlemi, varlıkları
+ayırma ve azaltma işlemidir.
+
+                                                 37
+         2 Aşağıdaki görselleri inceleyelim. Noktalı
+             yerleri örnekteki gibi dolduralım.
+
+                              Tabaktaki 8 çilekten 3
+                              tanesi yenmiş. Tabakta 5
+
+                                       çilek kalmış.
+
+                              Tabaktaki muzdan
+                              tanesi yenmiş. Tabakta
+
+                                       muz kalmış.
+
+                             Tepsideki karpuz dilimin-
+                            den tanesi yenmiş. Tepside
+
+                                     dilim karpuz kalmış.
+
+                               İpteki elbiseden
+                             tanesi yere düşmüş. İpte
+
+                                   tane elbise kalmış.
+
+                            Bitkideki uğur böceğinden
+                                  tanesi uçmuş. Bitkide
+                                   uğur böceği kalmış.
+
+38
+Göl kenarında duran 8 ördekten 5 tanesi göle
+girmiştir. Bu durumda göl kenarında kalan ördek
+sayısı aşağıdaki gibi farklı şekillerde söylenebilir.
+
+.....8........		 -     .....5........		 =		 .....3....... olur.
+.....8........ eksi    ......5....... eşittir		 .....3.......
+.....8........’den 		  ......5....... çıktı		 .....3....... kaldı.
+.....8........		 ile   .......5......’in farkı		 .....3....... eder.
+
+3 Aşağıdaki çıkarma işlemini yapalım. Noktalı
+   yerleri dolduralım. Yazdığımız cümleleri
+   okuyalım.
+
+.............		 -      .............		 =		        ............ olur.
+............. eksi     ............. eşittir		    ............
+.............’ten 		   ............. çıktı		      ............ kaldı.
+............. ile      .............’nin farkı		  ............ eder.
+
+                                                  39
+    4 Aşağıdaki çıkarma işlemini yapalım. Noktalı yer-
+        leri örnekteki gibi dolduralım.
+
+6   -  2                                              =  4
+
+....6......dan ....2...... çıktı, ....4...... kaldı.
+
+    -                                                 =
+
+.......... ile ..........in farkı, .......... eder.
+
+    -
+
+    -                                                 =
+
+.......... eksi .......... eşittir ..........
+
+40
+Zeynep, babamla marketten 16 tane elma
+aldık. 6 tanesini hep birlikte yedik. Geriye
+kaç elma kaldı?
+
+Mert, geriye 10 tane elma kaldı.
+
+  Evet Zeynep, geriye 10 tane elma kaldı.
+                                                  41
+Ben elmaların sayısını yan yana çıkarma
+işlemi yaparak buldum. Çıkarma işleminin
+sembolü olan “-” (eksi) işaretini kullandım.
+İşlemi yan yana yaptığım için “=” (eşit)
+işaretini de kullandım.
+
+      16 - 6 = 10
+
+       Eksilen Çıkan Fark
+
+            Eksi işareti Eşit işareti
+
+    Ben de elmaların sayısını alt alta çıkarma
+
+    işlemi yaparak buldum. Çıkarma işlemi
+
+    yaparken çıkan ile fark arasına işlem çizgisi
+
+    de çizdim.     16 Eksilen
+
+     Eksi       -  6   Çıkan
+    işareti            İşlem çizgisi
+                   10
+                       Fark
+
+42
+5 Aşağıda modelle gösterilen çıkarma işlemlerini
+    örnekteki gibi yapalım.
+
+9- 1= 8  -=
+
+-=       -=
+
+-=       -=
+
+-=       -=
+-=
+         -=
+                         43
+    6 Yan yana ve alt alta verilen çıkarma işlemlerini
+       örnekteki gibi yapalım.
+
+1.                      7       2.                      8
+   7 - 4 = ..3....  -4              8 - 3 = ......   -3
+
+                       .3.....                          ......
+
+3.                     17       4.                     16
+   17 - 1 = ......  -1              16 - 3 = ......  -3
+
+                       ......                           ......
+
+5.                    18        6.                     14
+   18 - 5 = ......  -5              14 - 2 = ......  -2
+
+                       ......                           ......
+
+7.                     15       8.                     19
+   15 - 1 = ......  -1              19 - 3 = ......  -3
+
+                       ......                           ......
+
+44
+7 Aşağıda çocuklar boyadıkları taşlarla dokuztaş
+   oyunu oynuyorlar. Çocuklar her atışta taşları
+   deviriyorlar. Atış sonuçlarına göre devrilmeyen
+   taş sayısını bulalım. Çıkarma işlemlerini yapalım.
+   Noktalı yerleri örnekteki gibi dolduralım.
+
+                                Eksi işareti Eşit işareti
+                                      9 -4= 5
+
+                                Eksilen Çıkan Fark
+                                         -=
+
+                                         -=
+
+                                         -=
+
+8 Okul bahçesinde arkadaşlarımızla bu eğlence-
+    li oyunu oynayalım. Her çocuğun oyun oynama
+    hakkı vardır. Diğer çocuk haklarını araştıralım.
+                                                      45
+     Birbirine Eşit İki Sayının Farkı
+
+Selin ve arkadaşları kar yağışından sonra annele-
+rinden izin alıp dışarı çıktılar. Birlikte 4 tane kardan
+adam yaptılar. Çocuklar kar topu oynayıp evleri-
+ne döndüler. Ertesi gün yaptıkları kardan adamları
+görmek için dışarı çıktılar. Kardan adamların eridi-
+ğini gördüler.
+Aşağıda çocukların yaptığı kardan adamlarla bu
+kardan adamların erimiş hâlleri verilmiştir. Geriye
+erimeyen kaç kardan adam kalmıştır?
+
+4 kardan adam vardı.      4 kardan adam da eridi.
+                  4-       Geriye 0 (sıfır) kardan
+
+                                  adam kaldı.
+
+                      4= 0
+
+4   Kardan adam sayısı
+
+-4  Eriyen kardan adam sayısı
+
+0 Kalan kardan adam sayısı
+
+      Arkadaşlar, bir sayıdan sayının kendisi
+      çıkarılırsa sonuç “0” (sıfır) olur.
+
+46
+          1 Örneği inceleyelim. Aşağıdaki çıkarma
+             işlemlerini yapalım.
+
+       3         -  3      =                  0
+
+                 -         =
+
+                 -         =
+
+    2 Aşağıdaki çıkarma işlemlerini yapalım.
+
+9         14        8         17                 20
+
+-9        - 14      -8     - 17                  - 20
+
+.....     .....     .....     .....                .....
+
+                                                   47
+Toplama ve Çıkarma İşleminde Sıfırın Etkisi
+
+  Ercan Bey işini seven, dürüst bir servis şoförüdür.
+  Ercan Bey, Gümüş Apartmanı’ndan 7 öğrenciyi
+  servis aracına almıştır. Daha sonra Karanfil Apart-
+  manı’nda bekleyen öğrenci olmadığını görmüştür.
+  Öğrencilerin ailelerini aramıştır. Çocukların hasta
+  olduklarını ve gelemeyeceklerini öğrenmiştir.
+  Bu durumda okula servisle giden toplam öğrenci
+  sayısı aşağıda gösterilmiştir.
+
+     Gümüş                   Karanfil
+    Apartmanı               Apartmanı
+
+    7+0=7                7
+               veya + 0
+
+                         7
+
+Arkadaşlar bir sayıyla 0 (sıfır)’ın toplamı, sayının
+kendisine eşittir. Toplananlardan biri “0” olduğun-
+da toplam, diğer toplanana eşittir.
+
+48
+1 Aşağıdaki toplama işlemlerini örnekteki gibi
+   yapalım.
+
+...0.....  +  ...5.....  =  ...5.....
+
+........   +  ........   =  ........
+
+........   +  ........   =  ........
+
+........   +  ........   =  ........
+
+                                                49
+         Evimizde saksıdaki çiçeklerin sulanması ve bakı-
+         mı benim sorumluluğumdadır. Çiçeklere zama-
+         nında ve yeterli miktarda su verdim. Böylece
+         çiçekler solmadı.
+
+    Mert, çiçeklerin hiçbiri solmadığı için çiçek
+    sayısının aynı kaldığını fark ettin mi?
+
+           Evet Zeynep, fark ettim. Bir sayıdan “0” (sıfır)
+           çıkardığımızda sonuç sayının kendisine eşittir.
+
+                                           5
+                    5-0=5 veya - 0
+
+                                           5
+50
+2 Aşağıdaki çıkarma işlemlerini yapalım.
+
+1. 7-0=.......   2. 9-0=.......
+
+3. 20-0=.......  4. 11-0=.......
+
+5. 18-0=.......  6. 12-0=.......
+
+7. 15-0=.......  8. 14-0=.......
+
+                                          51
+3 Aşağıdaki toplama işlemleriyle işlem sonuçlarını
+   örnekteki gibi eşleştirelim.
+
+7+1=                          5+5=
+          1+8=
+                8
+
+                                        4+4=
+
+7+3=                0+9=
+
+      5+3=      9         4+5=
+
+3+6=                2+8=
+
+          9+1=  10           10+0=
+2+6=                8+0=
+
+ 52
+4 Aşağıdaki toplama işlemlerini yapalım. Toplam-
+   ları şifre bölümünden bulalım. Yapraklardaki
+   harfleri ilgili kutulara örnekteki gibi yazarak
+   şifreyi okuyalım.
+
+                   K                      7 + 9 = .......  I
+
+9 + 9 = .1..8....     10 + 7 = ....... O
+
+                Y                                         B
+3 + 17 = .......                          6 + 2 = .......
+
+                      2 + 11 = ....... M
+
+                S                                         R
+7 + 8 = .......                           5 + 4 = .......
+
+                      9 + 5 = ....... A
+
+                 L                                        U
+10 + 0 = .......                          6 + 6 = .......
+
+                    5 + 6 = ....... İ
+
+Şi f re
+
+  15 17 9 12 13 10 12 10 12 18 10 14 9 16 13 16
+                                     K
+
+                8 11 10 11 20 17 9 12 13
+
+                       Daha fazla soru
+                      için karekodu akıllı
+                       cihaza okutalım.
+
+                                                    53
+   5 Aşağıdaki toplama ve çıkarma işlemlerini
+      yapalım. Sonuçlara göre görseli uygun
+      renklerle boyayalım.
+
+8  3                 7  12         1          5           10
+
+   6-1=.....                                     10- 2 = .....
+
+              16        10                       7
+   - 4 7-4=..... - 9               8-5=..... + 5
+
+              .....         .....               .....
+
+14- 6 = .....                                      4
+         7                                       +4
+
+      +1                                           .....
+        .....
+                         20 15 10               8+ 0 = .....
+     12 -4=.....        - 10 - 3 - 5          15 -7=.....
+
+54                       ..... ..... .....
+                             9- 2 = .....
+
+                         Daha fazla soru
+                        için karekodu akıllı
+                         cihaza okutalım.
+6 Aşağıdaki toplama ve çıkarma işlemlerini yapa-
+   lım. Bulmacada belirtilen yerlere işlem sonuçla-
+   rını örnekteki gibi yazalım.
+
+1. 6         2. 8         3. 0             4. 9
+                 +4           +8               -9
+    -5              ....         ....             ....
+      ..1..
+
+5. 7+4=.... 6. 12-10=.... 7. 13-8=....
+
+8. 10-0=.... 9. 9+6=....             10. 12+5=....
+                                          5
+
+                                  8
+
+                          2          7
+                               1        6
+
+                                     BİR
+
+                 9
+10
+
+                4
+
+         3
+
+                                           55
+                                                                              7 Aşağıdaki sayılar, okul araç ve gereçleri ile kod-
+                                                                                 lanmıştır. Çıkarma işlemlerini örnekteki gibi yapınız.
+
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15                                                                  =5                                                                                                                                          =4
+                                                                              = 17                                                                                                                                                       = 19
+
+                                                                                          =3
+
+1. - = 17 - 5 = 12 2. - =              0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+3. - =                                                                        4. - =
+
+5. - =                                                                        6. -                                                                                                                0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  =
+                                                                                                           0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+7. - =                                                                        8.                           -=
+56
+    8 Aşağıdaki şekillerin ortasında yer alan sayıla-
+       rı, bu sayıları çevreleyen sayılarla toplayalım.
+       Yaptığımız işlemleri ve işlemlerin sonuçlarını ör-
+       nekteki gibi yazınız.
+
+    6+5=11
+
+1.  5       2.  7
+
+    46 8        350
+
+    9           1
+
+    6           9
+
+3.  883     4.  47 5
+
+    2           6
+
+    5           7
+
+5.  896     6.  24 9
+
+    3           8
+
+                      57
+  Toplama ve Çıkarma İşlemlerinin Sonuçlarını
+          Tahmin Etme ve Zihinden İşlem
+
+           Mert, ağaçta 6 kuş
+           var. Ağaca 5 kuş
+           daha konduğunda
+           ağaçtaki toplam kuş
+           sayısını tahmin ede-
+           bilir misin?
+
+         Evet Zeynep, tahmin edebilirim. Ağaçtaki
+         toplam kuş sayısı tahminime göre 10 olur.
+
+           Benim tahminime göre ağaçta toplam 13
+           kuş olur. Öyleyse toplam kuş sayısını
+           bulmak için ağaçtaki kuşları sayalım.
+
+ Ağaçta 6 kuş vardı. 5 kuş daha konduğunda
+ toplam 6 + 5 = 11 kuş oldu. Zeynep, kuşların
+ toplam sayısını ben 10 tahmin ettim. Sen de
+ 13 tahmin ettin. Benim tahminim gerçek sonuca
+ daha yakın.
+
+58
+1 Aşağıdaki toplama işlemlerinin sonuçlarını
+   önce tahmin edelim. Sonra işlemleri yaparak
+   sonuçları bulalım. İşlem sonuçları ile tahminî
+   sonuçlarımız arasındaki farkı bulup kendi
+   cümlelerimizle ifade edelim.
+
+                  Tahminî İşlem  Fark  Karşılaştırma
+                  Sonuç Sonucu
+
+4 boya kalemine
+
+6 boya kalemi
+
+daha eklersek
+
+toplam kaç boya
+
+kalemi eder?
+
+Sınıfta 5 kız, 4
+
+erkek öğrenci
+
+olduğuna göre
+
+toplam kaç
+
+öğrenci vardır?
+
+Aldığım 8 kitaba
+7 kitap daha ek-
+lersem toplam
+kaç kitap almış
+olurum?
+9 deniz kabuğuna
+5 deniz kabuğu
+eklersem toplam
+kaç deniz kabu-
+ğum olur?
+
+                                       59
+            Zihinden Toplama İşlemi
+
+Feyza ve İlhan bilgi yarışmasına katılıyor.
+
+           B lg Yarışması
+
+12 + 3     Cevabım 15. Bu sonucu      Ben işlemi
+işleminin  işlem yapmadan buldum.     deftere yazarak
+sonucu     12 sayısının üstüne üç     çözdüm. Bu
+kaçtır?    kez saydım. 13, 14, 15.    yüzden cevaba
+           Bu şekilde toplama         daha uzun
+           işlemini zihinden yaparak  sürede ulaştım.
+           cevaba kısa sürede
+           ulaştım.                   Feyza, seni
+                                      tebrik ederim.
+
+60
+                      1. gün
+
+     EKMEK FIRINI
+
+           AÇIK
+
+Fırıncı Hüseyin amca, fırından çıkan ekmekleri raflara
+dizmiştir. Dizdikten sonra ekmekleri saymıştır. Biz de
+raflardaki toplam ekmek sayısını zihinden bulalım.
+
+                                                     61
+           Ekmeklerin toplam sayısını bulmak
+           için önce 3 ekmekten birini üst rafa
+           koydum. Ekmek sayısını 10’a
+           tamamlayarak 1 onluk oluşturdum.
+           Sonra kalan ekmek sayısını 1 onluğun
+           üzerine ekledim. Sonucu 12 buldum.
+           Bu işlemleri yaparken kalemi hiç
+           kullanmadım.
+1. raf: 9 ekmek
+
+2. raf: 3 ekmek
+
+      9 + 1 = 10
+    10 + 2 = 12 İki rafta toplam 12 ekmek vardır.
+ 62
+1 Aşağıdaki toplama işlemlerini örnekteki gibi
+   zihinden yapalım.
+
+8+7=?        7+5=?  6+8=?
+    25
+             9+5=?  5+8=?
+ 8 + 2 = 10
+10 + 5 = 15
+
+ 9+3=?
+
+9+6=?        8+4=?  7+6=?
+
+6+5=?        9+7=?  3+8=?
+
+5+9=?        7+4=?  9+8=?
+
+                                                63
+                           2. gün
+
+1. raf: 8 ekmek
+
+2. raf: 3 ekmek
+
+    Ben, 8’den ileriye doğru 3 defa birer
+    ritmik saydım. Zihinden toplama işlemi
+    yaptım. Sonucu 11 buldum. Büyük sayıdan
+    başlamak işimi kolaylaştırdı.
+
+                                   +
+
+                 8                 +1
+
+                                      +
+
+                    9                 +1
+
+                                         +
+
+                       10                +1
+
+8, 9, 10, 11     8 + 3 = 11
+ 12 3            İki rafta toplam 11 ekmek vardır.
+
+64
+2 Aşağıdaki toplama işlemlerini örnekteki gibi
+   zihinden yapalım.
+
+   7+4=?         6+9=?       7+9=?
+ 1 234           5+9=?       6+8=?
+7, 8, 9, 10, 11
+  7 + 4 = 11
+
+  4+5=?
+
+8+9=?            4+7=?       5+8=?
+
+7+8=?            5+7=?       6 + 11 = ?
+
+7 + 13 = ?       8 + 11 = ?  7 + 12 = ?
+
+                                                65
+Çıkarma İşleminin Sonucunu Tahmin Etme
+
+        Zeynep, tabaktaki 13
+        tane cevizden 5 tanesi
+        yenirse kalan ceviz
+        sayısını tahmin edebilir
+        misin?
+
+      Mert, tabakta 13 tane cevizin 5 tanesi
+      yenirse tabakta 6 tane ceviz kalacağını tah-
+      min ediyorum.
+
+         Bence tabaktaki cevizlerin 5 tanesi yenirse
+         tahminen 7 tane ceviz kalır. Hangimiz gerçek
+         sonuca daha yakın tahminde bulunduk acaba?
+
+  Tabakta 13 tane ceviz var. 13’ten 5’i çıkardı-
+  ğımızda 13 - 5 = 8 kalır. Mert, senin tahminin
+  gerçek sonuca daha yakındır.
+
+66
+          1 Aşağıdaki çıkarma işlemlerinin sonuçlarını
+             önce tahmin edelim. Sonra işlemleri yapa-
+             rak sonuçları bulalım. İşlem sonuçları ile tah-
+             minî sonuçlarımız arasındaki farkı bulup kendi
+             cümlelerimizle ifade edelim.
+
+                      Tahminî İşlem
+                      Sonuç Sonucu Fark Karşılaştırma
+
+Baloncunun 9
+balonunun 3’ü
+patlarsa geriye
+kaç balonu kalır?
+
+6 bardağın 4’ü
+kırılırsa geriye
+kaç bardak
+kalır?
+
+Mehmet 18 fın-
+dığın 5’ini yerse
+geriye kaç fındık
+kalır?
+
+Otobüsteki 16
+koltuğun 6’sı
+dolu olduğuna
+göre otobüste
+kaç boş koltuk
+vardır?
+
+                                                            67
+ Zihinden Çıkarma İşlemi
+
+            Zeynep ve Mert, pasta yapmak için
+            aldıkları yumurtalardan bazılarının kırık
+            olduğunu fark ettiler. Kalan sağlam
+            yumurtaların sayısını tahmin edelim.
+
+Ben, 13’ten geriye doğru 4 defa birer
+ritmik saydım. Zihinden çıkarma işlemi
+yaptım. Kalanı 9 buldum.
+
+     13, 12, 11, 10, 9 13-4=9
+        1 2 34
+
+Ben de zihinden çıkarma işlemi yaptım.
+
+4 sayısını 1 ve 3 olarak ayırdım. 13’ten 3’ü
+
+çıkardım. Kalan 10 sayısından da 1’i çıkardım.
+
+Kalanı 9 buldum.
+
+13 - 4 = ?        13 - 3 = 10
+
+31                10 - 1 = 9
+
+    1 Zihinden çıkarma işlemi yaparken başka hangi
+        yolları kullanabiliriz? Sınıfta arkadaşlarımızla
+        birbirimizin fikirlerine saygı göstererek konuşalım.
+
+68
+2 Aşağıdaki çıkarma işlemlerini örnekteki gibi
+   zihinden yapalım.
+
+   16 - 4      7- 1     20 - 8
+18 - 12    10 -      19 -
+
+  6-5            -3        -2
+
+1
+
+3 Aşağıdaki çıkarma işlemlerini örnekteki gibi
+    zihinden yapalım.
+
+   a) 16 - 8 = ?     b) 12 - 3 = ?
+         62          ç) 15 - 7 = ?
+
+     16 - 6 = 10
+     10 - 2 = 8
+
+   c) 14 - 6 = ?
+
+   d) 17 - 9 = ?     e) 18 - 9 = ?
+
+                                                69
+U           Hızlı Olan Kazanır Oyunu
+
+AAM M AA I
+
+            Oyun Kuralları
+
+   Öğretmen işlem kartları (toplama ve çıkarma
+   işlemi) hazırlayarak bu kartları zarflara koyar.
+
+   Hazırlanan kartlarda toplama işlemi için
+   toplamın 20’yi geçmemesine ve çıkarma işle-
+   minin işlem yaparken onluk bozma gerektirme-
+   mesine dikkat edilir.
+
+   İki öğrenci seçilir.
+
+   Öğrenciler işlem kartları için zarf seçer.
+
+   İşlemi zihinden en hızlı çözen öğrenci sonuç
+   doğru ise 1 puan alır. Yanlış cevap veren elenir.
+
+   Cevabı doğru bulan öğrenci yarışmaya devam
+   eder ve karşısına bir başka öğrenci gelir.
+
+   Tüm öğrenciler yarışmaya katıldığında yarışma
+   biter. En çok puanı alan öğrenci oyunu kazanır.
+
+   Oyun sırasında öğrencilere işlemi zihinden
+   nasıl yaptıkları sorularak farklı stratejiler
+   hakkında konuşulur.
+
+   Öğrenciler birbirlerini tebrik eder.
+
+                 Daha fazla soru         Kontrol listesi için
+                için karekodu akıllı      karekodu akıllı
+                 cihaza okutalım.         cihaza okutalım.
+
+70
+Toplama ve Çıkarma İşlemlerinde Eşitlik
+
+  1 Aşağıda gösterilen farklı renkteki şekillerin sayı-
+      larını örneklerdeki gibi yazalım.
+
+   8     8     8     8
+1 +7  2+ 6  3+ 5  4 +4
+
+7     7     7     7
+
++     +     +     +
+
+9     9     9     9
+
++     +     +     +
+
+6     6     6     6
+
++     +     +     +
+
+                     71
+   8     8
+2+6   4+4
+
+Mert, 2 + 6 ve 4 + 4 işlemlerinin sonuç-
+larının aynı olduğunu fark ettin mi?
+
+Evet Zeynep, bu işlemlerin sonuçla-
+rının aynı olduğunu fark ettim.
+
+3 + 5 ve 1 + 7 işlemlerinin sonuçları da
+senin yaptığın işlemlerin sonuçları ile
+aynıdır.
+
+   8     8
+3+5   1 +7
+
+             Anladım Mert. Farklı sayılar toplanarak
+             aynı sonuçlar elde edilebilir.
+             2 + 6 = 4 + 4 ve
+             3 + 5 = 1 + 7 şeklinde gösterilebilir.
+
+72
+2 Kefelerdeki elma sayıları eşitlenecektir. Buna
+   göre kefede belirtilen yere kaç elma daha
+   çizilmelidir? Örnekteki gibi çizip boyayalım.
+    =
+                                        =
+    =
+                                         =
+
+    =
+                                         =
+
+                                                  73
+    3 Kefelerdeki elma sayıları eşitlenecektir. Buna göre
+        elma sayısı fazla olan kefeden kaç tane elma
+        alınmalıdır? Örnekteki gibi gösterelim.
+
+74
+          Zeynep, 4 + 2 ve 7 - 1 işlemlerinin sonuç-
+          larının aynı olduğunu fark ettin mi?
+
+          Evet, fark ettim. Bu işlemlerin sonuç-
+          ları birbirine eşittir.
+
+               4+2                 7-1
+          6                                 6
+
+4 Aşağıdaki terazilerin dengesinin bozulmaması
+   için noktalı yerleri dolduralım.
+
+     8-3  .... + ....
+5                   5
+
+                              3+4              .... - ....
+                         7                              7
+
+           Daha fazla soru
+          için karekodu akıllı
+           cihaza okutalım.
+
+          Performans görevi ve puan-
+          lama anahtarı için karekodu
+
+             akıllı cihaza okutalım.
+
+                                                           75
+Toplama ve Çıkarma İşlemlerinin İlişkisi
+
+     Kitaplığımda 6 tane masal kitabı var. Halam
+     bana birkaç kitap hediye etti. Toplam 9 tane
+     masal kitabım oldu. Halam bana kaç tane
+     masal kitabı hediye etti?
+
+6               +            =    9
+                                Toplam
+Toplanan           Toplanan
+
+6 + ...... = 9 işleminde verilmeyen toplananı
+bulmak için 6’dan 9’a kadar ileriye doğru
+birer birer saydım. Toplama işleminde veril-
+meyen toplananı bulmak için verilen toplananın
+üzerine toplama ulaşıncaya kadar ileriye
+doğru birer sayma yapılır.
+
+     1 2 345 6     78 9
+76                          Halam bana 3 tane masal
+                            kitabı hediye etti.
+          1 Aşağıdaki işlemlerde verilmeyen toplananı
+            bulalım. Bulduğumuz sayı kadar boncuk çizip
+            boyayalım. Örnekteki gibi noktalı yerleri
+            dolduralım.
+
++         =     +         =
+
+11 + 1 = 12     7+        =9
+
+       +  =     +         =
+
+9+        = 13  + 8 = 18
+
++         =            +  =
+
++3 =8           6+        = 10
+
+      +   =     +         =
+
+9+        = 17  +5        = 20
+                               77
+Mert, elimdeki üzüm salkımında 10 tane
+üzüm var. Üzümlerden birkaçı düştü-
+ğünde salkımda 6 üzüm kaldı. Düşen
+üzüm sayısını nasıl bulabilirim?
+
+Zeynep, salkımdaki 10 tane üzümden
+6 tane üzüm kaldı. Düşen üzüm sayısını
+bulmak için 10’dan 6’yı çıkarırız.
+
+            -        =
+Eksilen
+               Fark     Çıkan
+  10           6        4
+
+              Anladım Mert. Çıkarma işleminde çıkanı
+              bulmak için eksilen sayıdan fark çıkarılır.
+
+78
+Peki Zeynep, düşen üzümler ile kalan üzüm-
+leri toplarsam ne olur?
+
+Düşen 4 tane üzüm ile salkımdaki kalan
+6 tane üzümü topladığımızda baştaki 10
+tane üzümü buluruz.
+
++  =
+
+Zeynep, fark ettin mi? Çıkarma işleminde
+eksileni bulmak için çıkan ile fark toplanır.
+
+Öyleyse toplama ve çıkarma işlemi birbi-
+rinin tersi işlemlerdir. Toplama işleminde
+verilmeyen toplananı bulmak için çıkarma
+işlemi yapılır. Çıkarma işleminde eksileni
+bulmak için toplama işlemi yapılır.
+
+                                            79
+    2 Aşağıdaki çıkarma işlemlerinde verilmeyen sayıyı
+       örneklerdeki gibi bulalım.
+
+    10  1..0...         .1..5...  1..0...
+
+    - .2..... - .8....  - 5 + ..5...
+
+    8   ..2....         10        .1..5...
+
+    18  .....           ......    .....
+
+    - ...... - .....    -5        + .....
+
+    13  ......          6         ......
+
+    15  .....           ......    .....
+
+    - ...... - .....    -3        + .....
+
+    11  ......          6         ......
+
+    9   .....           ......    .....
+
+    - ...... - .....    -7        + .....
+
+    4   ......          12        ......
+
+80
+        3 Örneği inceleyelim. Aşağıda kalemlerin bulun-
+            duğu yerlere dikkat edelim. Buna göre topla-
+            ma ve çıkarma işlemlerini yapalım. Yaptığımız
+            işlemlerin matematiksel ifadelerini yazalım.
+
+                                      3 + 7 = 10
+                                      7 + 3 = 10
+                                     10 - 3 = 7
+                                     10 - 7 = 3
+
+3 ile 7’nin toplamı 10’dur.
+7 ile 3’ün toplamı 10’dur.
+10’dan 3 çıkarsa 7 kalır.
+10’dan 7 çıkarsa 3 kalır.
+
++  =
+
++  =
+
+-  =
+
+-  =
+
+      81
+                                                            +  =
+
+                                                            +  =
+
+                                                            -  =
+
+                                                            -  =
+
+                                                            +  =
+
+                                                            +  =
+
+                                                            -  =
+
+                                                            -  =
+
+                                       Daha fazla soru
+                                      için karekodu akıllı
+                                       cihaza okutalım.
+
+82
+4 Verilen sayılara ve işlem sonuçlarına dikkat edelim.
+   Buna göre toplama ve çıkarma işlemlerini örnekteki
+   gibi yapalım.
+
+52    2+3 = 5   5 -2= 3
+                5 -3=2
+3     3 +2 = 5
+
+41    + =4      - =1
+3               - =3
+      + =4
+
+62    + =6      - =2
+                - =4
+4     + =6
+
+8  6  + =8      - =2
+                - =6
+2     + =8
+
+9
+ 4
+5     + =9      - =4
+                - =5
+      + =9
+                                 83
+Hasan ve Büşra tabaklardaki cevizlerle oyun oynuyorlar.
+
+              1. tabak 2. tabak 3. tabak 4. tabak 5. tabak
+
+      5 Tabaklardaki ceviz sayıları yukarıda gösterilmiştir.
+         Oyunu başlatan Büşra, 1. tabaktan aldığı 3 tane
+         cevizi sırasıyla 2, 3 ve 4. tabaklara birer tane
+         bırakır. Buna göre aşağıda verilen ifadelerde boş
+         bırakılan yerleri dolduralım.
+
+  1. tabaktaki ceviz sayısı ................. azalır.
+  3. tabaktaki ceviz sayısı ................. olur.
+  4 ve 5. tabaklardaki toplam ceviz sayısı ................. olur.
+  1 ve 3. tabaklardaki toplam ceviz sayısı ................. olur.
+ 84
+    4. Tema Değerlendirme
+
+A) Aşağıdaki toplama ve çıkarma işlemlerinde veril-
+   meyen sayıları bulalım. Bulduğumuz sayıların oku-
+   nuşunu bulmacaya yazalım.
+
+1 11 + ....... = 16         8 20 - ....... = 19
+
+2 12 + ....... = 19         9 ....... + 4 = 13
+
+3 6 + ....... = 14       10 18 - ....... = 16
+4 ....... + 4 = 10                 4
+5 12 - ....... = 8
+
+6 ....... - 5 = 10       3
+
+7 3 + ....... = 3    17
+
+                  2
+              8
+    6
+      9
+    5
+
+10
+
+                            85
+            B) Kargo görevlisi kargoyu teslim alan kişinin T.C.
+                (Türkiye Cumhuriyeti) kimlik numarasını istemek-
+                tedir. T.C. kimlik numaralarının kimseyle paylaşıl-
+                maması gerekmektedir. Bunun için kargo paket-
+                lerinin üzerine T.C. kimlik numaralarının bir kısmı
+                yazılmıştır. Kişilerin konuşmalarına dikkat edelim.
+                Hangi paketin kime teslim edildiğini bulalım. Bu
+                isimleri noktalı yerlere yazalım. T.C. kimlik numa-
+                rasına göre teslim edilmeyen paketi yuvarlak içine
+                alalım.
+
+          Remzi
+
+                       12 + 6 işleminin sonucu benim T.C. kimlik
+
+                       numaramın son iki rakamını gösterir.
+
+                                                                Işıl
+
+          Benim T.C. kimlik numaram, 13 - 4 işleminin
+          sonucundaki rakam ile başlamaktadır.
+
+          Ayten
+
+                                     11 + 1 işleminin sonucu benim T.C. kimlik
+                                     numaramın son iki rakamını gösterir.
+
+Gönder c                             Gönder c                             Gönder c                             Gönder c                             Gönder c
+
+Alıcı     T.C. *********12                     T.C. *********14           Alıcı     T.C. 9**********                     T.C. *********18           Alıcı     T.C. 19
+
+                                     Alıcı                                                                     Alıcı
+
+          .........................            .........................            .........................            .........................
+          86
+    C) Aşağıdaki soruları cevaplayalım. Doğru cevabın
+       yuvarlağını “ ” ile işaretleyelim.
+
+1.
+
+    “Ben gelmedim  Yunus Emre’nin şiirinde
+    Kavga için     bulunan “i” harflerinin
+    Benim işim     sayısı “a” harflerinin
+    Sevgi için.”   sayısından kaç tane fazladır?
+
+       Yunus Emre
+
+                                   7  8  9
+
+2.
+                      7+5=?
+
+                           32
+                       7 + 3 = 10
+                      10 + 2 = 12
+
+    Kerem yukarıdaki toplama işlemini zihinden nasıl
+    yapmıştır?
+
+        Birer ritmik sayarak toplama yaptım.
+        İkişer ritmik sayarak toplama yaptım.
+        10’a tamamlayarak toplama yaptım.
+
+                                                              87
+3.             +                   =?
+
+    Ceren’in tabağındaki Mustafa’nın tabağındaki
+
+    zeytinler           zeytinler
+
+    Ceren ile Mustafa’nın toplam zeytin sayısını gösteren
+    işlem hangisidir?
+
+    7+1=7         7+0=7            0+7=0
+
+4.
+
+    Emel Öğretmen, kalemliğine 4 tane kalem ekliyor.
+    Öğrencilerinden kalem sayısını tahmin etmelerini
+    istiyor. Öğrencilerin cevaplarından hangisi işlem
+    sonucuna en yakındır?
+
+          Sema: Benim tahminime göre 6 kalem oldu.
+
+          Onur: Benim tahminime göre 12 kalem oldu.
+
+          Sevinç: Benim tahminime göre 8 kalem oldu.
+
+       Sema       Onur             Sevinç
+88
+5.
+                          Ağaçtan 3 limon düşerse ağaçta
+                          kaç limon kalacağını tahmin ede-
+                          lim. Aşağıdaki tahminlerden han-
+                          gisi gerçek sonuca en yakındır?
+
+            Tahminen ağaçta 8 limon kalır.
+            Tahminen ağaçta 18 limon kalır.
+            Tahminen ağaçta 11 limon kalır.
+
+6.
+                             12 - 3 = ?
+                                 21
+
+                           12 - 2 = 10
+                           10 - 1 = 9
+
+   Levent, yukarıdaki çıkarma işlemini zihinden nasıl
+   yapmıştır?
+    Parçalarına ayırarak çıkarma yaptım.
+    Birer ritmik sayarak çıkarma yaptım.
+    İkişer ritmik sayarak çıkarma yaptım.
+
+                                                             89
+7. - 4 = 5 işleminde kutuya hangi sayı yazılmalıdır?
+
+4                                     9                13
+
+8. Toplama işleminde veril-                        9
+   meyen toplananı hangi
+   hayvan doğru söylemiştir?                   8+          7
+
+                                                   16
+
+                                                       6
+
+Ç) Bilgisayarda 1’den 20’ye kadar olan sayıların
+    tamamı yazılmıştır.
+
+   1 2 345                                     Sayılar yazılırken
+                                               “1” tuşuna kaç kez
+   6 7 8 9 10                                  basıldığını bulalım.
+   11 12 13 14 15                              Sınıfta arkadaşları-
+   16 17 18 19 20                              mızla tartışalım.
+
+   1 234567 890
+
+                                         789
+                                         45 6
+                                         1 23
+
+                                           0
+
+                 Daha fazla soru                Daha fazla soru
+                için karekodu akıllı           için karekodu akıllı
+                 cihaza okutalım.               cihaza okutalım.
+
+90
+       5. TEMA
+
+Kumbara
+
+       Sayılar ve Nicelikler 3
+
+                   Paralarımız
+
+EBA tema alanı  Özet içerik
+
+                              91
+ DÜŞÜNELİM
+                  Paralarımız
+
+    1 Hüseyin, ders programına göre çantasını düzenle-
+       mek istiyor. Bunun için çantasındaki eşyaları masa-
+       nın üstüne koyuyor.
+
+                                                                                                                                                                                Kumbara
+
+Hüseyin’in çantasından en çok hangi eşya çıkmıştır?
+Söyleyelim.
+Hüseyin’in çantasından çıkan eşyalar nerelerde kulla-
+nılır? Söyleyelim.
+92
+BAĞLANTI KURALIM
+
+       2 Görselleri inceleyelim. Günlük yaşamda
+           para ile neler alabileceğimizi söyleyelim.
+
+                      Bu defteri almak
+                          istiyorum.
+
+                                           Cüzdanımdaki
+                                        para ile domates ve
+                                        patlıcan alabilirim.
+
+                                                        93
+    ÖĞRENELİM
+
+          3 “Ekler” bölümündeki Ek-1’de verilen paraları
+             keselim. Kestiğimiz paraları uygun yerlere
+             yapıştıralım.
+
+                                7 89
+                                45 6
+                                1 2 3 Toplam
+                               0 00 . Nakit
+
+      4 Yukarıda ön yüzleri verilen paralarda kimin res-
+          mi vardır? Araştıralım. Bulduğumuz kişiye ait
+          bilgileri arkadaşlarımıza sunalım.
+
+94
+    5 “Ekler” bölümündeki Ek-2’de verilen paraları
+        keselim. Kestiğimiz paraları uygun yerlere
+        yapıştıralım.
+
+                            7 89
+                            45 6
+                            1 2 3 Toplam
+                            0 00 . Nakit
+
+6 Yukarıda arka yüzleri verilen paralarda kimle-
+    rin resmi vardır? Araştıralım. Bulduğumuz kişile-
+    re ait bilgileri arkadaşlarımıza sunalım.
+                                                      95
+         Zeynep, biliyor musun? Para bir değişim
+         aracıdır.
+
+              Evet Mert, alışveriş yaparken.
+              para kullanıyoruz. İstediklerimizi
+              almak için para veriyoruz.
+
+         Paralarımızla önce ihtiyaçlarımızı sonra
+         isteklerimizi karşılarız. Bu şekilde para-
+         mızı harcarsak bilinçli tüketici oluruz.
+
+              Yazar kasada gördüğümüz gibi
+              paralar kâğıt ve madenî paralar
+              olarak ikiye ayrılır. Türk lirası “TL”
+              şeklinde kısaltılır. Türk lirası “ ”
+              sembolüyle gösterilir.
+96
+7 Aşağıdaki noktalı yerlere “madenî” ya da “kâğıt”
+   kelimelerinden uygun olanını yazalım.
+
+............... para     ............... para  ............... para
+
+8 Aşağıdaki kâğıt paraları değerlerine göre küçük-
+   ten büyüğe doğru örnekteki gibi sıralayalım.
+
+                      1
+
+                                               97
+      9 Aşağıda Selma’nın kumbarasından çıkan paralar
+         gösterilmiştir. Buna göre soruların cevaplarını
+         örnekteki gibi noktalı yerlere yazalım.
+
+  Selma’nın
+  kumbarası
+
+1. Selma’nın kumbarasında .....3........ tane 100 TL vardır.
+
+2. Selma’nın kumbarasında ............. tane 5 TL vardır.
+
+3. Selma’nın kumbarasında ............. tane 10 TL vardır.
+
+4. Selma’nın kumbarasında ............. tane 50 TL vardır.
+
+5. Selma’nın kumbarasında ............. tane 1 TL vardır.
+
+6. Selma’nın kumbarasında ............. tane 20 TL vardır.
+  98
+  10 Aşağıdaki ürünleri satın almak için gereken
+      paraları örnekteki gibi “ ” ile işaretleyelim.
+
+55 TL
+21 TL
+35 TL
+60 TL
+15 TL
+51 TL
+70 TL
+
+                                                          99
+    11      Ben 50 TL’ye satın alabileceğim bir ürünü
+50 TL       mavi renge boyadım. Sonra 50 TL’ye satın
+            alabileceğim iki ürünü sarı renge boyadım.
+
+              Şimdi de 50 TL’ye satın alabileceğimiz
+                  üç ürünü aynı renge boyayalım.
+
+            DİŞ MACUNU                       30 TL
+
+            20 TL                         SIVI
+                                        SABUN
+
+            20 TL
+
+ ŞAMPUAN                                       DUŞ JELİ
+
+45 TL                                       80 TL
+     20 TL
+                                                 10 TL
+                              60 TL
+                                        Performans görevi ve puan-
+        Bu etkinliği bitirdikten sonra  lama anahtarı için karekodu
+        bütüncül dereceli puanlama
+        anahtarı için karekodu akıllı       akıllı cihaza okutalım.
+
+              cihaza okutalım.
+
+100
+  Beyza, ihtiyaçlarına göre alışveriş yapan bilinçli bir
+  tüketicidir. Tasarruf yapmaya ve sorumluluklarını
+  yerine getirmeye dikkat eder. Aşağıda Beyza’nın su
+  faturası için ayırdığı paralar gösterilmiştir. İnceleyelim.
+
+ 12 Görsele göre noktalı yerleri dolduralım.
+
+Beyza, su faturası için .................... TL ayırmıştır.
+Beyza’nın su faturası .................... tane 10 TL’ye eşittir.
+Beyza, daha az su faturası ödemek için ....................................
+........................................................................................................................................
+............................................................... gibi önlemler alabilir.
+
+ 13 Evde hangi konularda tasarruf yapabiliriz?
+     Araştıralım.
+                                                        101
+    14 Aşağıda renkli çerçeveler içinde paralar veril-
+        miştir. Para değerlerini bulalım. Aynı değerdeki
+        paraları örnekteki gibi eşleştirelim.
+
+102
+     U      Alışveriş Oyunu
+AAM M AA I
+
+            Oyun Kuralları
+
+Öğrenciler dörder kişilik gruplara ayrılır.
+
+Öğretmen içerisinde para resimlerinin (1 TL,
+5 TL, 10 TL, 20 TL, 50 TL, 100 TL ve
+200 TL) olduğu para torbaları hazırlar.
+
+Sınıf içerisinde bir bölüme alışveriş istasyonu
+kurulur. Bazı öğrenciler alışveriş istasyonunda
+satış görevlisi olur. Alışveriş istasyonunda
+fiyatları üzerlerinde yazılı ürünler yer alır.
+
+Her gruba içinde eşit miktarda para bulunan
+bir para torbası ve bir tane alışveriş sepeti
+verilir.
+Gruplar alışverişi verilen sürede tamamlama-
+lıdır ve her üründen sadece bir tane almalıdır.
+
+Her ürün 1 TL, 5 TL, 10 TL, 20 TL, 50 TL,
+100 TL ve 200 TL değerinde olmalıdır.
+Alışverişte para üstü verilmez.
+
+Verilen sürenin sonunda alışveriş sepetinde en
+çok ürün olan grup oyunu kazanır.
+
+Diğer gruplar kazanan grubu tebrik eder.
+
+             Daha fazla soru      Kontrol listesi için
+            için karekodu akıllı   karekodu akıllı
+             cihaza okutalım.      cihaza okutalım.
+
+                                              103
+            5. Tema Değerlendirme
+
+    A) Çocukların biriktirdiği paralar tabloda gösteril-
+       miştir. Toplam para değerlerini noktalı yerlere
+       yazıp soruları cevaplayalım.
+
+  Büşra
+
+ Hüseyin
+
+ Pervin
+
+ Serap
+
+ Ahmet
+
+ Mehmet
+
+  Mine
+
+1. En fazla para biriktiren çocuk kimdir?
+2. En az para biriktiren çocuk kimdir?
+3. Hangi çocukların biriktirdiği para değerleri birbirine eşittir?
+104
+B)  Cüzdanların içinden  çıkan  paralar  yanlarında
+    gösterilmiştir.
+
+Cüzdanlardan çıkan paralara göre aşağıdaki ifadelerden
+doğru olanların başına “D”, yanlış olanların başına “Y”
+yazalım.
+
+1. ( ) Turuncu cüzdandaki paranın değeri, mavi cüzdandaki
+         paranın değerine eşittir.
+
+2. ( ) Sarı cüzdanda 70 TL bulunmaktadır.
+
+3. ( ) Turuncu cüzdanda 60 TL bulunmaktadır.
+
+4. ( ) Mor cüzdandaki madenî paraların değeri 7 TL’dir.
+
+5. ( ) En fazla para değeri mavi cüzdanda yer almaktadır.
+
+                                                             105
+    C) Aşağıdaki soruları cevaplayalım. Doğru cevabın
+        yuvarlağını “ ” ile işaretleyelim.
+
+1. Aşağıdaki paralardan hangisinin değeri diğerlerinden
+  daha büyüktür?
+
+2. Aşağıdaki bilgilerden hangisi doğrudur?
+       50 TL, 5 tane 10 TL’nin değerindedir.
+       6 tane 10 TL, 70 TL’nin değerindedir.
+       20 TL, 5 tane 5 TL’nin değerindedir.
+
+3. Hangi paranın ön ve arka yüzü bir arada verilmemiştir?
+
+4. Yandaki paralar ile hangi ürün
+  alınabilir?
+
+     10 TL     20 TL               Şeker 53 TL
+
+            Süt
+               1 l tre
+
+106
+5. Murat, 40 TL’siyle arkadaşına hediye almak istiyor.
+  40 TL’ye alabileceği birçok ürün vardır. Murat,
+  parasının tümünü harcayarak hangi ürünleri alabilir?
+
+20 TL  10 TL  20 TL
+
+60 TL  20 TL  10 TL
+
+6. Arda, 75 TL biriktirmiştir. Hangisi Arda’nın biriktirdiği
+  paradır?
+
+                     107
+Ç) Görseldeki çocuklar fırından alışveriş yapacaklar.
+   Ceplerindeki paraların hepsini harcayarak neler
+   alabileceklerini noktalı yerlere yazalım.
+
+Köy ekmeği  Simit                                       Benim cebimde 3
+Ekmek       Poğaça                                      tane 10 TL var.
+Kek                                                     Fırından 2 çeşit ürün
+                                                        almak istiyorum.
+            20                                          ................. ve .......................
+                                                        ürünlerini alabilirim.
+
+            10
+                                 30
+
+                                                        10  15
+
+            Benim cebimde 2
+            tane 20 TL var.
+            Fırından 2 çeşit
+            ürün almak
+            istiyorum.
+            ................. ve .....................
+            ürünlerini alabilirim.
+
+50 TL ile bu fırından neler alabiliriz? Söyleyelim.
+
+                  Daha fazla soru                            Daha fazla soru
+                 için karekodu akıllı                       için karekodu akıllı
+                  cihaza okutalım.                           cihaza okutalım.
+
+108
+6. TEMA
+
+                                       12               7
+                                                       18
+                                        5
+                 1 4 9 11 13                                   19
+                                                                16
+                                                    8          20
+                                       10
+                15 3 14 17
+
+                                                       6
+                                                                2
+
+Nesnelerin Geometrisi 2
+
+Nesnelerin Biçimsel Özellikleri
+Geometrik Yapılardaki Geometrik Şekiller
+Geometrik Şekilleri Sınıflandırma
+
+EBA tema alanı  Özet içerik
+
+                             109
+ DÜŞÜNELİM
+
+      Nesnelerin Biçimsel Özellikleri
+
+               1 Aşağıdaki görseli inceleyelim. Numara-
+                  landırılmış görsellerin benzer yönlerini
+                  söyleyelim.
+
+                                                    3
+        2
+
+4
+                     5
+                                                          7
+
+8
+
+         1
+
+   9  6     10
+
+Görseldeki çocuklar masadaki nesnelerden köşeli olan ve
+köşeli olmayanları ayırt etmek istiyorlar. Haydi, onlara
+yardım edelim.
+
+Defterimize yuvarlak ve köşeli olan nesnelerden ikişer
+örnek çizelim.
+
+ 110
+BAĞLANTI KURALIM
+
+     2 “Ekler” bölümündeki Ek-3’ten geometrik
+         yapıların üzerindeki geometrik şekilleri keselim.
+         Kestiğimiz geometrik şekillerin kenar ve köşe
+         sayılarına dikkat edelim. Görselleri aşağıdaki
+         şekillerden benzer olanların içine yapıştıralım.
+
+                                                       111
+         3 Tren ve robot oluşturulurken hangi şekilden
+             kaçar tane kullanıldığını noktalı yerlere
+             örnekteki gibi yazalım. Tren ve robotu oluş-
+             turan şekilleri, verilen şekillerin rengine göre
+             boyayalım.
+                                                        3
+
+ Çevremizdeki geometrik yapıların hangi şekiller-
+ den oluştuğunu sınıfta arkadaşlarımızla konuşalım.
+112
+4 Aşağıdaki geometrik yapı modellerini oluşturan
+    şekilleri örnekteki gibi eşleştirelim.
+
+5 Verilen modeli inceleyelim. Oyun hamuru ya da
+    el işi kâğıtları gibi malzemeler kullanarak aşağı-
+    daki geometrik yapı modelini oluşturalım.
+
+                                  Daha fazla soru
+                                 için karekodu akıllı
+                                  cihaza okutalım.
+
+                                                       113
+     U Yerlerini Değiştirelim Oyunu
+
+   AAM M AA I
+
+                  Oyun Kuralları
+
+        Öğretmen çeşitli eşya ve nesnelerin fotoğ-
+        raflarını (üçgen, dikdörtgen, kare ve çembere
+        benzeyen silgi, kitap, bilgisayar, cetvel, tablet,
+        pencere, kasnak, çerçeve gibi) çıktı alıp duvara
+        biçimsel özelliklerine göre gruplandırarak asar.
+
+        Öğretmen fotoğrafları gruplandırarak asar-
+        ken her grubun arasına diğer gruplara ait olan
+        nesnelerin fotoğraflarından da koyar.
+
+       Öğretmen, öğrencileri sırayla tahtaya çıkarır.
+       Öğrencilerden verilen sürede bu fotoğrafların
+       yerini değiştirerek nesneleri biçimsel özellikle-
+       rine göre gruplandırmalarını ister.
+
+       En kısa sürede doğru gruplandırmayı bitiren
+       öğrenci oyunu kazanır.
+
+       Öğrenciler, fotoğrafların yerini neden değiş-
+       tirdiğini ve fotoğraf gruplarındaki ortak özel-
+       likleri konuşur.
+
+        Öğrenciler oyun oynarken birbirlerine karşı
+        nazik davranışlar sergiler.
+
+114
+    ÖĞRENELİM
+Geometrik Yapılardaki Geometrik Şekiller
+
+          1 Görseli inceleyelim. Soruları cevaplayalım.
+                                      Alp
+
+                                      Ece
+      Ece ve Alp, nesneleri hangi ortak özelliklerine
+      göre gruplandırmışlar? Haydi, birlikte bulalım.
+Ece ve Alp’in masalarına birer nesne ekleyecek
+olsak çevremizdeki hangi nesneleri ekleriz?
+Söyleyelim.
+
+                                                           115
+          Zeynep, nesneleri birlikte inceleyelim.
+          Ece’nin masasında tekerlek, yüzük,
+          kolye ve bilezikler var. Alp’in masasında
+          neler var?
+
+              Alp’in masasında da cetvel, tablet,
+              çerçeve ve silgi var.
+
+          Zeynep, fark ettin mi? Alp’in
+          masasındaki nesnelerin köşeleri var.
+          Ece’nin masasındaki nesnelerin ise
+          köşeleri yok.
+
+             Evet Mert, Alp’in masasındaki
+             nesneler köşeli nesnelerdir.
+             Ece’nin masasındaki nesneler ise
+             köşesi olmayan nesnelerdir.
+
+116
+Anladım. Haydi, Alp’in masasındaki
+tableti birlikte inceleyelim. Zeynep,
+tabletin köşelerini gösterebilir misin?
+
+Köşe Köşe
+                  Evet Mert, tabletin
+                  köşelerini gösterdim.
+                  Tabletin kenarlarını da
+                  sen gösterebilir misin?
+
+Köşe Köşe
+
+Evet Zeynep, tabletin         KenarKenar
+kenarlarını gösterdim. İki                 KenarKenar
+köşeyi birleştirerek şekli
+sınırlandıran çizgiye kenar
+denir. Kenarların birleştiği
+noktaya da köşe denir.
+
+Dergi ve gazetelerden bulduğumuz
+köşesi olan ve köşesi olmayan nesnelerin
+görsellerini kesip defterimize yapıştıralım. Bul-
+duğumuz köşeli nesnelerin köşe ve kenarlarını
+gösterelim. Yaptığımız çalışmayı kontrol ederek
+hatamız varsa nesneleri yeniden düzenleyelim.
+
+                                   Daha fazla soru
+                                  için karekodu akıllı
+                                   cihaza okutalım.
+
+                                                       117
+     Geometrik Şekilleri Sınıflandırma
+
+     1 Arabayı eve ulaştıralım. Arabanın sırasıyla üze-
+         rinden geçtiği şekilleri işaretleyelim. Evin üzerin-
+         de bu şekillerden var olanları çizerek gösterelim.
+
+118
+2 Uçurtmaların kenarlarını siyah, köşelerini
+    kırmızı renkle gösterelim. Görseldeki
+    geometrik şekilleri boyayalım.
+
+Hüma                  Erdem
+               Burak
+
+Hüma, Burak ve Erdem’in elindeki uçurtmaların
+kaç tane köşesi ve kenarı vardır? Haydi, birlikte
+bulalım.
+
+                                                  119
+            Mert, üçgenin özelliklerini
+            biliyor musun?
+
+                          Evet Zeynep, biliyorum.
+                          Üçgenin üç kenarı ve
+
+                             üç köşesi vardır.
+
+           Karenin özelliklerini
+           biliyor musun?
+
+                               Evet Zeynep, kareyi
+                               de biliyorum. Karenin
+                               dört kenarı ve dört
+                               köşesi vardır. Karenin
+                               bütün kenarları eşittir.
+
+120
+Dikdörtgenin özelliklerini
+biliyor musun?
+
+  Evet Zeynep, biliyorum. Dikdörtgenin
+  dört kenarı ve dört köşesi vardır.
+  Dikdörtgenin karşılıklı kenarları birbi-
+  rine eşittir.
+
+Kenarı ve köşesi olmayan
+geometrik şekil var mı?
+
+                    Var elbette
+                      Zeynep.
+                     Çemberin
+                       kenarı
+                      ve köşesi
+                     yoktur. İçi
+                       boştur.
+
+                                                121
+      3 Aşağıdaki geometrik şekillerin numaralarını ilgili
+         kutulara örnekteki gibi yazalım.
+
+   1               2          3
+
+Üçgen  Dikdörtgen     Çember  Kare
+
+1, 4
+
+4      5              6       7
+
+       4 Tablodaki görselleri inceleyelim. Kita-
+           bımızı kapatalım. Tablodaki görselleri
+           aklımızda kaldığı şekilde resim defteri-
+           mize çizip boyayalım.
+
+122
+     U      Şekil Oluşturma Oyunu
+AAM M AA I
+
+            Oyun Kuralları
+
+Öğretmen, öğrencileri bahçeye çıkarır ve iki
+grup oluşturur.
+Her gruba birer tane ip verir.
+Öğretmen “Üçgen oluşturunuz.” der.
+Gruplar ellerindeki iple üçgen oluşturur.
+Üçgeni hızlı oluşturan grup alkışlanır.
+Öğretmen bu sefer “Kare oluşturunuz.” der.
+Kareyi hızlı oluşturan grup alkışlanır.
+Oyun bu şekilde devam eder.
+
+                                              123
+     5 Taha, Burcu ve Serhat’ın yer aldığı parkı
+        inceleyelim. Gördüklerimizi anlatalım.
+
+                            12               7
+                                            18
+                             5
+      1 4 9 11                                      19
+                                                     16
+                            13
+                                         8          20
+
+                            10
+
+     15 3 14 17
+
+                                            6
+                                                     2
+
+124
+6 Parkta bulunan şekiller hangi geometrik şekillere
+   benzemektedir? Bu şekillerin numaralarını tablo-
+
+   ya örnekteki gibi yazalım.
+
+   Çember   Kare   Dikdörtgen Üçgen
+1
+
+           7 Parktaki şekilleri inceleyelim. Köşe ve kenar
+              özelliklerine göre tabloya örnekteki gibi
+              yazalım.
+
+Üç          Üçgen
+köşeliler
+
+Dört               Bilmeceleri bulmak için
+köşeliler              karekodu akıllı
+                      cihaza okutalım.
+Köşesi
+olmayanlar         Performans görevi ve
+                   puanlama anahtarı için
+Üç                 karekodu akıllı cihaza
+kenarlılar
+                          okutalım.
+Dört
+kenarlılar                          125
+
+Kenarı
+olmayanlar
+             6. Tema Değerlendirme
+
+     A) Aşağıdaki soruları cevaplayalım. Cevaplarımızı
+        bulmacadaki yerlerine yazalım.
+
+1. Yandaki evin kapısı hangi
+   geometrik şekle benzer?
+
+2. Karenin kaç kenarı vardır?
+3. Kenarı ve köşesi olmayan, içi boş olan geometrik şekil
+
+   hangisidir?
+4. Çadırın önü hangi şekle benzer?
+5. Yandaki şekilde kaç tane dikdörtgen
+
+   vardır?
+                                 2
+                                               3
+
+  1
+
+                                        5
+                         4
+
+ 126
+  B) Yusuf ve ailesi, yaz tatiline gidecektir. Yönergeleri
+      sırasıyla takip ederek Yusuf ve ailesinin gideceği
+      yeri bulalım.
+
+2 kare ( ) sağa doğru çizelim.
+
+3 üçgen ( ) aşağı doğru çizelim.
+
+3 çember ( ) sağa doğru çizelim.
+
+2 dikdörtgen ( ) yukarı doğru çizelim.       Yukarı
+2 çember ( ) sağa doğru çizelim.
+4 üçgen ( ) aşağı doğru çizelim.        Sol          Sağ
+6 kare ( ) sola doğru çizelim.
+                                             Aşağı
+
+           Yusuf ve
+            Ailesi
+
+Başlangıç                               Kapadokya /
+ Noktası                                  Nevşehir
+
+Şehitler Abidesi /                            Efes Antik
+   Çanakkale                                 Kenti / İzmir
+
+                                                      127
+C) Aşağıdaki nesneleri benzedikleri geometrik şekil-
+    lerle eşleştirelim.
+
+     Ç) Geometrik şekilleri kullanarak bir ev mode-
+         li tasarlayalım. Ev modelini oluştururken oyun
+         hamuru, sayı çubukları ve çubuk makarna gibi
+         malzemeleri kullanabileceğimizi unutmayalım.
+
+      Daha fazla soru       Daha fazla soru
+     için karekodu akıllı  için karekodu akıllı
+      cihaza okutalım.      cihaza okutalım.
+
+128
+                                              7. TEMA
+
+                                                              Grafik Adı: Hediye Paketleri
+
+                                                              Paket Rengi                   Sayısı
+
+Tablo Adı: Oynanan Geleneksel Çocuk Oyunları                  Yeşil
+
+Geleneksel Çocuk  Öğrenci Sayısı                              Mor
+     Oyunları
+
+Mendil kapmaca                                                Pembe
+Halat çekme
+Çuval yarışı                                                  Mavi
+                                                              Not: Her görsel bir hediye paketini göstermektedir.
+
+                       Veriye Dayalı Araştırma
+
+                Veriyle Çalışma ve Veriye Dayalı Karar Verme
+
+                                              EBA tema alanı  Özet içerik
+
+                                                                           129
+  DÜŞÜNELİM
+Veriyle Çalışma ve Veriye Dayalı Karar Verme
+
+Sonbahar
+
+    Kış
+
+İlkbahar
+
+   Yaz
+
+           1 “Ekler” bölümündeki Ek-4’ten kıyafet görsel-
+              lerinden üçer tane seçelim. Seçtiğimiz görsel-
+              leri keselim. Uygun mevsim görselinin yanına
+              yapıştıralım.
+
+130
+BAĞLANTI KURALIM
+
+2 Aşağıdaki apartmanın dış duvarları boyanacak-
+    tır. Duvarların hangi renge boyanacağı hakkında
+    kimlere sorular sorabiliriz? Bu sorular neler ola-
+    bilir? Söyleyelim.
+
+      3 Yukarıdaki apartmanı istediğimiz renge
+          boyayalım. Sınıfımızdaki arkadaşlarımıza
+          apartmanı hangi renge boyadıklarını sora-
+          lım. Buna göre en çok tercih edilen rengi
+          bulalım.
+                                                       131
+    ÖĞRENELİM
+
+                          Babam aşçıdır. Ona Hasan Usta
+                            derler. Babama hafta sonları
+                            yardım ederim. Bu hafta sonu
+                           babamla israfı önlemek için en
+                           çok tercih edilen yiyecek ve içe-
+
+                          cekleri araştırdık. Araştırmaları-
+                              mıza göre haftalık yemek
+
+                            menüsünü birlikte oluşturduk.
+
+          Haftalık Yemek Menüsü
+
+    Pazartesi
+    Köfte - Patlıcan yemeği - Ayran - Salata
+    Salı
+    Tarhana çorbası - Nohut yemeği - Pilav - Cacık
+    Çarşamba
+    Yayla çorbası - Patlıcan yemeği - Salata
+    Perşembe
+    Tarhana çorbası - Köfte - Pilav - Cacık
+    Cuma
+    Tarhana çorbası - Köfte - Pilav - Salata
+    Cumartesi
+    Yayla çorbası - Patlıcan yemeği - Pilav - Cacık
+    Pazar
+    Nohut yemeği - Pilav - Ayran - Salata
+
+132
+ Hasan Usta ve oğlu, tercih edilen yiyecek
+ ve içeceklere göre haftalık yemek menüsü-
+ nü oluşturdular. Zeynep, ben bu menüden
+ pazartesi gününün menüsünü seçerdim. Sen
+ hangi günün menüsünü seçerdin?
+
+ Ben de çarşamba gününün menüsünü
+ seçerdim. Ama menüdeki bütün yiye-
+ cekleri de severek yiyorum. Çünkü
+ sağlıklı besleniyorum.
+
+Zeynep, biliyor musun bir konu ile
+ilgili toplanan bilgilere veri denir.
+Yiyecek ve içecek tercihleri birer
+veridir.
+
+       Mert, verileri daha düzenli hâle
+       getirebilir miyiz?
+
+Evet Zeynep, verileri daha düzenli
+hâle getirebiliriz. Toplanan verilerin
+düzenlenerek gösterilmesine tablo
+denir. Her tablonun bir adı vardır.
+
+                                                  133
+Hasan Usta ve oğlu önce yemeklerin isim-
+lerini alt alta yazdılar. Sonra hangi yemeği
+kaç kişinin tercih ettiğini yanlarına yazdılar.
+Bu şekilde bir tablo oluşturdular. Tablonun
+ismini de yazdılar.
+
+Tablo Adı: Yiyecek ve İçecekler  Sayısı
+Yiyecek ve İçecek Adları           3
+Tarhana çorbası                    2
+Yayla çorbası                      3
+Köfte                              3
+Patlıcan yemeği                    2
+Nohut yemeği                       5
+Pilav                              4
+Salata                             3
+Cacık                              2
+Ayran
+
+       Mert, Hasan Usta ve oğlunun oluşturduğu
+       tabloyu çok beğendim. Toplanan verilerin
+       sayılarla belirtildiği tabloya sıklık tablosu
+       denir.
+
+134
+Bazen tabloya veri sayılarını yazmak
+yerine her veri için bir çizgi ( | ) çizilir. Bu
+şekilde de bir tablo oluşturulabilir.
+
+Tablo Adı: Yiyecek ve İçecekler  Sayısı
+Yiyecek ve İçecek Adları
+Tarhana çorbası
+Yayla çorbası
+Köfte
+Patlıcan yemeği
+Nohut yemeği
+Pilav
+Salata
+Cacık
+Ayran
+
+Evet Mert, bu şekilde de tablo oluşturu-
+labilir. Toplanan verilerin çizgi ile göste-
+rildiği tabloya çetele tablosu denir.
+Çetele tablosunda her beş nesne için
+“ ” şekli çizilir.
+
+                                                   135
+     4 1/C sınıfındaki öğrencilere oynadıkları geleneksel
+         çocuk oyunları sorulmuştur. Öğrencilerden alı-
+         nan cevaplar ile çetele tablosu oluşturulmuştur.
+         Çetele tablosundaki verileri kullanarak sıklık
+         tablosunu dolduralım. Tablo adını noktalı yere
+         yazalım.
+
+Tablo Adı: Oynanan Geleneksel Çocuk Oyunları
+
+Geleneksel Çocuk Oyunları                                               Öğrenci Sayısı
+
+Mendil kapmaca
+
+Halat çekme
+
+Çuval yarışı
+
+Tablo Adı: ......................................................................................................................
+
+Geleneksel Çocuk Oyunları                                               Öğrenci Sayısı
+
+......................................................................  ......................................................................
+......................................................................  ......................................................................
+......................................................................  ......................................................................
+
+136
+1. 1/C sınıfında en çok oynanan geleneksel çocuk oyunu
+  hangisidir?
+
+2. 1/C sınıfında en az oynanan geleneksel çocuk oyunu
+  hangisidir?
+
+3. Çuval yarışını oynayan öğrencilerin sayısı, halat çekme
+  oyununu oynayan öğrencilerin sayısından kaç fazladır?
+
+4. Halat çekme oyununu oynayan öğrencilerin sayısı, mendil
+   kapmaca oyununu oynayan öğrencilerin sayısından kaç azdır?
+
+           5 Sınıfımızdaki arkadaşlarımıza eğlenerek oyna-
+               dıkları çocuk oyunlarını soralım. Topladığımız
+               verileri düzenleyerek defterimize sıklık ve
+               çetele tablosu oluşturalım.
+
+                   Kontrol listesi için
+                     karekodu akıllı
+                    cihaza okutalım.
+
+                                                             1377
+       Simay ve Gülce, bayram için hediye paketleri
+       hazırladılar. Hazırladıkları paketleri bayram
+       ziyaretine gelen çocuklara hediye edecekler.
+       Annesi çocuklardan hediye paketlerini renklerine
+       göre ayırmalarını istedi. Haydi, onlara yardım
+       edelim.
+
+138
+       Mert, hediye paketlerini renklerine göre
+       ayırdık. Bu paketleri sıklık ve çetele tablosu
+       kullanmadan nasıl gösteririz?
+
+Zeynep, nesne grafiği ile gösteririz. Hediye
+paketlerinin resimlerini kullanarak nesne
+grafiği oluştururuz. Oluşturduğumuz grafiğin
+de bir adı olması gerektiğini unutmamalıyız.
+Ayrıca nesne grafiğini gösterdiğimiz her nes-
+nenin sayısal olarak neyi ifade ettiğini grafi-
+ğin altında not ile belirtiriz.
+
+Grafik Adı: Hediye Paketleri
+
+Paket Rengi                   Sayısı
+
+Yeşil
+
+Mor
+
+Pembe
+
+Mavi
+
+Not: Her görsel bir hediye paketini göstermektedir.
+
+                                  Daha fazla soru
+                                 için karekodu akıllı
+                                   cihaza okutalım.
+
+                                                      139
+      6 Aşağıda bir çiftlikte bulunan hayvanlar nesne
+         grafiği ile gösterilmiştir. Verilen nesne grafiğine
+         göre soruları cevaplayalım.
+
+Grafik Adı: Çiftlikteki Hayvanlar
+
+Hayvan Adı  Hayvan Sayısı
+
+İnek
+Tavşan
+Ördek
+Tavuk
+
+Not: Her görsel bir hayvanı göstermektedir.
+
+1. Çiftlikte en az hangi hayvan vardır?
+
+2. Çiftlikteki ördeklerin sayısı tavukların sayısından kaç fazladır?
+
+3. Çiftlikte sayıları eşit olan hayvanlar hangileridir?
+
+4. Çiftlikteki ineklerin sayısı ördeklerin sayısından kaç azdır?
+140
+      7 Berke, yaşadığı yerdeki hava durumunu merak et-
+         miştir. Bunun üzerine annesiyle çevrim içi ortam-
+         larda bir araştırma yapmıştır. Yaşadığı yerin bir
+         haftalık hava durumuna ulaşmıştır. Tabloya göre
+         soruları cevaplayalım.
+
+Tablo Adı: Haftalık Hava Durumu
+
+Gün Adı    Hava Durumu
+
+Pazartesi
+
+Salı                              Güneşli
+
+Çarşamba                          Yağmurlu
+
+Perşembe                          Bulutlu
+Cuma                               Karlı
+Cumartesi
+
+ Pazar
+1. Karlı gün sayısı kaçtır?
+
+2. Hangi günler hava bulutludur?
+
+3. Güneşli gün sayısı kaçtır?
+
+                             Performans görevi ve
+                             puanlama anahtarı için
+                             karekodu akıllı cihaza
+
+                                    okutalım.
+
+                                                            141
+          8 Sınıf başkanlığı için yapılan oylamada; Deniz
+             10, Efe 4, Melis 7 ve Esila 9 oy almıştır. Aşa-
+             ğıdaki nesne grafiğini bu verilere göre boyaya-
+             lım. Soruları cevaplayalım.
+
+Grafik Adı: Sınıf Başkanlığı Seçimi
+
+Öğrenci Adı                 Aldığı Oy
+
+Deniz
+Efe
+Melis
+
+Esila
+Not: Her boyanan zarf bir oyu göstermektedir.
+
+1. En fazla oyu kim almıştır?
+
+2. Esila’nın oyu Deniz’in oyundan kaç tane azdır?
+
+3. En az oyu kim almıştır?
+
+4. Efe ve Melis’in oylarının toplamı kaçtır?
+
+Aşağıdaki kontrol listesini dolduralım.        Evet Hayır
+
+                    Sorular
+Her oy için bir zarf boyadın mı?
+Verilen oy sayılarıyla boyadığınız oy
+sayıları aynı mı?
+Veriye bakarak sınıf başkanının
+kim olduğunu bulabildin mi?
+
+ 142
+        7. Tema Değerlendirme
+
+A) Aşağıdaki tabloda bir manavda gün boyunca
+   satılan meyvelerin sayıları verilmiştir.
+
+Tablo Adı: Satılan Meyveler
+
+Meyve Adları                  Sayısı
+
+Bal kabağı                    4
+
+Karpuz                        3
+
+Limon                         7
+
+Kavun                         5
+
+Sıklık tablosuna göre çetele tablosunu tamamlayalım.
+Tablo Adı: Satılan Meyveler
+
+Meyve Adları                  Sayısı
+
+Bal kabağı                    ................
+Karpuz                        ................
+Limon                         ................
+
+Kavun                         ................
+
+Meyve görsellerini boyayarak nesne grafiğini
+oluşturalım.
+
+Grafik Adı: Satılan Meyveler
+
+     Meyve Adları                               Sayısı
+Bal kabağı
+
+Karpuz
+
+Limon
+
+Kavun
+
+Not: Her boyanan görsel bir meyveyi göstermektedir.
+
+                                                        143
+B) Bir şehirde yardım kuruluşlarında görev alan
+   kadın sayıları araştırılmıştır. Buna göre Kızılay 14,
+   AFAD (Afet ve Acil Durum Yönetimi Başkanlığı) 9,
+   UMKE (Ulusal Medikal Kurtarma Ekibi) 8 kadına
+   görev vermiştir. Verilen bilgilerden yararlanarak
+   sıklık tablosundaki boşlukları dolduralım.
+
+Tablo Adı: ...........................................................................................................
+
+Yardım Kuruluşunun Adı  Kadın Sayısı
+
+ ................................................................................................ ........................................
+ ................................................................................................ ........................................
+ ................................................................................................ ........................................
+Aşağıdaki kontrol listesini dolduralım.
+
+Sorular                                     Evet Hayır
+
+Tablo adını yazdın mı?
+Yardım kuruluşlarının adlarını doğru yere
+yazdın mı?
+Sayıları sıklık tablosunda doğru yerde
+gösterebildin mi?
+Başka bir şehirde araştırma yapsaydın aynı
+verileri elde eder miydin?
+144
+      C) Aşağıdaki soruları cevaplayalım.
+
+Grafik Adı: Bahçedeki Çiçekler
+
+Çiçek Adları  Çiçek Sayıları
+
+Gül
+Papatya
+
+Lale
+
+Not: Her görsel bir çiçeği göstermektedir.
+
+1 ve 2. soruları yukarıdaki nesne grafiğine göre cevaplayalım.
+
+1. Bahçede en çok hangi çiçek vardır? Yazalım.
+
+2. Bahçede en az hangi çiçek vardır? Yazalım.
+
+3. Bahçedeki güllerin ve papatyaların toplam sayısı kaçtır?
+
+         Ç) Arkadaşlarımıza en sevdiği dondurma çeşidi-
+            ni soralım. Aldığımız cevaplarla defterimize
+
+            sıklık tablosu ve nesne grafiği oluşturalım.
+
+          Daha fazla soru                    Daha fazla soru
+         için karekodu akıllı               için karekodu akıllı
+          cihaza okutalım.                   cihaza okutalım.
+
+                                                        145
+        Sözlük
+
+                          A-B-C-Ç
+
+akvaryum : Suda yaşayan hayvanların ve bitkilerin yapay bir
+             ortamda beslendiği ve yetiştirildiği cam su kabı.
+
+benek : Herhangi bir şey üzerindeki ufak leke.
+
+cüzdan  : İçine genellikle para ve çeşitli kartlar konulan
+çiftçi  cebe sığacak boyutta küçük çanta.
+
+        : Geçimini toprağı ekerek sağlayan kimse.
+
+dergi                D-E-F-G
+fatura
+göl     : Farklı konuları inceleyen ve belirli aralıklarla çıkan
+        süreli yayın.
+
+        : Satılan bir malın cinsini, miktarını ve fiyatını
+        bildirmek için satıcının alıcıya verdiği hesap pusulası.
+
+        : Karaların içinde denizlerle bağlantısı olmayan
+         durgun su birikintisi.
+
+                           H-I-İ-J
+
+havalimanı: Uluslararası veya şehirler arası hava yolu ulaşımı
+             için gerekli teknik ve ticari kuruluşların bütünü,
+             hava meydanı, havaalanı.
+
+ 146
+hazine : Gömülü veya saklıyken bulunan değerli şeylerin
+           hepsi.
+
+ihtiyaç : Eksikliği duyulan şey, gereksinim.
+
+israf : Gereksiz yere para, zaman, emek ve benzerini
+           harcama.
+
+istek : Bir şeye karşı içten gelen yönelme duygusu.
+
+                          K-L-M-N
+kargo : Bir şirketin taşıdığı yük veya posta, kargo paketi.
+
+kefe : Terazi gözlerinden her biri.
+
+komut : Öğrencilere beden eğitimi çalışmalarında veya bir
+           tören sırasında bir durumdan başka bir duruma
+           geçmeleri için verilen emir.
+
+kumbara : Para biriktirmek için kullanılan, bozuk veya kâğıt
+            para atılan küçük kap.
+
+malzeme : Herhangi bir iş için gerekli her türlü nesne.
+
+menü : Yemek listesi.
+
+müşteri : Hizmet ve malı alan, karşılığında da ücret ödeyen
+           kimse.
+
+nesne  : Belli bir ağırlığı, uzayda kapladığı yeri ve rengi
+        olan her türlü cansız varlık, parça.
+
+                                                         147
+park                 O-Ö-P-R
+sembol
+        : Bir yerleşme merkezinde halkın gezip hava alması
+         için düzenlenmiş ağaçlı ve çiçekli bahçe.
+
+                       S-Ş-T
+        : Duyularla ifade edilemeyen bir şeyi belirten
+         somut nesne veya işaret, simge.
+
+takas : Yapılan alışverişin karşılıklı olarak malla ödenmesi.
+
+tasarlamak : Bir şeyin nasıl gerçekleşebileceğini zihinde
+              hazırlamak, zihinde kurmak, düşünmek.
+
+türbin  : Su, buhar, rüzgâr gibi herhangi bir akışkanın
+uydu     hareket enerjisiyle ve birtakım özel düzenekler
+         yardımıyla dönerek çalışan, genellikle elektrik
+         üretmede kullanılan araç.
+
+                  U-Ü-V-Y-Z
+
+        : Çeşitli amaçlarla yerden fırlatılan ve
+         genellikle kapalı bir yörünge çizerek Dünya
+         çevresinde dolanan araç.
+
+varlık  : 1- Var olma durumu.
+         2- Var olan her şey.
+
+yazar kasa : Satılan malları ve tutarlarını gösteren bir fiş
+              veren elektronik makine.
+
+yönerge : Herhangi bir konuda tutulacak yol için verilen
+              talimat, emir.
+
+148
+                Kaynakça
+
+Millî Eğitim Bakanlığı. Talim ve Terbiye Kurulu (2024). Matematik Dersi Öğre-
+tim Programı (1 ve 4. Sınıflar). Ankara.
+Millî Eğitim Bakanlığı. Talim ve Terbiye Kurulu (2024). Türkiye Yüzyılı Maarif
+Modeli Öğretim Programları Ortak Metni. Ankara.
+Türk Dil Kurumu. (2023). Türkçe Sözlük. Ankara: Türk Dil Kurumu Yayınları.
+Türk Dil Kurumu. (2023). Yazım Kılavuzu. Ankara: Türk Dil Kurumu Yayınları.
+Kaynak gösterme yöntemi APA 6.0 sürümüne göre oluşturulmuştur.
+
+            Cevap Anahtarı
+
+                              Cevap anahtarına
+                     ulaşmak için karekodu akıllı cihaza
+
+                                   okutalım.
+
+   Görsel ve Genel Ağ Kaynakçası
+
+                     Görsel ve Genel Ağ Kaynakçasına
+                     ulaşmak için karekodu akıllı cihaza
+
+                                   okutalım.
+
+                                                            149
+150
+            Ekler
+
+EK-1  94 3
+
+EK-2  95 5
+
+                   151
+152
+EK-3
+                   111 2
+                                                         153
+154
+EK-4  130 1
+
+             155
+156
+157
+                                                    25°D                                                                              30°D                                                             35°D                                                                                                       40°D                                                                                                                                                                        45°D                                                       50°D
+                                                                                                                                                                                        U KRAYN A
+                                               ROM ANYA                                                                                                                                                                                                                                                                                                                                                                                                                                                                              HAZAR
+                                                                   !Bükreş                                                                                                                                                                                                                                                                                                                                                                                                                                                           DENİZİ
+
+                                                                            Tuna N.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Dicle N.RUS YA FE DE RA SY ONU
+                                                                                                                                                                                                                  Nil N.
+       Sofya                                                                                                                                   K A R A D ENİ Z
+158
+      !
+
+                BUL G AR İS TA N
+
+                                                                                                                                                                                                                                                                                                                                                                                       G Ü R C İ S TA N
+
+                                                         Edirne       !                                                                                                                                                                ! Sinop                                                                                                                                                                                                                                                          !
+
+                                                                   !                                                                                                                                                                                                                                                                                                                                                                                                                          Tiflis
+
+                                                                      Kırklareli                                                                           Bartın                                                                                                                                                                                               ACARA Ö.C.
+                                                                                                                                                                             !
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Kura N.
+      YUNANİSTAN                                                                                                                               Zonguldak !                              Kastamonu                                                                                                                                                                  Artvin              Kura N.
+                        Atina                                                                                                                                                                                                                                                                                                                                           !                  !                                                                                                                         AZERBAYCAN
+                                                                      Tekirdağ                İstanbul                                                                                                   !
+                                            !                                     !
+                                                         Meriç N.                                       !                                                                 !                                                                                  !                                                                                                                         Ardahan            ERMENİSTAN
+                                                                                                                                                                                                                                                                                                                                                      !
+                                                                                                                                                               Karabük                                                                 Samsun
+                                                                                                                                                                                                                                                                                                                                                       Rize
+                                                                                     MARMARA                      Kocaeli                      Düzce                                                                                                                  Ordu     !                                                !
+
+                                                                                     DENİZİ                       !                   !        !                                                                                                                                          !                       Trabzon                                   Çoruh N.                                 !                                                                                                                                                         40°K
+                                                                                               Yalova !                                                                                                                                                                                                                                                                                                                                                                                                                                                        35°K
+40°K                                                                                                                                  Sakarya          ! Bolu                      Çankırı                  KızılırmÇak oNr.           Amasya                                     Giresun                                                          ! Bayburt                                    Kars                                                                                          Erivan
+                                                                                                                                                                                                      !                                           !                                                                                                                                                                                                                                                !
+                                               Gökçeada                                                                                                                                                                             !         Tokat !                                                                                                                               !
+
+                                                             ! Çanakkale                                      !                       Bilecik                                                                                 um                                Yeşilırmak N.                                                      !                         Erzurum                   Aras N.
+
+                                               Bozcaada                                                 Bursa                                                                                                                                                                                                     Gümüşhane
+
+                                                                                                                  !                            Sakarya N.                                                                                                                                                                                                                                              Iğdır !
+
+                                                                                                                                                                                Ankara                                                                                                                                                                                                           !                                                                                                         (ANZAEHRÇBIAVYACNAÖN.)C.
+                                               EGE DENİZİ             Balıkesir
+                                                                                 !                                                                                              !                                                                                                                                                                                                                 Ağrı
+                                                                                                                                                                                                                                               Seyhan N.
+                                                                                                                                                                                                                                                               Asi N.!!! Yozgat! Kızılırmak N.                    Erzincan !
+
+                                                                                                                                                                                                                                                                               Ceyhan N.EskişehirKırıkkaleSivas   Fırat N. Tunceli
+                                                                                                                                                                                                                                                                                                       Fırat N.
+                                                                      Bakırçay N.                                                  !                                                                     Kırşehir                                                                                                                               !                                                                                                                                                               Aras N.
+                                                                                                                                                                                                                   !
+                                                                                                        Kütahya                                                                                                                                                                                                                                                                                                                                                                                                     Urumiye
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Gölü
+                                                                      Manisa                                         Afyonkarahisar                                                                                                                                                                                                                   Bingöl        Muş                          Van
+                                                                                                                                   !                                                                                                                                                                                                                                                                                                                                                                                         İRAN
+                                                                      !                                                                                                                                                                                                                                                                                !           !
+                                                                                                                     ! ! Isparta
+                                                                                              Gediz N.         !  Burdur                                                  Tuz                                                                                                                                                                                                                    Gölü     !
+                                                                                                                                                                         Gölü
+                                                                         !                              Uşak         Antalya                                                                                             !             !                                             Elâzığ!                                                                                           ! Bitlis            Van
+                                                                                                                                                               Konya                                                                                                  Malatya
+                                                                      İzmir                                                         !                                                             Nevşehir                              Kayseri
+                                                                                                                                                                      !                                                                                                                      !
+                                                                       Küçük Menderes N.                                                                                                            !
+
+                                                                          ! Aydın                                                                                                       Aksaray                                                                                                                                                    Diyarbakır                          ! Siirt
+
+                                                                      Büyük Menderes N. !                                                                                                                               !                                                         Adıyaman                                                         !            !  Batman
+
+                                                                                          Denizli                                                                                                   Niğde                                       Kahramanmaraş                                                  !                                   Dicle N.                                     ! Şırnak                                                                                      ! Hakkâri
+
+                                                                                                                                                                                                                                                                !                                                                                     Mardin
+
+                                                                                     Muğla !                                                                                                                                                                                                                                                                 !
+
+                                                                                                                                                                                   Karaman                                                    Osmaniye                  Gaziantep                                 !
+                                                                                                                                                                                                                                       ! Adana !                                  !
+                                                                                                                                                                                        !                                                                                                                          Şanlıurfa
+                                                                                                                                                                                                                                                                      Kilis
+                                                                                                                                                                                                 Mersin !
+                                                                                                                                                                                                                                                                          !
+                                                                                                                                                                                           Göksu N.
+
+                                                                                                                                                                                                                                                Hatay
+                                                                                                                                                                                                                                                    !
+
+35°K                                                                                                                                                           KUZEY KIBRIS                                                                                           SURİYE
+                                                                                                                                                           TÜRK CUMHURİYETİ
+
+                                                                                                                                                           Erenköy                 Lefkoşa                                                                                                                                                                                                       IRAK
+                                                                                                                                                                                          !
+
+                                                                                                                                                  GÜNEY KIBRIS RUM YÖNETİMİ
+
+                                                                                                                                                                                                                                                  LÜBNAN
+                                                                                                                                                                                                                                       Beyrut
+
+                                                                                                                                                                                                                                                  !
+
+                                                         AKDENİZ                                                                                                                                                                                                !                                                                                                                                                                                                                             Bağdat !
+
+                                                                                                                                                                                                                                                                 Şam
+
+                                                                                                                                                                                                                                                                                                                                                                                       TÜRKİYE'NİN MÜLKİ İDARE BÖLÜMLERİ İLE
+                                                                                                                                                                                                                                                                                                                                                                                          KARA VE DENİZ KOMŞULARI HARİTASI
+
+      Lİ BYA                                                                                                                                                                                                               FİLİSTİN                                                                                                                             BAŞKENT                          ! Ankara                                                                                                       ÜLKE SINIRI
+                                                                                                                                                                                                            Tel Aviv ! Batı Şeria                                                                                                                               İL MERKEZİ                       ! Elâzığ                                                                                                       ÖZERK BÖLGE SINIRI
+                                   MISIR                                                                                                                                                                                                                                                                                                                        GÖL                                                                                                                                             AKARSU
+                                                                                                                                                                                                                                          !
+                               25°D                                                                                                                                                  FİLİSTİN                                                                                                                                                                                          0 50 100                                                                                                            200  300                  400
+                                                                                                                                                                                   Gazze Şeridi                                        Doğu
+                                                                                                                                                            Süveyş K.                                                                  Kudüs                                                                                                                                                                                                                                                                                         km
+
+                                                                                                                                                                                                            İSRAİL                                                                                                                                                                               Harita Genel Müdürlüğü tarafından üretilmiştir.
+
+                                                                                                        30°D                                                                                                                  35°D                                                                                                                 40°D                                                                                                                                                         45°D
+                                                30°B                                                                                                             20°B                                        10°B                0°             10°D 20°D 30°D 40°D 50°D 60°D                                                                                                                                                                                                                                                                                         80°D                   100°D          120°D 130°D 140°D 150°D 160°D                                       170°D           180°
+
+                                                                                                                                                                 İZLANDA                        N
+
+                                                                                                                                                                                               o
+                                                                                                                                                                                           D
+
+                                                                                                                                                                                                    r                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Bering Denizi
+                                                                                                                                                                                                e
+
+                                                                                                                                                                                                    v
+                                                                                                                                                                                                n
+
+                                                                                                                                                                                                                 e
+                                                                                                                                                                                                             i
+                                                                               DB ea nr ei zn it s !
+                                                                                                                                                                                                                 ç
+                                                                                                                                                                                                             z
+
+                                                                                                                                                                                                             i
+
+                                                   DuİKRbBLluinİDARzNLeDEeŞnAyMİKi azKnRişLAoADLnmLedHIsrnKOatieLzrLidAamNBDSEBAeLrünkFsNeR.lPaArisN S AL!!!İYHUANAAVAAU!RtiSNnLN!KTaMİB!KRSU!HK!HSADRTRMVYAVNK!AM!NYDASSA!CR!oABBf!RyBUK!aeİoS!LrRpDlTGiePnOAAnANOMNhBRaİAüLMgİ!NkSOA!rYTeRNAAşKKVYNAaiNOşABr!sişOnMl!aooeRvOvlSaVLtt!EoDıKkUÇkOIhRBoVKIMKlDEmA!iReeLÖİvS.AnCAMVi.!RzY!iEinUNsÇDSkeAAnzizaiHkFeİ!lNsiLnkAi NDİLYaDdABRoori!gbnj.ainMNGsG..k.oRskOonveagUa G.                                              D  K  a   r            a                                                                                                               İndigirka N.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              e  n   i            zi                                                                          Lena N.
+
+     40°K                   Madrid                                                         K a r a d e n i z !                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Ohotsk Denizi                                                                                                      50°K
+     30°K      PORTELKizbİZon İSPANYA
+     20°K                              !                                                !  İ!SV                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         SAHA (YAKUT) C.
+     10°K  FAS
+                                                                    !DenTiizrei n                                                                                                                                                                                                                                                                                                                                                                                                                         Peçora N.  Usa N.
+                                                      T!unus
+                                     a Cebelitarık B.                                                                                                                                                                                                                                                                                                                                                                                                                          SevDevrinnaayNa.                              Obi N.                                                ONU                                                                                              TÜRK CUMHURİYETLERİ,
+                                             b 5 6 7 Ce!zayir                                                                                                                                                                                                                                                                                                                                                                                                                                             FEDERASY                                                                                                                                                                       TÜRK BÖLGELERİ
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    YA                                                                                                      10              l
+                                                                                           Po N.                                                                                                                                                                                                                                                                                                                                                                                S                                                                                                        9                                                                                      1 GAGAVUZ YERİ
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               TÜR                                                                                                                          TUVA C.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Yenisey N.Hotan N.                                                              2 KARAÇAY-ÇERKESYA                                                                                                                                   Ü
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Obi N.         SİNCAN UYGUR               k
+                                                                                                                                         Tuna N.                                                                                                                                                                                                                                                                                                                                                                                                                                     ÖZERK BÖLGESİ                                                                              3 KABARDİN-BALKARYA C.
+                                                                                                Adriyatik Denizi                                                                                                                                                                                                                                                                                                                                                                                                                                      İrtiş N.                                                                Baykal G.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                4AmurDN.AĞISTAN C.                                                                                                                                Y
+                                                                                   İTALYA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       5 ÇUVAŞİSTAN C.                                                                                                                   40°K
+                                                          TUNUS
+                                     CEZAYİR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Hulun G.                   6 TATARİSTAN C.                                                                                                                                Ü
+                                                A c ç d 1 Trablu!s                                                                                                                                                                                                                                                                                                                                                                                                                               Ural N.                                                                                                                                               Pekin !
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                7 BAŞKURT C.
+
+                                                                                                                                                                             Meriç N.                                                                                                                                                                                                                                                                                                                                                             Astana                                                                                                                        8 KARAKALPAKİSTAN C.                                                                                                              BY
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      !                                                                                                                             HALATTKAÜAYRSCKY.ATOC.PJaDpLooğUnuDLDeenUniziziKi LARI
+                                                                                                                                                                                                                                      Volga N.                                                                                                                                                                                                                                                                                                        İrtiş N.                                                          Ulan  bator                                             9
+                                                                                                                                                              !  Ege Denizi                                                                                                                                                                                                                                                                                                                                          Sırderya N.                                                                                                !                                               10
+           k d e n i z T Ü R K İeY E f 2g 3 4 8 NİJER
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               !
+
+                                                                                                                                                                                                A! nkara               GÜRVaCn GİS. TANNUArHu!ÇmATIiViyZfeAlEiNGsR.ÖBB.CaA. HkY!üDaCzeAanNrizi                                                                                                                                                                                                            KAZAKİSTAN                                                                                                 M O Ğ O L İ S TA N                                                                                                                                                                                           K
+
+                                            LİBYA                                                                                                                                                    Tuz G.                                                                                                                                                                                                                                                                                               Aral G.                                                                                                                                                               a Avru!pa'daki Türkler
+                                     ÇAD                                                                                                                                                        K! KTC
+                                                                                                                                                                             LGeKfkRoYşa                                                                                                                                                                                                                                                                                                                                                                  Balkaş G.                                                                                                             b Kosova! Türkleri                                                                                                                O 30°K
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    KMSa!ErAıkaNşmkİıaşSbGTa. ÖtAZNBEKİSTDAuNşaTanşbke!eT!nAt Cİ    Bişkek                                                           j                                                          c Yunanistan Türkleri
+
+                                                                                                                                                                       KahFirİeLİS                 SURİY     E         Dicle N.                                                                                                                                                                                                                                                                                                                                    !                                                                                                            ç   BAİISRrrSaaufuoagnklrrmgıaiyTTanDaerüeiünsinsrTrytikkztaüaamlDnernTokreTğDimüTnueürlüenkerÇrknilrizkenmililereierriinleri
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                d
+                                                                                                                                                                    !                      TİN  ! Şam                                                                                                                                                                                                                                                                                                                                                    Issık G.                                                                                                               e
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   KIRGIZİSTAN                                                                                                                  f
+                                                                                           MISIR                                                                                           ÜR! D!ÜANmman     Fırat N.Bağ!dat          !Tahran                                                                                                                                                                                                                                                                                                                                                                                               Sarı N.                             g
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  KİSTAN                                                                                                                        h
+
+                                                                                                                                                                                                                IRAK                  İRAN                                                                                                                                                                                                                                                                         h Kâbil                        JAM(İhMtilUaflVı EBöKlEgŞeM) İR                                    j
+
+                                                                                                                                                                       Kızıldeniz                                      KKuUve!VyEtYT                                                                                                                                                                                                                                                             AFGANİSTAN                !                          M Kontrol Hattı)             Tarafsız                                                                                     ı Pakistan Türkmenleri
+                                                                                                                                                                                                g SUUDİ                                                                                                                                                                                                                                                                                                                                                                             Bölge
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           İslamabad!                                                                                                    HHUARLİKY                              i Hindistan Türkmenleri
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           İ
+                                                      SUDAN                                                                                                                                                                                                                                                                                                                                                                                                                                                                İndus N.                                                                                            Çİ    N               E  T                       j   Çin H. C. Türkleri                                                                                                         ei pniinz2i0°K
+                                                                     Nil N.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (B                                                                           CU     M                                          k   Moğolistan Türkleri
+                                                                                                                                                                                                             ARABİ!RSiyTaAdN                                                                                                                                                                                                                                                                                            ı                                                                                                                                                       l   Rusya Federasyonu                                                                TürkFleirli
+                                                                                                                                                                                                                                 BEK!İDRMAoTLİRhAEaLRŞİAİK!KbLuAEDRRaAİbPi                                                                                                                                                                                                                                                                                Yeni Delhi                                                                                                                                                                                                        D
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          PAKİSTAN                                                 !
+
+                                     TÜRK DÜNYASI H! HaArtuRm İTASI                                                                                                                                                                                                       Hürmüz B.                                                                                                                                                                                                                                       i                                                                                                                                                         ÜLKE KISALTMALARI
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               !Muskat                                                                                             Ganj N.                                                                                      ARN AV UTLU K                                                                        ARN
+
+                                                                       Nil N.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       BANGLA!DDaEkŞka                                                             BELÇİKA                                                                              BEL
+                                     Bahrülgazel N.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                BOSNA - HERSEK                                                                       BH
+
+                                     Bağımsız Türk Devletleri                                                                                                    !                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              GÜNEY KIBRIS RUM YÖNETİMİ                                                            GKRY
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     HRV
+                                                                                                                                                                                                                                 UMMAN                                                                                                                                                                                                                                                                                                                HİN DİSTAN                                                                                                                                                                                                  !
+159
+                                                                                                                                                                                                                                 Yemen Denizi                                                                                                                                                                                                                                                                                                                                                                                                                                   HIRVATİSTAN
+
+                                     Türk Cumhuriyetleri, Türk Bölgeleri                                                                                                                        ! Sana YEMEN                                                                                                                                                                                                                                                                                                                                                                                                                                                                    İSV İÇ RE                                                                            İSV
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Umman Denizi                                                                                                                                                                                     KARADAĞ                                                                              KRD
+
+                                     Türk Toplulukları                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Güney Çin Denizi KOSOVA                                                                 KSV                                       10°K
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        KKTC
+                                     0 250 500  !     1.000                    1.500 !                                                                                                  !                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       KUZEY KIBRIS TÜRK CUMHURİYETİ                                                           KMKD
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                KUZEY MAKEDONYA
+                                                                                                                                                              2.000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             LİHT ENŞ TAYN                                                                        SDuSLeluİRnHBizi
+                                                                                                                                                                  km                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            SIR Bİ STA N
+
+                                     30°D                                                                                                               40°D                                                 50°D                               60°D                                                                                                                                                                                                                                                                 70°D                                             80°D                                  90°D                     100°D                                      110°D                                                                                120°D
+

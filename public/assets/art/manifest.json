@@ -1,0 +1,83 @@
+{
+  "characters": {
+    "findik": {
+      "wave": "characters/findik-wave.webp",
+      "idle": "characters/findik-idle.webp",
+      "cheer": "characters/findik-cheer.webp",
+      "think": "characters/findik-think.webp",
+      "surprised": "characters/findik-surprised.webp",
+      "sad": "characters/findik-sad.webp",
+      "clap": "characters/findik-clap.webp"
+    },
+    "kasif": {
+      "wave": "characters/kasif-wave.webp",
+      "think": "characters/kasif-think.webp",
+      "cheer": "characters/kasif-cheer.webp"
+    },
+    "robo": {
+      "idle": "characters/robo-idle.webp",
+      "cheer": "characters/robo-cheer.webp",
+      "think": "characters/robo-think.webp"
+    },
+    "sinif1": {
+      "idle": "characters/sinif1.webp"
+    },
+    "sinif2": {
+      "idle": "characters/sinif2.webp"
+    },
+    "sinif3": {
+      "idle": "characters/sinif3.webp"
+    },
+    "sinif4": {
+      "idle": "characters/sinif4.webp"
+    },
+    "kasif-pembe": {
+      "idle": "characters/kasif-pembe.webp"
+    },
+    "kasif-lacivert": {
+      "idle": "characters/kasif-lacivert.webp"
+    },
+    "kasif-mor": {
+      "idle": "characters/kasif-mor.webp"
+    },
+    "kasif-bilim": {
+      "idle": "characters/kasif-bilim.webp"
+    },
+    "kasif-sporcu": {
+      "idle": "characters/kasif-sporcu.webp"
+    },
+    "kasif-kis": {
+      "idle": "characters/kasif-kis.webp"
+    },
+    "kasif-okul": {
+      "idle": "characters/kasif-okul.webp"
+    },
+    "kasif-doga": {
+      "idle": "characters/kasif-doga.webp"
+    },
+    "kasif-uzay": {
+      "idle": "characters/kasif-uzay.webp"
+    },
+    "pet": {
+      "kopek": "characters/pet-kopek.webp",
+      "kedi": "characters/pet-kedi.webp",
+      "tavsan": "characters/pet-tavsan.webp",
+      "civciv": "characters/pet-civciv.webp",
+      "tilki": "characters/pet-tilki.webp",
+      "kaplumbaga": "characters/pet-kaplumbaga.webp",
+      "panda": "characters/pet-panda.webp",
+      "ejderha": "characters/pet-ejderha.webp"
+    }
+  },
+  "backgrounds": {
+    "forest": "backgrounds/bg-forest.webp",
+    "park": "backgrounds/bg-park.webp",
+    "meadow": "backgrounds/bg-meadow.webp",
+    "orchard": "backgrounds/bg-orchard.webp",
+    "glade": "backgrounds/bg-glade.webp",
+    "lab": "backgrounds/bg-lab.webp",
+    "town": "backgrounds/bg-town.webp",
+    "history": "backgrounds/bg-history.webp",
+    "world": "backgrounds/bg-world.webp"
+  }
+}

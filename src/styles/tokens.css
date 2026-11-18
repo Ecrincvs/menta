@@ -1,0 +1,61 @@
+/* ==========================================================
+   MİNİK KAŞİFLER — Tasarım Tokenları
+   Referans: docs/reference/minik-kasifler-referans.png
+   ========================================================== */
+:root {
+  /* Marka paleti */
+  --mk-turquoise: #2ec4c9;
+  --mk-turquoise-dark: #149aa0;
+  --mk-sky: #5ab8f5;
+  --mk-sky-light: #bfe6ff;
+  --mk-sky-dark: #2a7fd4;
+  --mk-green: #5bc236;
+  --mk-green-dark: #3a8f1d;
+  --mk-yellow: #ffd23f;
+  --mk-yellow-dark: #e8a40c;
+  --mk-orange: #ff9a2e;
+  --mk-orange-dark: #d8670b;
+  --mk-purple: #9b6ef3;
+  --mk-purple-dark: #6b43c4;
+  --mk-pink: #ff7aa8;
+  --mk-red: #f0504a;
+  --mk-red-dark: #b8302c;
+
+  /* Pasteller */
+  --mk-pastel-peach: #ffe3cc;
+  --mk-pastel-mint: #d6f5e3;
+  --mk-pastel-lilac: #eadfff;
+  --mk-pastel-sky: #dcf1ff;
+  --mk-pastel-lemon: #fff4c2;
+  --mk-pastel-rose: #ffe0ea;
+
+  /* Malzemeler */
+  --mk-cream: #fff8e9;
+  --mk-cream-2: #fdecc8;
+  --mk-cream-edge: #e9cf9c;
+  --mk-wood: #c98a4b;
+  --mk-wood-light: #e3a866;
+  --mk-wood-dark: #7a4a22;
+  --mk-ink: #4a2c17;          /* ana metin: krem üzerinde kontrast 10:1 */
+  --mk-ink-soft: #7b5a40;
+  --mk-white: #ffffff;
+
+  /* Ölçü */
+  --mk-radius-sm: 14px;
+  --mk-radius: 22px;
+  --mk-radius-lg: 32px;
+  --mk-touch: 72px;            /* minimum dokunma hedefi */
+  --mk-depth: 6px;             /* buton "kalınlığı" */
+
+  /* Tipografi */
+  --mk-font-display: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+  --mk-font-body: 'Nunito', system-ui, sans-serif;
+
+  /* Gölgeler */
+  --mk-shadow-soft: 0 10px 30px rgba(60, 35, 10, 0.18);
+  --mk-shadow-pop: 0 18px 40px rgba(40, 20, 0, 0.25);
+
+  /* Hareket */
+  --mk-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --mk-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
