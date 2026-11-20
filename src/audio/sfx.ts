@@ -78,6 +78,17 @@ const SOUNDS = {
     ;[1046.5, 1318.5, 1568, 2093].forEach((f, i) => tone(f, i * 0.05, 0.3, 'sine', 0.08))
   },
   whoosh: () => noise(0, 0.35, 0.06, 600),
+  /** ahşap kapı açılışı: alçak gıcırtı + hafif tık */
+  door: () => {
+    noise(0, 0.06, 0.05, 2400)
+    tone(150, 0.04, 0.55, 'sawtooth', 0.035, 205)
+    tone(95, 0.06, 0.5, 'triangle', 0.05, 128)
+  },
+  /** içeri adım: yükselen ışıltı */
+  enter: () => {
+    noise(0, 0.5, 0.05, 900)
+    ;[523, 659, 784, 1047].forEach((f, i) => tone(f, 0.05 + i * 0.07, 0.35, 'sine', 0.07))
+  },
   fanfare: () => {
     const n = [523.25, 659.25, 783.99, 1046.5, 783.99, 1046.5, 1318.5]
     n.forEach((f, i) => tone(f, i * 0.11, i === n.length - 1 ? 0.7 : 0.18, 'triangle', 0.13))

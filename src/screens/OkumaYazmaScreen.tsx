@@ -1,6 +1,6 @@
 /**
- * OKUMA YAZMA YOLU — 1. sınıf için ayrı dünya: kitaptaki harf sırasıyla 29 durak.
- * Bir durak bitince öğrenilen son harf otomatik ilerler (Harf Yolu ile senkron).
+ * OKUMA YAZMA YOLU — 1. sınıf için ayrı dünya: kitaptaki harf sırasıyla 29 harf adası.
+ * Harfe dokununca o harfin etkinlikleri (HarfScreen) açılır; adanın sonundaki oyun bitince öğrenilen son harf ilerler.
  */
 import { motion } from 'framer-motion'
 import { Backdrop } from '../components/Backdrop'
@@ -12,6 +12,7 @@ import { Mascot } from '../characters/Mascot'
 import { LETTER_ORDER } from '../content/letters'
 import { upperTR } from '../content/words'
 import { useGame } from '../state/store'
+import { harfOyunlari } from '../content/okumaYazmaGames'
 import { sfx } from '../audio/sfx'
 import { speak } from '../audio/speech'
 
@@ -26,7 +27,7 @@ const GROUPS = [
 export function OkumaYazmaScreen() {
   const { letterIdx, gameResults, go, back } = useGame()
   const next = Math.min(letterIdx + 1, LETTER_ORDER.length - 1)
-  const allDone = letterIdx >= LETTER_ORDER.length - 1 && !!gameResults[`oy-${LETTER_ORDER[LETTER_ORDER.length - 1]}`]
+  const allDone = letterIdx >= LETTER_ORDER.length - 1 && !!gameResults[`oy-${LETTER_ORDER[LETTER_ORDER.length - 1]}-oyun`]
   const msg = allDone ? 'Tebrikler! Bütün harfleri öğrendin. İstediğin durağı tekrar edebilirsin!' : `Sıradaki durağımız “${LETTER_ORDER[next]}” sesi! Öğrendiğin harfleri de istediğin zaman tekrar edebilirsin.`
 
   const open = (i: number) => {
@@ -37,7 +38,7 @@ export function OkumaYazmaScreen() {
       return
     }
     sfx('whoosh')
-    go({ name: 'game', gameId: `oy-${l}` })
+    go({ name: 'harf', letter: l })
   }
 
   return (
@@ -77,7 +78,9 @@ export function OkumaYazmaScreen() {
                 <div className="relative flex flex-wrap justify-around gap-y-4">
                   {letters.map((l, k) => {
                     const i = LETTER_ORDER.indexOf(l)
-                    const best = gameResults[`oy-${l}`]?.best ?? 0
+                    const acts = harfOyunlari(l)
+                    const doneN = acts.filter((a) => gameResults[a.id]).length
+                    const best = gameResults[`oy-${l}-oyun`]?.best ?? 0
                     const locked = i > next
                     const isNext = i === next && !allDone
                     const learned = i <= letterIdx
@@ -123,7 +126,12 @@ export function OkumaYazmaScreen() {
                             <span className="absolute -right-1 -top-1 grid h-7 w-7 place-items-center rounded-full bg-[var(--mk-green)] text-[14px] font-black text-white shadow">✓</span>
                           )}
                         </motion.span>
-                        <span className="mt-1 flex gap-0.5" aria-label={`${best} yıldız`}>
+                        {!locked && (
+                          <span className="mt-1 rounded-full bg-white/90 px-2 text-[12px] font-black text-[var(--mk-ink-soft)] shadow-sm" aria-label={`${doneN} / ${acts.length} etkinlik`}>
+                            {doneN}/{acts.length}
+                          </span>
+                        )}
+                        <span className="mt-0.5 flex gap-0.5" aria-label={`${best} yıldız`}>
                           {[1, 2, 3].map((s) => (
                             <svg key={s} viewBox="0 0 24 24" width="16" height="16" aria-hidden>
                               <path d="M12 1.5 L14.9 8.6 L22.5 9.2 L16.7 14.1 L18.5 21.6 L12 17.6 L5.5 21.6 L7.3 14.1 L1.5 9.2 L9.1 8.6 Z" fill={s <= best ? '#ffd23f' : '#eadcc0'} stroke={s <= best ? '#e8a40c' : '#d6c39e'} strokeWidth="1.5" />

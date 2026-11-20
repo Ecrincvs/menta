@@ -78,6 +78,8 @@
     "lab": "backgrounds/bg-lab.webp",
     "town": "backgrounds/bg-town.webp",
     "history": "backgrounds/bg-history.webp",
-    "world": "backgrounds/bg-world.webp"
+    "world": "backgrounds/bg-world.webp",
+    "door": "backgrounds/door.webp",
+    "door-open": "backgrounds/door-open.webp"
   }
 }

@@ -60,10 +60,17 @@ export function Hud() {
           <Obj name="star" size={36} shadow={false} />
           <AnimatedNumber value={stars} />
         </div>
-        <div className="mk-card flex items-center gap-1 rounded-full py-1 pl-1 pr-3" aria-label={`${coins} altın`}>
+        <button
+          onClick={() => {
+            sfx('tap')
+            go({ name: 'hazine', tab: 'album' })
+          }}
+          className="mk-card flex items-center gap-1 rounded-full py-1 pl-1 pr-3 transition active:scale-95"
+          aria-label={`${coins} altın. Çıkartma albümünü aç`}
+        >
           <Obj name="coin" size={36} shadow={false} />
           <AnimatedNumber value={coins} />
-        </div>
+        </button>
         <RoundIconButton label="Ayarlar" onClick={() => setOpen(true)} size={56}>
           <Obj name="gear" size={36} shadow={false} />
         </RoundIconButton>

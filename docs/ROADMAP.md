@@ -11,10 +11,14 @@
 - Görev tamamlandı ekranı, yıldız/altın/XP, günlük görevler, ebeveyn paneli (ebeveyn kapısı), ayarlar
 - Uçtan uca test (`npm run smoke`) + birim testleri
 
+## ✅ Aşama 4a — Ödül ve ekran süresi
+- Hazine Odam: 20 rozet (öğrenmeye bağlı, bonus altın, kutlama), 48 çıkartmalık albüm (çocuk seçer; rastgele paket yok)
+- Evcil dost ve arka planlar kazanılmış altınla sahiplenilir
+- Ebeveyn: günlük süre sınırı, mola hatırlatıcısı (20-20-20), uyku saati; oyun ortasında kesmez, ek süre ebeveyn kapısıyla
+
 ## Aşama 4 — İlerleme ve profil (sıradaki)
-- Rozet koleksiyonu ekranı, altınla avatar aksesuarı satın alma (yalnızca kazanılmış altınla)
 - Yeni bölge açılımları (ders içi patika haritası)
-- Ebeveyn paneli: haftalık özet, beceri bazlı öneri kartları, süre hatırlatıcısı ayarı
+- Ebeveyn paneli: haftalık özet, beceri bazlı öneri kartları
 - Çoklu çocuk profili (aynı cihazda)
 - Profesyonel Türkçe seslendirme dosyaları entegrasyonu
 

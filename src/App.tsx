@@ -9,6 +9,10 @@ import { SubjectScreen } from './screens/SubjectScreen'
 import { AvatarScreen } from './screens/AvatarScreen'
 import { ParentScreen } from './screens/ParentScreen'
 import { OkumaYazmaScreen } from './screens/OkumaYazmaScreen'
+import { HarfScreen } from './screens/HarfScreen'
+import { TreasureScreen } from './screens/TreasureScreen'
+import { BadgeToast } from './components/BadgeToast'
+import { ScreenTimeGuard } from './components/ScreenTimeGuard'
 import { GameHost } from './games/GameHost'
 import { LoadingIsland } from './components/LoadingIsland'
 import { stopSpeaking } from './audio/speech'
@@ -21,6 +25,7 @@ const PaintedWorld = lazy(() => import('./world/PaintedWorld'))
 function screenKey(s: Screen) {
   if (s.name === 'subject') return `subject-${s.subject}`
   if (s.name === 'game') return `game-${s.gameId}`
+  if (s.name === 'harf') return `harf-${s.letter}`
   return s.name
 }
 
@@ -35,6 +40,12 @@ export default function App() {
   setLearnedIdx(letterIdx ?? 11)
   const select = (s: SubjectId) => window.dispatchEvent(new CustomEvent('mk-select', { detail: s }))
   const worldVisible = screen.name === 'welcome' || screen.name === 'world'
+  const stepIn = screen.name === 'subject' && !!useGame.getState().veil
+
+  // ilk açılış: önceki ilerlemeden hak edilmiş rozetleri sessizce ver (eski kayıtlar için)
+  useEffect(() => {
+    useGame.getState().checkBadges(true)
+  }, [])
 
   useEffect(() => {
     // ekran değişince yarım kalan konuşmayı kes, odak sıfırla
@@ -70,10 +81,11 @@ export default function App() {
           <motion.div
             key={screenKey(screen)}
             className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.03 }}
+            // binadan giriş: ders dünyası ışığın içinden, içeri adım atmış gibi hafif büyükten yerine oturur
+            initial={stepIn ? { opacity: 1, scale: 1.02 } : { opacity: 0, scale: 1.03 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={stepIn ? { duration: 0.8, ease: [0.16, 1, 0.3, 1] } : { duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             style={{ pointerEvents: 'none' }}
           >
             {/* dünya ekranında katman tıklamaları 3D sahneye geçirir; etkileşimli öğeler kendileri 'auto' alır */}
@@ -86,10 +98,38 @@ export default function App() {
               {screen.name === 'avatar' && <AvatarScreen />}
               {screen.name === 'parent' && <ParentScreen />}
               {screen.name === 'okuma-yazma' && <OkumaYazmaScreen />}
+              {screen.name === 'harf' && <HarfScreen letter={screen.letter} />}
+              {screen.name === 'hazine' && <TreasureScreen initialTab={screen.tab} />}
             </div>
           </motion.div>
         </AnimatePresence>
+        {/* her ekranın üstünde: yeni rozet kutlaması ve ekran süresi koruyucusu */}
+        <Veil />
+        <BadgeToast />
+        <ScreenTimeGuard />
       </div>
     </MotionConfig>
+  )
+}
+
+/** Binaya giriş perdesi: dünya ekranı kapanır kapanmaz içerinin görüntüsü ekranı kaplar (boş kare olmaz), ders dünyası açılınca söner */
+function Veil() {
+  const veil = useGame((s) => s.veil)
+  const setVeil = useGame((s) => s.setVeil)
+  const leaving = useGame((s) => s.screen.name !== 'world')
+  return (
+    <AnimatePresence>
+      {veil && leaving && (
+        <motion.div
+          key="veil"
+          className="pointer-events-none fixed inset-0 z-[60]"
+          style={{ background: veil }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ delay: 0.35, duration: 0.8, ease: 'easeOut' }}
+          onAnimationComplete={() => setVeil(null)}
+        />
+      )}
+    </AnimatePresence>
   )
 }

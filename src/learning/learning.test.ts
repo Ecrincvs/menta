@@ -10,7 +10,7 @@ import { GENERATORS } from '../content/generators'
 import { LETTER_ORDER, isAllowed, setLearnedIdx } from '../content/letters'
 import type { Question, Visual } from '../games/quiz/types'
 import { STAGES } from '../content/okumaYazma'
-import { stationSteps } from '../content/generators/okumaYazma'
+import { harfEtkinlikleri } from '../content/generators/harfEtkinlik'
 
 const run = (seq: boolean[], start?: SkillStat) => seq.reduce<SkillStat>((s, c) => updateSkill(s, c), start ?? emptySkill())
 const imgExists = (n: string) => fs.existsSync(`public/assets/objects/${n}.png`)
@@ -116,6 +116,14 @@ function validate(q: Question, where: string) {
         if (o.img) expect(imgExists(o.img), `${where} ${o.img}`).toBe(true)
         for (const i of visualImgs(o.visual)) expect(imgExists(i), `${where} ${i}`).toBe(true)
       }
+  } else if (q.type === 'pop') {
+    const hit = q.items.filter((x) => (q.target.length === 1 && x.length === 1 ? x === q.target : x.toLocaleLowerCase('tr-TR').includes(q.target.toLocaleLowerCase('tr-TR'))))
+    expect(hit.length, `${where} balon: yeterli doğru balon`).toBeGreaterThanOrEqual(q.need)
+    expect(q.need, where).toBeGreaterThanOrEqual(2)
+    expect(q.items.length - hit.length, `${where} balon: çeldirici`).toBeGreaterThanOrEqual(2)
+  } else if (q.type === 'search') {
+    expect(q.words.length, where).toBeGreaterThanOrEqual(3)
+    for (const p of q.placed) expect(p.cells.map(([r, c]) => q.grid[r][c]).join(''), `${where} kelime yerleşimi`).toBe(p.word)
   } else if (q.type === 'trace') {
     expect(q.letter.length, where).toBe(1)
   } else if (q.type === 'input') {
@@ -321,28 +329,54 @@ describe('1. sınıf Matematik — kitap sınırları', () => {
   })
 })
 
-describe('Okuma Yazma Yolu — 29 durak', () => {
-  it('kitaptaki harf sırasıyla 29 durak var', () => {
+describe('Okuma Yazma Yolu — 29 harf adası', () => {
+  const visible = (q: Question): string[] => {
+    if (q.type === 'choice') return [...q.options.map((o) => o.label ?? ''), ...(q.visual?.kind === 'word' ? [q.visual.word] : []), ...(q.passage ? [q.passage.text] : [])]
+    if (q.type === 'order') return [...q.pieces, ...(q.extra ?? [])]
+    if (q.type === 'match') return q.pairs.flatMap((p) => [p.left.label ?? '', p.right.label ?? ''])
+    if (q.type === 'memory') return q.pairs.flatMap((p) => [p.a.label ?? '', p.b.label ?? ''])
+    if (q.type === 'input') return [q.answer, ...(q.keys === 'digits' ? [] : q.keys)]
+    if (q.type === 'pop') return q.items
+    if (q.type === 'search') return [...q.words, ...q.grid.flat()]
+    if (q.type === 'trace') return [q.letter]
+    return q.items.map((x) => x.label)
+  }
+  it('kitaptaki harf sırasıyla 29 harf', () => {
     expect(STAGES.map((x) => x.letter)).toEqual(LETTER_ORDER)
   })
+  it('her harfte en az 4 etkinlik ve sonda oyun; toplamda 250+ etkinlik', () => {
+    let n = 0
+    for (const l of LETTER_ORDER) {
+      const k = harfEtkinlikleri(l)
+      expect(k.length, l).toBeGreaterThanOrEqual(4)
+      expect(k[k.length - 1], l).toBe('oyun')
+      n += k.length
+    }
+    expect(n).toBeGreaterThanOrEqual(250)
+  })
   for (const st of STAGES) {
-    it(`“${st.letter}” durağı yalnızca öğrenilmiş harfleri kullanır ve her adım geçerli`, () => {
+    it(`“${st.letter}” adası: tüm etkinlikler geçerli ve yalnızca öğrenilmiş harfler`, () => {
       const idx = LETTER_ORDER.indexOf(st.letter)
       const texts = [...st.heceler, ...st.kelimeler, ...(st.cumleler ?? []), ...(st.metin ? [st.metin.text, st.metin.a, ...st.metin.w] : [])]
       for (const t of texts) expect(isAllowed(t, idx), `${st.letter}: “${t}”`).toBe(true)
       setLearnedIdx(idx)
-      const steps = stationSteps(st.letter)
-      expect(steps.length).toBeGreaterThanOrEqual(3)
-      const rng = makeRng(idx + 1)
-      const hist: Question[] = []
-      for (let i = 0; i < steps.length * 2; i++) {
-        const q = GENERATORS[`oy-${st.letter}`](rng, 1, 1, hist)
-        validate(q, `oy-${st.letter} #${i}`)
-        hist.push(q)
+      for (const kind of harfEtkinlikleri(st.letter)) {
+        const id = `oy-${st.letter}-${kind}`
+        const meta = GAMES.find((g) => g.id === id)
+        expect(meta, id).toBeTruthy()
+        expect(GENERATORS[id], id).toBeTypeOf('function')
+        for (let run = 0; run < 3; run++) {
+          const rng = makeRng(idx * 13 + run + kind.length)
+          const hist: Question[] = []
+          for (let i = 0; i < meta!.total; i++) {
+            const q = GENERATORS[id](rng, 1, 1, hist)
+            validate(q, `${id} #${i}`)
+            for (const t of visible(q)) expect(isAllowed(t, idx), `${id} #${i}: “${t}”`).toBe(true)
+            hist.push(q)
+          }
+        }
       }
       setLearnedIdx(11)
     })
   }
 })
-
-

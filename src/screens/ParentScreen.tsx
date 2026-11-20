@@ -9,6 +9,7 @@ import { useGame } from '../state/store'
 import { GAMES, gameById } from '../content/games'
 import { mastery } from '../learning/mastery'
 import { GRADES } from '../content/grades'
+import { BEDTIME_OPTIONS, BREAK_OPTIONS, DAILY_OPTIONS, dayKey } from '../state/screenTime'
 
 const SKILL_LABELS: Record<string, string> = {
   'turkce.ses.ilkses': 'Ses farkındalığı (ilk/son ses)',
@@ -58,6 +59,8 @@ export function ParentScreen() {
         <Kpi icon="target" label="Ortalama başarı" value={`%${Math.round(avgAcc * 100)}`} />
         <Kpi icon="clock" label="Toplam süre" value={`${totalMin} dk`} />
         <Kpi icon="star" label="Kazanılan yıldız" value={String(st.stars)} />
+
+        <ScreenTimeSection />
 
         <section className="mk-card p-4 md:col-span-2">
           <h2 className="mk-display mb-3 text-[22px]">Ders performansı</h2>
@@ -140,6 +143,90 @@ export function ParentScreen() {
           </div>
         </section>
       </main>
+    </div>
+  )
+}
+
+/** Ekran süresi: bugünkü kullanım, son 7 gün, sınır ayarları */
+function ScreenTimeSection() {
+  const { usage, limits, setLimits, extra, grantExtra } = useGame()
+  const today = dayKey()
+  const used = Math.round((usage[today] ?? 0) / 60)
+  const extraToday = extra.day === today ? extra.min : 0
+  const cap = limits.dailyMin > 0 ? limits.dailyMin + extraToday : 0
+  const days = Array.from({ length: 7 }).map((_, i) => {
+    const d = new Date()
+    d.setDate(d.getDate() - (6 - i))
+    const key = dayKey(d)
+    return { key, label: d.toLocaleDateString('tr-TR', { weekday: 'short' }), min: Math.round((usage[key] ?? 0) / 60) }
+  })
+  const maxMin = Math.max(limits.dailyMin || 0, 10, ...days.map((d) => d.min))
+
+  return (
+    <section className="mk-card p-4 md:col-span-4" aria-labelledby="st-h">
+      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="st-h" className="mk-display text-[22px]">
+          Ekran süresi
+        </h2>
+        <p className="text-[14px] font-bold text-[var(--mk-ink-soft)]">Oyun ortasında kesilmez: mola ve süre sonu, açık oyun bitince gösterilir.</p>
+      </div>
+      <div className="grid gap-5 md:grid-cols-2">
+        <div>
+          <p className="mk-display text-[34px] leading-none">
+            {used} dk
+            <span className="ml-2 text-[16px] text-[var(--mk-ink-soft)]">{cap ? `/ ${cap} dk bugün` : 'bugün (sınır yok)'}</span>
+          </p>
+          {cap > 0 && (
+            <div className="mt-2 h-3 overflow-hidden rounded-full bg-[#efe3c8]">
+              <div className="h-full rounded-full" style={{ width: `${Math.min(100, (used / cap) * 100)}%`, background: used >= cap ? 'var(--mk-red)' : 'var(--mk-green)' }} />
+            </div>
+          )}
+          <div className="relative mt-4 flex h-[110px] items-end gap-2" role="img" aria-label="Son yedi günde oynanan dakika">
+            {limits.dailyMin > 0 && <div className="absolute inset-x-0 border-t-2 border-dashed border-[var(--mk-red)]/50" style={{ bottom: `${(limits.dailyMin / maxMin) * 80 + 20}px` }} />}
+            {days.map((d) => (
+              <div key={d.key} className="flex flex-1 flex-col items-center gap-1">
+                <span className="text-[12px] font-black text-[var(--mk-ink-soft)]">{d.min || ''}</span>
+                <div className="w-full rounded-t-lg bg-[var(--mk-sky)]" style={{ height: `${(d.min / maxMin) * 80}px`, minHeight: d.min ? 6 : 2, opacity: d.min ? 1 : 0.25 }} />
+                <span className="text-[12px] font-bold">{d.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <OptionRow label="Günlük süre sınırı" value={limits.dailyMin} options={DAILY_OPTIONS} fmt={(v) => (v ? `${v} dk` : 'Sınırsız')} onPick={(v) => setLimits({ dailyMin: v })} />
+          <OptionRow label="Mola hatırlatıcısı" value={limits.breakEvery} options={BREAK_OPTIONS} fmt={(v) => (v ? `${v} dk'da bir` : 'Kapalı')} onPick={(v) => setLimits({ breakEvery: v })} />
+          <OptionRow label="Uyku saati (sabah 06:00'ya kadar)" value={limits.bedtime} options={BEDTIME_OPTIONS} fmt={(v) => v || 'Kapalı'} onPick={(v) => setLimits({ bedtime: v })} />
+          {(limits.dailyMin > 0 || limits.bedtime) && (
+            <div className="flex flex-wrap items-center gap-2">
+              <CandyButton color="sky" onClick={() => grantExtra(15)} className="!min-h-[48px] !px-5 !text-[16px]">
+                Bugün için +15 dk
+              </CandyButton>
+              {extraToday > 0 && <span className="text-[14px] font-bold text-[var(--mk-ink-soft)]">Bugün verilen ek süre: {extraToday} dk</span>}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function OptionRow<T extends string | number>({ label, value, options, fmt, onPick }: { label: string; value: T; options: T[]; fmt: (v: T) => string; onPick: (v: T) => void }) {
+  return (
+    <div>
+      <p className="mb-1 text-[15px] font-black">{label}</p>
+      <div className="flex flex-wrap gap-1.5" role="radiogroup" aria-label={label}>
+        {options.map((o) => (
+          <button
+            key={String(o)}
+            role="radio"
+            aria-checked={o === value}
+            onClick={() => onPick(o)}
+            className={`min-h-[40px] rounded-xl px-3 text-[15px] font-extrabold transition ${o === value ? 'bg-[var(--mk-turquoise)] text-white shadow-[0_3px_0_#149aa0]' : 'bg-white/80 shadow-[0_2px_0_#e2cfa6]'}`}
+          >
+            {fmt(o)}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }

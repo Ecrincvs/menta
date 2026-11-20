@@ -114,7 +114,26 @@ export interface TraceQ extends Base {
   letter: string
 }
 
-export type Question = ChoiceQ | OrderQ | SortQ | MatchQ | InputQ | MemoryQ | TraceQ
+/** Balon Patlat (harf oyunu): yükselen balonlardan hedef harfi/heceyi içerenleri patlat */
+export interface PopQ extends Base {
+  type: 'pop'
+  /** hedef harf (balon etiketi bunu içeriyorsa doğru) */
+  target: string
+  items: string[]
+  /** kaç doğru balon patlatılınca biter */
+  need: number
+}
+
+/** Kelime Avı (harf oyunu): tabloda yatay/dikey saklanan kelimeleri bul */
+export interface SearchQ extends Base {
+  type: 'search'
+  grid: string[][]
+  words: string[]
+  /** kelimelerin hücreleri [satır, sütun] */
+  placed: { word: string; cells: [number, number][] }[]
+}
+
+export type Question = ChoiceQ | OrderQ | SortQ | MatchQ | InputQ | MemoryQ | TraceQ | PopQ | SearchQ
 
 /** Etkinlik başındaki kısa konu anlatımı (kitaptaki ÖĞRENELİM kutusu gibi) */
 export interface Lesson {

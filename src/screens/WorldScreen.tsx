@@ -10,7 +10,9 @@ import type { SubjectId } from '../content/types'
 import { useGame } from '../state/store'
 import { sfx } from '../audio/sfx'
 import { GRADES } from '../content/grades'
-import { gameById } from '../content/games'
+import { gameById, gamesFor } from '../content/games'
+import { ENTER_MS } from '../world/enter'
+import type { ReactNode } from 'react'
 
 /**
  * ANA DÜNYA — 3D sahnenin üzerindeki arayüz katmanı.
@@ -21,7 +23,8 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
   const gm = GRADES.find((g) => g.grade === grade)
   const [msg, setMsg] = useState(gm ? `${gm.world}'ne hoş geldin! Bir binaya dokun ve keşfe başla.` : 'Bir binaya dokun ve keşfe başla!')
   const [pose, setPose] = useState<MascotPose>('wave')
-  const [questsOpen, setQuestsOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const world3d = useGame((s) => s.settings.world3d)
 
   useEffect(() => {
     const onSel = (e: Event) => {
@@ -38,7 +41,9 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
       setPose('cheer')
       setMsg(`Hadi ${s.name}'na gidelim!`)
       setFocus(id)
-      setTimeout(() => go({ name: 'subject', subject: id }), 1100)
+      // boyanmış dünyada kapıdan giriş geçişi bitince (3D dünyada kamera uçuşu) ders dünyasına geç
+      const painted = !useGame.getState().settings.world3d
+      setTimeout(() => go({ name: 'subject', subject: id }), painted ? ENTER_MS : 1100)
     }
     const onTreasure = () => {
       setPose('cheer')
@@ -69,49 +74,30 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
     { id: 'star3', label: '3 yıldız kazan', icon: 'star', done: todays.some((s) => s.stars === 3) },
   ]
   const allDone = quests.every((q) => q.done)
+  // bugün kazanılan rozet sayısı (Hazinem düğmesinde rozet işareti)
+  const badges = useGame((s) => s.badges)
+  const newBadges = Object.values(badges).filter((d) => d.slice(0, 10) === today).length
+  const doneN = quests.filter((q) => q.done).length
+  // menü öğesi: önce paneli kapat, sonra git (geçiş animasyonu üst üste binmesin)
+  const open = (fn: () => void) => {
+    sfx('whoosh')
+    setMenuOpen(false)
+    setTimeout(fn, 180)
+  }
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [menuOpen])
 
   return (
-    <div className="absolute inset-0" style={{ pointerEvents: 'none' }}>
+    <motion.div className="absolute inset-0" style={{ pointerEvents: 'none' }} animate={{ opacity: focus && !world3d ? 0 : 1 }} transition={{ duration: 0.35 }}>
       <div className="absolute left-3 top-2 origin-top-left scale-[0.8] sm:left-5 sm:top-3 sm:scale-100" style={{ pointerEvents: 'auto' }}>
         <Logo size="sm" />
       </div>
       <div className="absolute right-3 top-3 z-30 sm:right-5" style={{ pointerEvents: 'auto' }}>
         <Hud />
-      </div>
-
-      {/* günlük görevler: açılır rozet (dünya tabelalarını kapatmaz) */}
-      <div className="absolute bottom-[86px] right-3 z-20 flex flex-col items-end gap-2" style={{ pointerEvents: 'auto' }}>
-        <AnimatePresence>
-          {questsOpen && (
-            <motion.aside
-              initial={{ y: 20, opacity: 0, scale: 0.9 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: 20, opacity: 0, scale: 0.9 }}
-              className="mk-card flex w-[240px] flex-col gap-1.5 p-3"
-              aria-label="Günlük görevler"
-            >
-              {quests.map((q) => (
-                <div key={q.id} className={`flex items-center gap-2 rounded-xl px-2 py-1 ${q.done ? 'bg-[var(--mk-pastel-mint)]' : 'bg-white/60'}`}>
-                  <Obj name={q.icon} size={26} shadow={false} />
-                  <span className={`flex-1 text-[15px] font-extrabold ${q.done ? 'text-[var(--mk-green-dark)] line-through' : ''}`}>{q.label}</span>
-                  <span className={`grid h-6 w-6 place-items-center rounded-full text-[14px] font-black text-white ${q.done ? 'bg-[var(--mk-green)]' : 'bg-[#e3d2ae]'}`}>{q.done ? '✓' : ''}</span>
-                </div>
-              ))}
-              {allDone && <p className="text-center text-[14px] font-extrabold text-[var(--mk-green-dark)]">Bugünlük harika iş! Biraz dinlenme zamanı.</p>}
-            </motion.aside>
-          )}
-        </AnimatePresence>
-        <button
-          onClick={() => {
-            sfx('tap')
-            setQuestsOpen((o) => !o)
-          }}
-          aria-expanded={questsOpen}
-          className="mk-card flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-4 transition active:scale-95"
-        >
-          <Obj name="map" size={34} shadow={false} />
-          <span className="mk-display text-[17px]">Görevler {quests.filter((q) => q.done).length}/3</span>
-        </button>
       </div>
 
       {/* Fındık + mesaj */}
@@ -137,46 +123,103 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
         </div>
       </motion.div>
 
-      {/* hızlı erişim düğmeleri (erişilebilirlik: 3D'ye dokunmadan da ders seçilebilsin) */}
-      <nav className="absolute bottom-3 right-3 flex gap-2" style={{ pointerEvents: 'auto' }} aria-label="Dünyalar">
-        {grade === 1 && (
-          <motion.button
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.92 }}
-            onClick={() => {
-              sfx('whoosh')
-              go({ name: 'okuma-yazma' })
-            }}
-            className="mk-card flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-4"
-            style={{ borderColor: '#e8463c' }}
-            aria-label="Okuma Yazma Yolu"
-          >
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-[#ffe3d9]">
-              <Obj name="abc" size={36} shadow={false} />
-            </span>
-            <span className="mk-display hidden text-[18px] lg:inline">Okuma Yazma</span>
-          </motion.button>
-        )}
-        {SUBJECTS.filter((s) => subjectOpenFor(s.id, grade)).map((s) => (
-          <motion.button
-            key={s.id}
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.92 }}
-            onClick={() => window.dispatchEvent(new CustomEvent('mk-select', { detail: s.id }))}
-            className="mk-card flex items-center gap-2 rounded-full py-1.5 pl-1.5 pr-4"
-            style={{ borderColor: s.accent }}
-            aria-label={s.name}
-          >
-            <span className="grid h-12 w-12 place-items-center rounded-full" style={{ background: s.pastel }}>
-              <Obj name={s.icon} size={36} shadow={false} />
-            </span>
-            <span className="mk-display hidden text-[18px] lg:inline">{s.short}</span>
-          </motion.button>
-        ))}
-      </nav>
+      {/* YAN MENÜ: sağ kenardaki "Menü" düğmesi → yandan açılan panel (dünyalar, hazine, görevler, kaşif) */}
+      <motion.button
+        initial={{ x: 120 }}
+        animate={{ x: menuOpen ? 120 : 0 }}
+        transition={{ type: 'spring', stiffness: 220, damping: 20, delay: menuOpen ? 0 : 0.5 }}
+        whileTap={{ scale: 0.94 }}
+        onClick={() => {
+          sfx('tap')
+          setMenuOpen(true)
+        }}
+        aria-expanded={menuOpen}
+        aria-controls="yan-menu"
+        aria-label="Menüyü aç"
+        className="absolute right-0 top-1/2 z-30 flex flex-col items-center gap-1 rounded-l-[26px] py-4 pl-3 pr-2.5 text-white"
+        style={{ y: '-50%', pointerEvents: 'auto', background: 'linear-gradient(180deg,#8e6cf0,#6b43c4)', boxShadow: '-4px 6px 0 #4a2c9a, -6px 10px 22px rgba(30,10,70,0.35)', border: '3px solid #d9c8ff', borderRight: 'none' }}
+      >
+        <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/20">
+          <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden>
+            <path d="M4 6.5h16M4 12h16M4 17.5h16" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+          </svg>
+          {(newBadges > 0 || doneN < 3) && (
+            <span className="absolute -right-1 -top-1 grid h-6 min-w-6 place-items-center rounded-full border-2 border-white bg-[var(--mk-red)] px-1 text-[12px] font-black">{newBadges > 0 ? newBadges : '!'}</span>
+          )}
+        </span>
+        <span className="mk-display text-[16px] leading-none">Menü</span>
+      </motion.button>
 
       <AnimatePresence>
-        {focus && (
+        {menuOpen && (
+          <>
+            <motion.div
+              className="absolute inset-0 z-40 bg-[rgba(30,20,60,0.35)] backdrop-blur-[2px]"
+              style={{ pointerEvents: 'auto' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMenuOpen(false)}
+              aria-hidden
+            />
+            <motion.aside
+              id="yan-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menü"
+              className="absolute bottom-0 right-0 top-0 z-50 flex w-[min(380px,92vw)] flex-col gap-3 overflow-y-auto p-4"
+              style={{ pointerEvents: 'auto', background: 'linear-gradient(180deg,#fffaf0 0%,#fbefd6 100%)', boxShadow: '-10px 0 40px rgba(30,10,60,0.35)', borderLeft: '5px solid #d9b77a', borderRadius: '28px 0 0 28px' }}
+              initial={{ x: '105%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '105%' }}
+              transition={{ type: 'spring', stiffness: 260, damping: 28 }}
+            >
+              <div className="flex items-center justify-between">
+                <h2 className="mk-title text-[32px]">Menü</h2>
+                <button
+                  onClick={() => {
+                    sfx('tap')
+                    setMenuOpen(false)
+                  }}
+                  aria-label="Menüyü kapat"
+                  className="grid h-12 w-12 place-items-center rounded-full bg-white text-[24px] font-black text-[var(--mk-ink-soft)] shadow-[0_3px_0_#e2cfa6] active:scale-90"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <MenuGroup title="Dünyalar">
+                {grade === 1 && <MenuItem icon="abc" bg="#ffe3d9" label="Okuma Yazma Yolu" sub="29 harf durağı" onClick={() => open(() => go({ name: 'okuma-yazma' }))} />}
+                {SUBJECTS.filter((s) => subjectOpenFor(s.id, grade)).map((s) => (
+                  <MenuItem key={s.id} icon={s.icon} bg={s.pastel} label={s.name} sub={`${gamesFor(s.id, grade ?? 1).length} etkinlik`} onClick={() => open(() => window.dispatchEvent(new CustomEvent('mk-select', { detail: s.id })))} />
+                ))}
+              </MenuGroup>
+
+              <MenuGroup title="Günlük Görevler" right={`${doneN}/3`}>
+                <div className="flex flex-col gap-1.5 rounded-2xl bg-white/70 p-2">
+                  {quests.map((q) => (
+                    <div key={q.id} className={`flex items-center gap-2 rounded-xl px-2 py-1.5 ${q.done ? 'bg-[var(--mk-pastel-mint)]' : ''}`}>
+                      <Obj name={q.icon} size={28} shadow={false} />
+                      <span className={`flex-1 text-[16px] font-extrabold ${q.done ? 'text-[var(--mk-green-dark)] line-through' : ''}`}>{q.label}</span>
+                      <span className={`grid h-7 w-7 place-items-center rounded-full text-[15px] font-black text-white ${q.done ? 'bg-[var(--mk-green)]' : 'bg-[#e3d2ae]'}`}>{q.done ? '✓' : ''}</span>
+                    </div>
+                  ))}
+                  {allDone && <p className="px-2 text-[14px] font-extrabold text-[var(--mk-green-dark)]">Bugünlük harika iş! Biraz dinlenme zamanı.</p>}
+                </div>
+              </MenuGroup>
+
+              <MenuGroup title="Benim Köşem">
+                <MenuItem icon="trophy" bg="#fff1c2" label="Hazine Odam" sub="Rozetler ve çıkartma albümü" badge={newBadges} onClick={() => open(() => go({ name: 'hazine' }))} />
+                <MenuItem icon="paint" bg="#efe6ff" label="Kaşifimi Tasarla" sub="Kaşif, evcil dost, arka plan" onClick={() => open(() => go({ name: 'avatar' }))} />
+              </MenuGroup>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {/* 3D dünyada beyaz geçiş; boyanmış dünyada kapı + ışık geçişi PaintedWorld içinde */}
+        {focus && world3d && (
           <motion.div
             className="absolute inset-0 bg-white"
             initial={{ opacity: 0 }}
@@ -185,6 +228,42 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
           />
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
+  )
+}
+
+function MenuGroup({ title, right, children }: { title: string; right?: string; children: ReactNode }) {
+  return (
+    <section className="flex flex-col gap-2">
+      <h3 className="flex items-center justify-between px-1 text-[13px] font-black uppercase tracking-wider text-[var(--mk-ink-soft)]">
+        {title}
+        {right && <span className="rounded-full bg-white px-2 py-0.5 text-[13px] shadow-sm">{right}</span>}
+      </h3>
+      {children}
+    </section>
+  )
+}
+
+function MenuItem({ icon, bg, label, sub, badge, onClick }: { icon: string; bg: string; label: string; sub: string; badge?: number; onClick: () => void }) {
+  return (
+    <motion.button
+      whileHover={{ x: -4 }}
+      whileTap={{ scale: 0.97 }}
+      onClick={onClick}
+      aria-label={label}
+      className="flex min-h-[66px] items-center gap-3 rounded-2xl bg-white px-2.5 py-2 text-left shadow-[0_3px_0_#e2cfa6]"
+    >
+      <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl" style={{ background: bg }}>
+        <Obj name={icon} size={36} shadow={false} />
+        {!!badge && <span className="absolute -right-1.5 -top-1.5 grid h-6 min-w-6 place-items-center rounded-full border-2 border-white bg-[var(--mk-red)] px-1 text-[12px] font-black text-white">{badge}</span>}
+      </span>
+      <span className="flex flex-1 flex-col">
+        <span className="mk-display text-[19px] leading-tight">{label}</span>
+        <span className="text-[13px] font-bold text-[var(--mk-ink-soft)]">{sub}</span>
+      </span>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden>
+        <path d="M9 5l7 7-7 7" stroke="#c9a978" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </motion.button>
   )
 }

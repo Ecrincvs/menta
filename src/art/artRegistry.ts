@@ -7,7 +7,7 @@
 import { create } from 'zustand'
 
 export type CharacterId = 'findik' | 'kasif' | 'robo' | 'sinif1' | 'sinif2' | 'sinif3' | 'sinif4' | 'pet' | `kasif-${string}`
-export type BackgroundId = 'world' | 'forest' | 'park' | 'meadow' | 'glade' | 'orchard' | 'sky' | 'lab' | 'town' | 'history'
+export type BackgroundId = 'world' | 'forest' | 'park' | 'meadow' | 'glade' | 'orchard' | 'sky' | 'lab' | 'town' | 'history' | 'door' | 'door-open'
 
 export interface ArtManifest {
   /** karakter → poz → dosya (art/ altına göre) */

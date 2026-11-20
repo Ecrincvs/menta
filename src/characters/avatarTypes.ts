@@ -176,16 +176,17 @@ export const ACCESSORIES: AccItem[] = [
 ]
 
 // ───────── evcil dost, özel özellik, arka plan
+/** cost: altın (yalnızca oyunla kazanılmış altın; bir kez alınır) */
 export const PETS: { id: string; label: string; cost: number }[] = [
   { id: 'yok', label: 'Yok', cost: 0 },
   { id: 'kopek', label: 'Köpek', cost: 0 },
   { id: 'kedi', label: 'Kedi', cost: 0 },
   { id: 'tavsan', label: 'Tavşan', cost: 0 },
   { id: 'civciv', label: 'Civciv', cost: 0 },
-  { id: 'tilki', label: 'Tilki', cost: 5 },
-  { id: 'kaplumbaga', label: 'Kaplumbağa', cost: 8 },
-  { id: 'panda', label: 'Panda', cost: 15 },
-  { id: 'ejderha', label: 'Minik ejderha', cost: 30 },
+  { id: 'tilki', label: 'Tilki', cost: 60 },
+  { id: 'kaplumbaga', label: 'Kaplumbağa', cost: 80 },
+  { id: 'panda', label: 'Panda', cost: 120 },
+  { id: 'ejderha', label: 'Minik ejderha', cost: 200 },
 ]
 
 /** Hazır kaşifler (Pixar kalitesinde raster, public/assets/art/characters/<id>.webp) */
@@ -216,10 +217,10 @@ export const BACKGROUNDS: { id: string; label: string; cost: number }[] = [
   { id: 'meadow', label: 'Çiçekli çayır', cost: 0 },
   { id: 'park', label: 'Park', cost: 0 },
   { id: 'forest', label: 'Büyülü orman', cost: 0 },
-  { id: 'orchard', label: 'Meyve bahçesi', cost: 3 },
-  { id: 'lab', label: 'Bilim laboratuvarı', cost: 6 },
-  { id: 'town', label: 'Kasaba', cost: 8 },
-  { id: 'history', label: 'Tarih diyarı', cost: 12 },
+  { id: 'orchard', label: 'Meyve bahçesi', cost: 40 },
+  { id: 'lab', label: 'Bilim laboratuvarı', cost: 60 },
+  { id: 'town', label: 'Kasaba', cost: 80 },
+  { id: 'history', label: 'Tarih diyarı', cost: 120 },
 ]
 
 export const DEFAULT_AVATAR: AvatarConfig = {

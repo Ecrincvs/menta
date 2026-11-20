@@ -14,6 +14,7 @@ import { BACKGROUNDS, MAX_TRAITS, PETS, PRESETS, TRAITS, normalizeAvatar, type A
 import { useArt, artUrl, useBackgroundArt, useCharacterArt, type BackgroundId } from '../art/artRegistry'
 import type { BackdropKind } from '../components/Backdrop'
 import { useGame } from '../state/store'
+import { BuySheet } from './TreasureScreen'
 import { sfx } from '../audio/sfx'
 import { speak } from '../audio/speech'
 
@@ -36,7 +37,8 @@ const C = {
 }
 
 export function AvatarScreen() {
-  const { avatar, setAvatar, stars, nickname, setNickname, back, grade, go } = useGame()
+  const { avatar, setAvatar, coins, owned, buy, nickname, setNickname, back, grade, go } = useGame()
+  const [shop, setShop] = useState<{ key: string; label: string; price: number; img?: string; apply: () => void } | null>(null)
   const [draft, setDraft] = useState<AvatarConfig>(() => normalizeAvatar(avatar))
   const [cat, setCat] = useState<Cat>('genel')
   const [name, setName] = useState(nickname)
@@ -54,12 +56,15 @@ export function AvatarScreen() {
     setDraft((d) => ({ ...d, ...patch }))
     cheer()
   }
-  const locked = (cost: number, label: string) => {
-    if (stars >= cost) return false
-    sfx('wrong')
-    speak(`${label} için ${cost} yıldız topla! Oyun oynayarak yıldız kazanabilirsin.`)
-    return true
+  /** ücretsizse ya da daha önce alındıysa uygula; değilse altınla alma onayını aç */
+  const acquire: AcquireFn = (key, price, label, apply, img) => {
+    if (price === 0 || owned.includes(key)) apply()
+    else {
+      sfx('tap')
+      setShop({ key, label, price, img, apply })
+    }
   }
+  const has = (key: string, price: number) => price === 0 || owned.includes(key)
 
   const save = () => {
     sfx('fanfare')
@@ -72,8 +77,8 @@ export function AvatarScreen() {
 
   const surprise = () => {
     const r = <T,>(a: T[]) => a[Math.floor(Math.random() * a.length)]
-    const pets = PETS.filter((p) => p.cost <= stars)
-    const bgs = BACKGROUNDS.filter((b) => b.cost <= stars)
+    const pets = PETS.filter((p) => has(`pet:${p.id}`, p.cost))
+    const bgs = BACKGROUNDS.filter((b) => has(`bg:${b.id}`, b.cost))
     set({ preset: r(PRESETS).id, pet: r(pets).id, bg: r(bgs).id })
   }
 
@@ -90,9 +95,9 @@ export function AvatarScreen() {
           </motion.div>
           <p className="mk-display relative z-10 mt-1.5 rounded-full bg-[#fff6e3] px-4 py-0.5 text-[clamp(12px,1.3vw,16px)] text-[#5a3a17] shadow">Kendi kaşifini oluştur, tarzını yansıt!</p>
         </div>
-        <div className="ml-auto hidden items-center gap-1 rounded-full bg-white/90 py-1 pl-1 pr-3 shadow sm:flex lg:hidden" aria-label={`${stars} yıldız`}>
-          <Obj name="star" size={30} shadow={false} />
-          <span className="mk-display text-[20px]">{stars}</span>
+        <div className="ml-auto hidden items-center gap-1 rounded-full bg-white/90 py-1 pl-1 pr-3 shadow sm:flex lg:hidden" aria-label={`${coins} altın`}>
+          <Obj name="coin" size={30} shadow={false} />
+          <span className="mk-display text-[20px]">{coins}</span>
         </div>
       </header>
 
@@ -133,16 +138,16 @@ export function AvatarScreen() {
             <AnimatePresence mode="wait">
               <motion.div key={cat} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.18 }} className="grid gap-3 lg:grid-cols-2">
                 {cat === 'genel' && <GeneralPanels draft={draft} set={set} name={name} setName={setName} />}
-                {cat === 'evcil' && <PetPanel draft={draft} set={set} stars={stars} locked={locked} />}
+                {cat === 'evcil' && <PetPanel draft={draft} set={set} acquire={acquire} has={has} />}
                 {cat === 'ozellik' && <TraitPanel draft={draft} set={set} />}
-                {cat === 'arkaplan' && <BackgroundPanel draft={draft} set={set} stars={stars} locked={locked} />}
+                {cat === 'arkaplan' && <BackgroundPanel draft={draft} set={set} acquire={acquire} has={has} />}
               </motion.div>
             </AnimatePresence>
           </div>
           <div className="flex items-center justify-end gap-3">
-            <div className="mr-auto hidden items-center gap-1 rounded-full bg-white/90 py-1 pl-1 pr-3 shadow lg:flex" aria-label={`${stars} yıldız`}>
-              <Obj name="star" size={34} shadow={false} />
-              <span className="mk-display text-[22px]">{stars}</span>
+            <div className="mr-auto hidden items-center gap-1 rounded-full bg-white/90 py-1 pl-1 pr-3 shadow lg:flex" aria-label={`${coins} altın`}>
+              <Obj name="coin" size={34} shadow={false} />
+              <span className="mk-display text-[22px]">{coins}</span>
             </div>
             <motion.button whileTap={{ scale: 0.94 }} onClick={surprise} className="mk-display flex min-h-[60px] items-center gap-2 rounded-[20px] px-5 text-[20px] text-white" style={{ background: 'linear-gradient(180deg,#b896ff,#8e6cf0)', boxShadow: '0 5px 0 #5c3fb8' }}>
               <Obj name="sparkles" size={30} shadow={false} /> Sürpriz
@@ -160,6 +165,28 @@ export function AvatarScreen() {
           </div>
         </div>
       </div>
+
+      {/* altınla sahiplenme onayı (yalnızca kazanılmış altın) */}
+      <AnimatePresence>
+        {shop && (
+          <BuySheet
+            title={shop.label}
+            img={shop.img}
+            icon="paw"
+            price={shop.price}
+            coins={coins}
+            onCancel={() => setShop(null)}
+            onBuy={() => {
+              if (buy(shop.key, shop.price)) {
+                sfx('coin')
+                speak(`${shop.label} artık senin!`)
+                shop.apply()
+              }
+              setShop(null)
+            }}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
@@ -249,15 +276,15 @@ function Panel({ title, icon, children, wide, extra }: { title: string; icon: st
   )
 }
 
-function Tile({ active, onClick, label, children, cost = 0, stars = Infinity, size = 76, caption }: { active: boolean; onClick: () => void; label: string; children: ReactNode; cost?: number; stars?: number; size?: number; caption?: string }) {
-  const isLocked = cost > stars
+function Tile({ active, onClick, label, children, price = 0, size = 76, caption }: { active: boolean; onClick: () => void; label: string; children: ReactNode; price?: number; size?: number; caption?: string }) {
+  const isLocked = price > 0
   return (
     <div className="flex flex-col items-center gap-0.5">
       <motion.button
         whileHover={{ y: -3 }}
         whileTap={{ scale: 0.92 }}
         onClick={onClick}
-        aria-label={isLocked ? `${label}, ${cost} yıldızla açılır` : label}
+        aria-label={isLocked ? `${label}, ${price} altın` : label}
         aria-pressed={active}
         className="relative grid place-items-center overflow-hidden rounded-[16px]"
         style={{
@@ -268,16 +295,21 @@ function Tile({ active, onClick, label, children, cost = 0, stars = Infinity, si
           boxShadow: active ? `0 0 0 3px rgba(255,197,51,0.45), 0 4px 0 ${C.goldDark}` : '0 3px 0 #8f78cf',
         }}
       >
-        <div className={isLocked ? 'opacity-45 grayscale' : ''}>{children}</div>
-        {isLocked && (
-          <span className="absolute bottom-0.5 right-0.5 flex items-center gap-0.5 rounded-full bg-white/95 px-1 text-[12px] font-black text-[#5c3fb8] shadow">
-            <Obj name="lock" size={14} shadow={false} />
-            {cost}
-          </span>
-        )}
+        <div className={isLocked ? 'opacity-60 saturate-50' : ''}>{children}</div>
+        {isLocked && <PriceTag price={price} />}
       </motion.button>
       {caption && <span className="max-w-[90px] text-center text-[12px] font-extrabold leading-tight text-white/90">{caption}</span>}
     </div>
+  )
+}
+
+/** satın alınmamış parçada altın fiyatı */
+function PriceTag({ price }: { price: number }) {
+  return (
+    <span className="absolute bottom-1 right-1 flex items-center gap-0.5 rounded-full bg-[#fff3c4] px-1.5 text-[12px] font-black text-[#6b4a06] shadow">
+      <Obj name="coin" size={15} shadow={false} />
+      {price}
+    </span>
   )
 }
 
@@ -306,7 +338,8 @@ function Chip({ on, onClick, children, color = '#8e6cf0' }: { on: boolean; onCli
 }
 
 type SetFn = (p: Partial<AvatarConfig>) => void
-type LockFn = (cost: number, label: string) => boolean
+type AcquireFn = (key: string, price: number, label: string, apply: () => void, img?: string) => void
+type HasFn = (key: string, price: number) => boolean
 
 // ───────────────────────── GENEL
 function GeneralPanels({ draft, set, name, setName }: { draft: AvatarConfig; set: SetFn; name: string; setName: (s: string) => void }) {
@@ -367,15 +400,22 @@ function Sel({ on, children }: { on: boolean; children: ReactNode }) {
 }
 
 // ───────────────────────── EVCİL DOST
-function PetPanel({ draft, set, stars, locked }: { draft: AvatarConfig; set: SetFn; stars: number; locked: LockFn }) {
+function PetPanel({ draft, set, acquire, has }: { draft: AvatarConfig; set: SetFn; acquire: AcquireFn; has: HasFn }) {
   const art = useArt((s) => s.manifest.characters?.pet)
   return (
     <Panel title="Evcil Dost" icon="paw" wide>
-      <p className="mb-2 text-[14px] font-bold text-white/80">Maceralarında sana eşlik edecek bir dost seç!</p>
+      <p className="mb-2 text-[14px] font-bold text-white/80">Maceralarında sana eşlik edecek bir dost seç! Bazı dostları kazandığın altınla sahiplenebilirsin.</p>
       <Grid>
         {PETS.map((p) => (
           <Sel key={p.id} on={draft.pet === p.id}>
-            <Tile active={draft.pet === p.id} onClick={() => !locked(p.cost, p.label) && set({ pet: p.id })} label={p.label} cost={p.cost} stars={stars} size={92} caption={p.label}>
+            <Tile
+              active={draft.pet === p.id}
+              onClick={() => acquire(`pet:${p.id}`, p.cost, p.label, () => set({ pet: p.id }), art?.[p.id] ? artUrl(art[p.id]) : undefined)}
+              label={p.label}
+              price={has(`pet:${p.id}`, p.cost) ? 0 : p.cost}
+              size={92}
+              caption={p.label}
+            >
               {p.id === 'yok' ? <span className="mk-display text-[30px] text-[#9b84d6]">✕</span> : art?.[p.id] ? <img src={artUrl(art[p.id])} alt="" draggable={false} style={{ width: 78, height: 78, objectFit: 'contain' }} /> : <Obj name="paw" size={56} />}
             </Tile>
           </Sel>
@@ -419,7 +459,7 @@ function TraitPanel({ draft, set }: { draft: AvatarConfig; set: SetFn }) {
 }
 
 // ───────────────────────── ARKA PLAN
-function BackgroundPanel({ draft, set, stars, locked }: { draft: AvatarConfig; set: SetFn; stars: number; locked: LockFn }) {
+function BackgroundPanel({ draft, set, acquire, has }: { draft: AvatarConfig; set: SetFn; acquire: AcquireFn; has: HasFn }) {
   const bgs = useArt((s) => s.manifest.backgrounds)
   return (
     <Panel title="Arka Plan" icon="mountain" wide>
@@ -427,25 +467,20 @@ function BackgroundPanel({ draft, set, stars, locked }: { draft: AvatarConfig; s
         {BACKGROUNDS.map((b) => {
           const f = bgs?.[b.id as BackgroundId]
           const isOn = draft.bg === b.id
-          const isLocked = b.cost > stars
+          const isLocked = !has(`bg:${b.id}`, b.cost)
           return (
             <div key={b.id} className="relative flex flex-col items-center gap-1">
               <motion.button
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.94 }}
-                onClick={() => !locked(b.cost, b.label) && set({ bg: b.id })}
-                aria-label={isLocked ? `${b.label}, ${b.cost} yıldızla açılır` : b.label}
+                onClick={() => acquire(`bg:${b.id}`, b.cost, b.label, () => set({ bg: b.id }), f ? artUrl(f) : undefined)}
+                aria-label={isLocked ? `${b.label}, ${b.cost} altın` : b.label}
                 aria-pressed={isOn}
                 className="relative h-[86px] w-[128px] overflow-hidden rounded-[16px]"
                 style={{ border: `3px solid ${isOn ? C.gold : C.tileEdge}`, boxShadow: isOn ? `0 0 0 3px rgba(255,197,51,0.45), 0 4px 0 ${C.goldDark}` : '0 3px 0 #8f78cf' }}
               >
-                {f ? <img src={artUrl(f)} alt="" className={`h-full w-full object-cover ${isLocked ? 'opacity-50 grayscale' : ''}`} /> : <span className="block h-full w-full bg-[#cdbdf5]" />}
-                {isLocked && (
-                  <span className="absolute bottom-1 right-1 flex items-center gap-0.5 rounded-full bg-white/95 px-1.5 text-[12px] font-black text-[#5c3fb8] shadow">
-                    <Obj name="lock" size={14} shadow={false} />
-                    {b.cost}
-                  </span>
-                )}
+                {f ? <img src={artUrl(f)} alt="" className={`h-full w-full object-cover ${isLocked ? 'opacity-70 saturate-50' : ''}`} /> : <span className="block h-full w-full bg-[#cdbdf5]" />}
+                {isLocked && <PriceTag price={b.cost} />}
               </motion.button>
               {isOn && <Check />}
               <span className="text-[12px] font-extrabold text-white/90">{b.label}</span>

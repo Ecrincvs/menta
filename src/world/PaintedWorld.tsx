@@ -14,6 +14,9 @@ import { useGame } from '../state/store'
 import { Obj } from '../components/ui/Obj'
 import { sfx } from '../audio/sfx'
 import { makeRng } from '../learning/rng'
+import { STEP, SUBJECT_BG } from './enter'
+import { EntryOverlay, type Door } from './DoorEntry'
+import { artUrl, useArt, useBackgroundArt, type BackgroundId } from '../art/artRegistry'
 
 interface Spot {
   id: SubjectId
@@ -34,6 +37,19 @@ export const WORLD_SPOTS: Spot[] = [
   { id: 'hayat', x: 29, y: 63, r: 10, lx: 22, ly: 48 },
   { id: 'tarih', x: 72, y: 62, r: 11, lx: 79, ly: 47 },
 ]
+
+/**
+ * Binaların KAPILARI (görselin yüzdesi; bg-world.webp üzerinde ölçüldü).
+ * Giriş geçişi: kamera kapıya doğru hızlanarak yaklaşır → kanatlar içe açılır → içeriden sıcak ışık taşar.
+ * Kale: kapı yerine altın halka → dönen ışık geçidi.
+ */
+export const DOORS: Record<SubjectId, Door> = {
+  turkce: { x: 30.2, y: 38.6, w: 3.3, h: 6.6, shape: 'arch' },
+  matematik: { x: 51.1, y: 24.8, w: 2.7, h: 6.1, shape: 'arch' },
+  fen: { x: 68.5, y: 37.2, w: 2.6, h: 5.0, shape: 'arch' },
+  hayat: { x: 32.5, y: 68.4, w: 2.7, h: 6.0, shape: 'arch' },
+  tarih: { x: 74.9, y: 68.6, w: 3.9, h: 8.0, shape: 'portal' },
+}
 
 const WATERFALLS = [
   [19.5, 52, 4, 12],
@@ -77,14 +93,68 @@ export default function PaintedWorld({ src, focus, showLabels, onSelect }: { src
     window.addEventListener('resize', on)
     return () => window.removeEventListener('resize', on)
   }, [])
-  const overflow = Math.max(0, Math.max(vp.w, vp.h * 1.5) - vp.w) / 2
+  // TAM EKRAN: dünya (3:2) ekranı kaplar. Çok geniş ekranlarda evler kesilmesin diye en fazla %6 taşar;
+  // kalan ince kenarı gökyüzü + bulutlar doldurur (görsel kenarı yumuşakça gökyüzüne karışır).
+  // Dikey ekranda kaplar ve parmakla yana kaydırılır.
+  const landscape = vp.w / vp.h >= 1.1
+  const coverW = Math.max(vp.w, vp.h * 1.5)
+  const containW = Math.min(vp.w, vp.h * 1.5)
+  const bw = landscape ? Math.min(coverW, containW * 1.06) : coverW
+  const box = { width: bw, height: bw / 1.5 }
+  const gapX = Math.max(0, (vp.w - bw) / 2)
+  const gapY = Math.max(0, (vp.h - bw / 1.5) / 2)
+  const edgeMask = gapX > 2 ? 'linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%)' : gapY > 2 ? 'linear-gradient(180deg, transparent 0%, #000 6%, #000 94%, transparent 100%)' : undefined
+  const overflow = landscape ? 0 : (coverW - vp.w) / 2
+  // GİRİŞ (referans: kapı açılma hikâye tahtası) — kapı ekran yüksekliğinin ~%45'i olana kadar yaklaş
+  const door = f ? DOORS[f.id] : null
+  const doorH = door ? (door.h / 100) * box.height : 1
+  const enterScale = door ? Math.min(7, Math.max(3, (0.45 * vp.h) / doorH)) : 1
+  const houseScale = Math.min(2.4, Math.max(1.4, enterScale * 0.42))
+  // kapı ekranda yerinde kalır (yakınlaşma merkezi kapı) → kapının ekrandaki yeri ve açılınca boyutu
+  const doorScreen = door ? { x: vp.w / 2 - bw / 2 + (door.x / 100) * bw, y: vp.h / 2 - bw / 3 + (door.y / 100) * (bw / 1.5) } : null
+  // binanın içi = dersin dünyası (kapının ardında görünür, sonra ekranı doldurur)
+  const interior = useBackgroundArt((f ? SUBJECT_BG[f.id] : 'forest') as BackgroundId)
+  // tek ev yakın çekimi (kapalı + açık kapı) — 5 bina ortak
+  const closeSrc = useBackgroundArt('door')
+  const openSrc = useBackgroundArt('door-open')
+  const allBg = useArt((s) => s.manifest.backgrounds)
+  useEffect(() => {
+    // iç mekân görselleri önceden yüklensin (kapı açılınca boş görünmesin)
+    ;[...Object.values(SUBJECT_BG), 'door', 'door-open'].forEach((k) => {
+      const file = allBg?.[k as BackgroundId]
+      if (file) new Image().src = artUrl(file)
+    })
+  }, [allBg])
+  const setVeil = useGame((s) => s.setVeil)
+  const [worldHidden, setWorldHidden] = useState(false)
+  useEffect(() => {
+    if (!f) return setWorldHidden(false)
+    const t = setTimeout(() => setWorldHidden(true), (STEP.closeup + 0.15) * 1000)
+    return () => clearTimeout(t)
+  }, [f])
+  useEffect(() => {
+    if (!f) return
+    const ts = [
+      setTimeout(() => sfx('star'), STEP.closeup * 1000),
+      setTimeout(() => sfx(DOORS[f.id].shape === 'portal' ? 'unlock' : 'door'), STEP.glow * 1000),
+      setTimeout(() => sfx('enter'), STEP.open * 1000),
+      setTimeout(() => sfx('whoosh'), STEP.gather * 1000),
+    ]
+    // içerisi ekranı doldurunca perde = aynı arka plan → ders dünyası kesintisiz açılır
+    // perde = içerinin aynı arka planı; şimdiden hazırlanır, yalnızca ders dünyasına geçince görünür (zamanlamadan bağımsız)
+    if (interior) setVeil(`#2a1a5e url("${interior}") center / cover no-repeat`)
+    return () => ts.forEach(clearTimeout)
+  }, [f, interior, setVeil])
+
   const sparkles = useMemo(() => {
     const r = makeRng(21)
     return Array.from({ length: 22 }).map(() => ({ x: 44 + r() * 14, y: 36 + r() * 16, d: r() * 3, s: 4 + r() * 6 }))
   }, [])
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#8fd2ff]">
+    <div className="absolute inset-0 overflow-hidden" style={{ background: 'linear-gradient(180deg, #6fc0f6 0%, #9fd8fb 45%, #d9f0ff 100%)' }}>
+      {/* geniş ekranda kenar boşluğu: gökyüzü + kabarık bulutlar */}
+      {(gapX > 2 || gapY > 2) && <EdgeClouds sides={gapX > 2 ? 'x' : 'y'} calm={calm} />}
       <motion.div
         className="absolute inset-0"
         drag={overflow > 40 && !focus ? 'x' : false}
@@ -95,17 +165,23 @@ export default function PaintedWorld({ src, focus, showLabels, onSelect }: { src
       {/* sahne: 3:2, ekranı kaplar */}
       <motion.div
         className="absolute left-1/2 top-1/2"
-        style={{ width: 'max(100vw, 150vh)', height: 'max(66.667vw, 100vh)', x: '-50%', y: '-50%' }}
-        initial={{ scale: 1.25, opacity: 0, filter: 'blur(8px)' }}
+        // yakınlaşma merkezi = kapı (kapı ekranda yerinde kalır, dünya etrafında büyür → "kapıya yürüyoruz" hissi)
+        // yakın çekim ekranı kaplayınca dev ölçekli dünya çizilmesin (ekran kartını yormasın, görüntü düşmesin)
+        style={{ ...box, x: '-50%', y: '-50%', originX: door ? door.x / 100 : 0.5, originY: door ? door.y / 100 : 0.5, visibility: worldHidden ? 'hidden' : 'visible' }}
+        initial={{ scale: 1.12, opacity: 0, filter: 'blur(8px)' }}
         animate={
           f
-            ? { scale: 2.1, opacity: 1, filter: 'blur(0px)', originX: f.x / 100, originY: f.y / 100 }
-            : { scale: loaded ? (calm ? 1.02 : [1.02, 1.05, 1.02]) : 1.25, opacity: loaded ? 1 : 0, filter: 'blur(0px)' }
+            ? { scale: [1, houseScale, enterScale], opacity: 1, filter: 'blur(0px)' }
+            : { scale: loaded ? (calm ? 1 : [1, 1.015, 1]) : 1.12, opacity: loaded ? 1 : 0, filter: 'blur(0px)' }
         }
-        transition={f ? { duration: 1.1, ease: [0.6, 0, 0.3, 1] } : { scale: { duration: loaded ? 24 : 1.8, repeat: loaded && !calm ? Infinity : 0, ease: 'easeInOut' }, opacity: { duration: 1 }, filter: { duration: 1.4 } }}
+        transition={
+          f
+            ? { scale: { duration: STEP.closeup + 0.2, times: [0, 0.55, 1], ease: ['easeOut', 'easeIn'] } }
+            : { scale: { duration: loaded ? 24 : 1.8, repeat: loaded && !calm ? Infinity : 0, ease: 'easeInOut' }, opacity: { duration: 1 }, filter: { duration: 1.4 } }
+        }
       >
         <motion.div className="absolute inset-0" style={{ x: px, y: py }}>
-          <img src={src} alt="" onLoad={() => setLoaded(true)} className="absolute inset-0 h-full w-full select-none object-cover" draggable={false} />
+          <img src={src} alt="" onLoad={() => setLoaded(true)} className="absolute inset-0 h-full w-full select-none object-cover" draggable={false} style={{ maskImage: edgeMask, WebkitMaskImage: edgeMask }} />
 
           {/* şelale ışıltıları */}
           {!calm &&
@@ -134,6 +210,8 @@ export default function PaintedWorld({ src, focus, showLabels, onSelect }: { src
                 transition={{ duration: 2.4 + p.d, repeat: Infinity, delay: p.d }}
               />
             ))}
+
+          {/* seçilen binanın kapısı açılır (dünyayla birlikte büyür) */}
 
           {/* bina sıcak noktaları */}
           {WORLD_SPOTS.map((s) => {
@@ -167,7 +245,7 @@ export default function PaintedWorld({ src, focus, showLabels, onSelect }: { src
       {showLabels && !focus && (
         <motion.div
           className="pointer-events-none absolute left-1/2 top-1/2"
-          style={{ width: 'max(100vw, 150vh)', height: 'max(66.667vw, 100vh)', x: '-50%', y: '-50%' }}
+          style={{ ...box, x: '-50%', y: '-50%' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: loaded ? 1 : 0 }}
           transition={{ delay: 0.8 }}
@@ -182,12 +260,15 @@ export default function PaintedWorld({ src, focus, showLabels, onSelect }: { src
 
       </motion.div>
 
+      {/* giriş efektleri: hız çizgileri, ışıltılar, kaşif + robot, büyülü sarmal, kapıdan geçiş */}
+      {f && door && doorScreen && <EntryOverlay at={doorScreen} interior={interior} closeSrc={closeSrc} openSrc={openSrc} vp={vp} calm={calm} />}
+
       {/* ön plan bulutları (paralaks) */}
-      {!calm && (
+      {!calm && !f && (
         <motion.div className="pointer-events-none absolute inset-0" style={{ x: cx, y: cy }}>
           {[
-            { l: '-8%', t: '78%', w: 420, d: 70 },
-            { l: '70%', t: '84%', w: 520, d: 90 },
+            { l: '-14%', t: '90%', w: 380, d: 70 },
+            { l: '78%', t: '92%', w: 420, d: 90 },
             { l: '-12%', t: '6%', w: 360, d: 80 },
           ].map((c, i) => (
             <motion.div key={i} className="absolute" style={{ left: c.l, top: c.t, width: c.w, height: c.w * 0.38 }} animate={{ x: [0, 90, 0] }} transition={{ duration: c.d, repeat: Infinity, ease: 'easeInOut' }}>
@@ -262,3 +343,35 @@ function Birds() {
     </>
   )
 }
+
+/** Kenar bulutları: dünya görseli ekrana tam oturmadığında boşluğu doldurur */
+function EdgeClouds({ sides, calm }: { sides: 'x' | 'y'; calm: boolean }) {
+  const puffs =
+    sides === 'x'
+      ? [
+          { l: '-6%', t: '8%', w: 300 }, { l: '-9%', t: '38%', w: 360 }, { l: '-5%', t: '70%', w: 320 },
+          { l: '88%', t: '14%', w: 320 }, { l: '91%', t: '46%', w: 360 }, { l: '87%', t: '76%', w: 300 },
+        ]
+      : [
+          { l: '4%', t: '-6%', w: 380 }, { l: '40%', t: '-8%', w: 420 }, { l: '76%', t: '-6%', w: 380 },
+          { l: '10%', t: '92%', w: 400 }, { l: '62%', t: '93%', w: 420 },
+        ]
+  return (
+    <div className="pointer-events-none absolute inset-0" aria-hidden>
+      {puffs.map((c, i) => (
+        <motion.div
+          key={i}
+          className="absolute"
+          style={{ left: c.l, top: c.t, width: c.w, height: c.w * 0.5 }}
+          animate={calm ? {} : { x: [0, i % 2 ? 14 : -14, 0], y: [0, -6, 0] }}
+          transition={{ duration: 9 + i * 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <div className="absolute inset-x-0 bottom-0 h-[60%] rounded-full bg-white/95 shadow-[inset_0_-10px_18px_rgba(150,190,230,0.35)]" />
+          <div className="absolute bottom-[30%] left-[12%] h-[70%] w-[44%] rounded-full bg-white" />
+          <div className="absolute bottom-[34%] left-[42%] h-[85%] w-[46%] rounded-full bg-white shadow-[inset_0_-8px_14px_rgba(150,190,230,0.3)]" />
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+

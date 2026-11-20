@@ -13,6 +13,7 @@ import type { ChoiceQ, Option, OrderQ, Question, SortQ } from './types'
 import { VisualView } from './Visuals'
 import { InputView, LessonView, MatchView, MemoryView } from './InteractiveViews'
 import { TraceView } from './TraceView'
+import { PopView, SearchView } from './GameViews'
 import { Obj } from '../../components/ui/Obj'
 import { SpeechBubble } from '../../components/ui/SpeechBubble'
 import { StarBurst } from '../../components/fx/Confetti'
@@ -35,10 +36,10 @@ export default function QuizGame({ gameId, onReplay }: { gameId: string; onRepla
   const eng = useRoundEngine<Question>({ gameId, skill: meta.skill, total: meta.total ?? 6, make })
   const q = eng.question
 
-  // Okuma Yazma Yolu: durak bitince öğrenilen son harf ilerler
+  // Okuma Yazma Yolu: harf adasının sonundaki oyun bitince öğrenilen son harf ilerler (oy-<harf>-oyun)
   useEffect(() => {
-    if (!eng.result || !gameId.startsWith('oy-')) return
-    const i = LETTER_ORDER.indexOf(gameId.slice(3))
+    if (!eng.result || !/^oy-.+-oyun$/.test(gameId)) return
+    const i = LETTER_ORDER.indexOf(gameId.split('-')[1])
     const st = useGame.getState()
     if (i > st.letterIdx) st.setLetterIdx(i)
   }, [eng.result, gameId])
@@ -78,6 +79,8 @@ export default function QuizGame({ gameId, onReplay }: { gameId: string; onRepla
         {q.type === 'input' && <InputView q={q} feedback={eng.feedback} answer={eng.answer} />}
         {q.type === 'memory' && <MemoryView q={q} answer={eng.answer} />}
         {q.type === 'trace' && <TraceView q={q} feedback={eng.feedback} answer={eng.answer} />}
+        {q.type === 'pop' && <PopView q={q} answer={eng.answer} />}
+        {q.type === 'search' && <SearchView q={q} answer={eng.answer} />}
       </div>
     </GameShell>
   )
@@ -132,6 +135,16 @@ function ExampleView({ q }: { q: Question }) {
       </div>
     )
   }
+  if (q.type === 'pop' || q.type === 'search')
+    return (
+      <div className="flex flex-wrap justify-center gap-2">
+        {(q.type === 'pop' ? [q.target] : q.words).map((w) => (
+          <span key={w} className="mk-display rounded-xl bg-[var(--mk-green)] px-3 py-1 text-[22px] text-white">
+            {w}
+          </span>
+        ))}
+      </div>
+    )
   return (
     <div className="flex gap-3">
       {q.bins.map((b) => (
