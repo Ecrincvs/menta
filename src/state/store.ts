@@ -19,6 +19,8 @@ export type Screen =
   | { name: 'harf'; letter: string }
   | { name: 'matematik-yolu' }
   | { name: 'tema'; tema: string }
+  | { name: 'hayat-yolu' }
+  | { name: 'hb-alan'; alan: string }
   | { name: 'hazine'; tab?: 'rozet' | 'album' }
 
 export type Quality = 'low' | 'medium' | 'high'

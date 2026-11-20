@@ -191,6 +191,7 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
               <MenuGroup title="Dünyalar">
                 {grade === 1 && <MenuItem icon="abc" bg="#ffe3d9" label="Okuma Yazma Yolu" sub="29 harf adası" onClick={() => open(() => go({ name: 'okuma-yazma' }))} />}
                 {grade === 1 && <MenuItem icon="abacus" bg="#efe6ff" label="Matematik Yolu" sub="7 tema adası" onClick={() => open(() => go({ name: 'matematik-yolu' }))} />}
+                {grade === 1 && <MenuItem icon="housegarden" bg="#ffe9d6" label="Hayat Bilgisi Yolu" sub="6 öğrenme alanı adası" onClick={() => open(() => go({ name: 'hayat-yolu' }))} />}
                 {SUBJECTS.filter((s) => subjectOpenFor(s.id, grade)).map((s) => (
                   <MenuItem key={s.id} icon={s.icon} bg={s.pastel} label={s.name} sub={`${gamesFor(s.id, grade ?? 1).length} etkinlik`} onClick={() => open(() => window.dispatchEvent(new CustomEvent('mk-select', { detail: s.id })))} />
                 ))}

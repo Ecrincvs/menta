@@ -146,6 +146,27 @@ export function SubjectScreen({ subject }: { subject: SubjectId }) {
               <span className="mk-candy !min-h-[56px] !px-6 !text-[20px]" style={{ ['--c' as string]: 'var(--mk-purple)', ['--c-dark' as string]: 'var(--mk-purple-dark)' }}>Başla</span>
             </motion.button>
           )}
+          {g === 1 && subject === 'hayat' && (
+            <motion.button
+              onClick={() => {
+                sfx('whoosh')
+                go({ name: 'hayat-yolu' })
+              }}
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-4 rounded-[28px] border-4 border-[#f08a24] bg-[linear-gradient(135deg,#fff4dc,#ffdcb8)] p-4 text-left shadow-[0_8px_0_#b85f0c,0_16px_28px_rgba(0,0,0,0.25)]"
+              aria-label="Hayat Bilgisi Yolu"
+            >
+              <Obj name="housegarden" size={84} />
+              <span className="flex flex-1 flex-col">
+                <span className="mk-display text-[clamp(24px,3vw,34px)] leading-none text-[#b85f0c]">Hayat Bilgisi Yolu</span>
+                <span className="mt-1 text-[15px] font-extrabold text-[var(--mk-ink-soft)]">Kitaptaki 6 öğrenme alanı, konu konu: okulum, sağlığım, ailem, ülkem, doğa, bilim ve sanat. Bol etkinlik ve oyun!</span>
+              </span>
+              <span className="mk-candy !min-h-[56px] !px-6 !text-[20px]" style={{ ['--c' as string]: 'var(--mk-orange)', ['--c-dark' as string]: 'var(--mk-orange-dark)' }}>Başla</span>
+            </motion.button>
+          )}
           {g === 1 && subject === 'turkce' && <HarfYolu />}
           {groups.map(([theme, list]) => (
             <section key={theme}>

@@ -124,6 +124,8 @@ export interface PopQ extends Base {
   need: number
   /** doğru balon etiketleri (verilirse hedef-içerme kuralı yerine bu liste kullanılır; ör. sonucu 10 olan işlemler) */
   hits?: string[]
+  /** balon üstünde gösterilecek simge (etiket → nesne görseli) */
+  imgs?: Record<string, string>
 }
 
 /** Kelime Avı (harf oyunu): tabloda yatay/dikey saklanan kelimeleri bul */

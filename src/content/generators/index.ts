@@ -7,6 +7,7 @@ import { STAGES } from '../okumaYazma'
 import { G1_MATEMATIK } from '../gamesG1'
 import { anlamsizCumle, benzetme, boslukAc, buyukHarf, buyukKucuk, cumleKur, harfAvi1, harfHeceSay, heceBirlestir, heceTreni1, karisikHarf, kayipHarf, miMi, miniMetin, noktalama1, olaySirala, resimKelime, resimleTamamla, sesiBul } from './tr1'
 import { cokAz, esiniBul, esitlik1, islem1, kacinci, konumKasifi, onlukBirlik, para1, ritmikOruntu, sayiAvcisi1, sekiller1, tahmin, temaDegerlendirme, terazi, uzunluk, veri1, yolBulmaca } from './mat1'
+import { ALANLAR } from './hbYolu'
 import { anlamDedektifi, deyimAtasozu, heceTreni, kelimeHazinesi, noktalama, okumaHikayesi } from './turkce'
 import { bolmePaylasma, carpmaYarisi, geometri, islemRobotu, kesirler, olasilik, para, saatZaman, sayiDedektifi } from './matematik'
 import {
@@ -113,5 +114,7 @@ for (const g of G1_MATEMATIK) if (g.mix) GENERATORS[g.id] = temaDegerlendirme(g.
 // Okuma Yazma Yolu: her harf durağı
 // Matematik Yolu: 7 tema adası (my-<tema>-<tür>)
 for (const t of TEMALAR) for (const a of t.acts) GENERATORS[`my-${t.id}-${a.kind}`] = a.gen
+// Hayat Bilgisi Yolu: 6 öğrenme alanı adası (hb-<alan>-<tür>)
+for (const t of ALANLAR) for (const a of t.acts) GENERATORS[`hb-${t.id}-${a.kind}`] = a.gen
 // Okuma Yazma Yolu: her harf için etkinlikler + harf oyunu (oy-<harf>-<tür>)
 for (const st of STAGES) for (const k of harfEtkinlikleri(st.letter)) GENERATORS[`oy-${st.letter}-${k}`] = harfGen(st.letter, k)

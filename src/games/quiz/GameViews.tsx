@@ -10,6 +10,7 @@ import { SpeechBubble } from '../../components/ui/SpeechBubble'
 import { sfx } from '../../audio/sfx'
 import { speak } from '../../audio/speech'
 import { makeRng } from '../../learning/rng'
+import { Obj } from '../../components/ui/Obj'
 
 type Answer = (correct: boolean, opts?: { explain?: string; hint?: string; delay?: number }) => void
 
@@ -90,7 +91,7 @@ export function PopView({ q, answer }: { q: PopQ; answer: Answer }) {
                   animate={shake === b.id ? { rotate: [0, -14, 14, -10, 0] } : {}}
                   transition={{ duration: 0.4 }}
                   className="relative grid place-items-center"
-                  style={{ width: 'clamp(76px, 11vw, 104px)', height: 'clamp(92px, 13.4vw, 126px)' }}
+                  style={q.imgs || b.label.length > 3 ? { width: 'clamp(104px, 14vw, 136px)', height: 'clamp(124px, 16.8vw, 164px)' } : { width: 'clamp(76px, 11vw, 104px)', height: 'clamp(92px, 13.4vw, 126px)' }}
                 >
                   <svg viewBox="0 0 80 100" className="absolute inset-0 h-full w-full" aria-hidden>
                     <defs>
@@ -104,9 +105,18 @@ export function PopView({ q, answer }: { q: PopQ; answer: Answer }) {
                     <path d="M40 88 C 36 94, 44 96, 40 100" stroke="#8a7a6a" strokeWidth="1.5" fill="none" />
                     <ellipse cx="28" cy="24" rx="7" ry="11" fill="#fff" opacity="0.45" transform="rotate(-25 28 24)" />
                   </svg>
-                  <span className="mk-display relative -mt-[18%] text-[clamp(26px,3.6vw,38px)] text-white" style={{ textShadow: '0 2px 0 rgba(0,0,0,0.25)' }}>
-                    {b.label}
-                  </span>
+                  {q.imgs?.[b.label] ? (
+                    <span className="relative -mt-[18%] flex w-[86%] flex-col items-center leading-none">
+                      <Obj name={q.imgs[b.label]} size={40} shadow={false} />
+                      <span className="mk-display mt-0.5 text-center text-[clamp(12px,1.5vw,15px)] leading-[1.05] text-white" style={{ textShadow: '0 2px 0 rgba(0,0,0,0.3)' }}>
+                        {b.label}
+                      </span>
+                    </span>
+                  ) : (
+                    <span className={`mk-display relative -mt-[18%] w-[86%] text-center text-white ${b.label.length > 9 ? 'text-[clamp(13px,1.6vw,16px)] leading-[1.05]' : b.label.length > 3 ? 'text-[clamp(16px,2vw,21px)] leading-[1.05]' : 'text-[clamp(26px,3.6vw,38px)]'}`} style={{ textShadow: '0 2px 0 rgba(0,0,0,0.25)' }}>
+                      {b.label}
+                    </span>
+                  )}
                 </motion.button>
               </motion.div>
             )}

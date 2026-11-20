@@ -16,6 +16,11 @@
 - Evcil dost ve arka planlar kazanılmış altınla sahiplenilir
 - Ebeveyn: günlük süre sınırı, mola hatırlatıcısı (20-20-20), uyku saati; oyun ortasında kesmez, ek süre ebeveyn kapısıyla
 
+## ✅ Aşama 4b — 1. sınıf kitap yolları
+- Okuma Yazma Yolu (29 harf adası), Matematik Yolu (7 tema adası)
+- Hayat Bilgisi Yolu: kitabın 6 öğrenme alanı ve 23 konusu (HB.1.1.1–HB.1.6.3), 91 etkinlik + 12 alan sonu oyunu; analiz `docs/meb-kitaplar/analiz/hayat-bilgisi-1.md`
+- Ada ekranları ortak (`src/screens/YolScreen.tsx`); balonlar kelime ve simge gösterebiliyor
+
 ## Aşama 4 — İlerleme ve profil (sıradaki)
 - Yeni bölge açılımları (ders içi patika haritası)
 - Ebeveyn paneli: haftalık özet, beceri bazlı öneri kartları

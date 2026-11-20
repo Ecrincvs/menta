@@ -12,6 +12,7 @@ import type { Question, Visual } from '../games/quiz/types'
 import { STAGES } from '../content/okumaYazma'
 import { harfEtkinlikleri } from '../content/generators/harfEtkinlik'
 import { TEMALAR } from '../content/generators/matYolu'
+import { ALANLAR } from '../content/generators/hbYolu'
 
 const run = (seq: boolean[], start?: SkillStat) => seq.reduce<SkillStat>((s, c) => updateSkill(s, c), start ?? emptySkill())
 const imgExists = (n: string) => fs.existsSync(`public/assets/objects/${n}.png`)
@@ -423,5 +424,64 @@ describe('Matematik Yolu — 7 tema adası (1. sınıf kitabı)', () => {
       const rng = makeRng(5)
       for (let i = 0; i < 12; i++) expect(GENERATORS[id](rng, 1, 1, []).prompt, id).toMatch(re)
     }
+  })
+})
+
+describe('Hayat Bilgisi Yolu — 6 öğrenme alanı adası (1. sınıf kitabı)', () => {
+  const textOf = (q: Question): string =>
+    [
+      q.prompt,
+      q.explain,
+      q.type === 'choice' ? q.options.map((o) => o.label ?? '').join(' ') : '',
+      q.type === 'sort' ? q.items.map((i) => i.label).join(' ') : '',
+      q.type === 'match' ? q.pairs.map((p) => `${p.left.label} ${p.right.label}`).join(' ') : '',
+      q.type === 'memory' ? q.pairs.map((p) => `${p.a.label} ${p.b.label}`).join(' ') : '',
+      q.type === 'pop' ? q.items.join(' ') : '',
+      q.type === 'order' ? q.pieces.join(' ') : '',
+    ].join(' ')
+
+  it('6 alan, 23 konunun hepsi, her alanda sonda oyun', () => {
+    expect(ALANLAR.map((t) => t.no)).toEqual([1, 2, 3, 4, 5, 6])
+    const acts = ALANLAR.flatMap((t) => t.acts.filter((a) => !a.oyun))
+    expect(acts.length).toBeGreaterThanOrEqual(90)
+    const codes = new Set(acts.map((a) => a.meb))
+    expect(codes.size, [...codes].join()).toBe(23)
+    for (const t of ALANLAR) expect(t.acts.filter((a) => a.oyun).length, t.id).toBeGreaterThanOrEqual(2)
+  })
+
+  for (const t of ALANLAR) {
+    it(`${t.no}. alan: geçerli içerik, hassas içerik kuralları`, () => {
+      for (const a of t.acts) {
+        const id = `hb-${t.id}-${a.kind}`
+        expect(GAMES.find((g) => g.id === id), id).toBeTruthy()
+        expect(a.meb, id).toMatch(/^HB\.1\.\d\.\d$/)
+        const rng = makeRng(11)
+        for (const level of [1, 2, 3] as Level[]) {
+          const h: Question[] = []
+          for (let i = 0; i < 10; i++) {
+            const q = GENERATORS[id](rng, 1, level, h)
+            const s = textOf(q)
+            // 112 dışında gerçek acil numaralar (155, 110, 156, 177) çeldirici olarak kullanılmaz
+            expect(s, `${id}: acil numara`).not.toMatch(/\b(155|110|156|177)\b/)
+            // yıl verilmez (1. sınıf 1000'den büyük sayı bilmez)
+            expect(s, `${id}: yıl`).not.toMatch(/\b1[89]\d\d\b/)
+            h.push(q)
+          }
+        }
+      }
+    })
+  }
+
+  it('doğru/yanlış soruları dengeli (iki cevap da gelir)', () => {
+    const rng = makeRng(3)
+    const id = 'hb-a1-kurallar'
+    const ans = new Set<number>()
+    const h: Question[] = []
+    for (let i = 0; i < 20; i++) {
+      const q = GENERATORS[id](rng, 1, 2, h)
+      if (q.type === 'choice') ans.add(q.answer)
+      h.push(q)
+    }
+    expect([...ans].sort()).toEqual([0, 1])
   })
 })
