@@ -125,6 +125,27 @@ export function SubjectScreen({ subject }: { subject: SubjectId }) {
               <span className="mk-candy !min-h-[56px] !px-6 !text-[20px]" style={{ ['--c' as string]: 'var(--mk-red)', ['--c-dark' as string]: 'var(--mk-red-dark)' }}>Başla</span>
             </motion.button>
           )}
+          {g === 1 && subject === 'matematik' && (
+            <motion.button
+              onClick={() => {
+                sfx('whoosh')
+                go({ name: 'matematik-yolu' })
+              }}
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-4 rounded-[28px] border-4 border-[#9b6ef3] bg-[linear-gradient(135deg,#f3ecff,#dcd0ff)] p-4 text-left shadow-[0_8px_0_#6b43c4,0_16px_28px_rgba(0,0,0,0.25)]"
+              aria-label="Matematik Yolu"
+            >
+              <Obj name="abacus" size={84} />
+              <span className="flex flex-1 flex-col">
+                <span className="mk-display text-[clamp(24px,3vw,34px)] leading-none text-[#6b43c4]">Matematik Yolu</span>
+                <span className="mt-1 text-[15px] font-extrabold text-[var(--mk-ink-soft)]">Kitaptaki 7 tema, adım adım: sayılar, ölçme, toplama–çıkarma, para, şekiller, veri. 70+ etkinlik ve oyunlar!</span>
+              </span>
+              <span className="mk-candy !min-h-[56px] !px-6 !text-[20px]" style={{ ['--c' as string]: 'var(--mk-purple)', ['--c-dark' as string]: 'var(--mk-purple-dark)' }}>Başla</span>
+            </motion.button>
+          )}
           {g === 1 && subject === 'turkce' && <HarfYolu />}
           {groups.map(([theme, list]) => (
             <section key={theme}>

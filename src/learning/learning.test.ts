@@ -11,6 +11,7 @@ import { LETTER_ORDER, isAllowed, setLearnedIdx } from '../content/letters'
 import type { Question, Visual } from '../games/quiz/types'
 import { STAGES } from '../content/okumaYazma'
 import { harfEtkinlikleri } from '../content/generators/harfEtkinlik'
+import { TEMALAR } from '../content/generators/matYolu'
 
 const run = (seq: boolean[], start?: SkillStat) => seq.reduce<SkillStat>((s, c) => updateSkill(s, c), start ?? emptySkill())
 const imgExists = (n: string) => fs.existsSync(`public/assets/objects/${n}.png`)
@@ -117,7 +118,7 @@ function validate(q: Question, where: string) {
         for (const i of visualImgs(o.visual)) expect(imgExists(i), `${where} ${i}`).toBe(true)
       }
   } else if (q.type === 'pop') {
-    const hit = q.items.filter((x) => (q.target.length === 1 && x.length === 1 ? x === q.target : x.toLocaleLowerCase('tr-TR').includes(q.target.toLocaleLowerCase('tr-TR'))))
+    const hit = q.items.filter((x) => (q.hits ? q.hits.includes(x) : q.target.length === 1 && x.length === 1 ? x === q.target : x.toLocaleLowerCase('tr-TR').includes(q.target.toLocaleLowerCase('tr-TR'))))
     expect(hit.length, `${where} balon: yeterli doğru balon`).toBeGreaterThanOrEqual(q.need)
     expect(q.need, where).toBeGreaterThanOrEqual(2)
     expect(q.items.length - hit.length, `${where} balon: çeldirici`).toBeGreaterThanOrEqual(2)
@@ -379,4 +380,48 @@ describe('Okuma Yazma Yolu — 29 harf adası', () => {
       setLearnedIdx(11)
     })
   }
+})
+
+describe('Matematik Yolu — 7 tema adası (1. sınıf kitabı)', () => {
+  it('7 tema, en az 70 etkinlik, her temada sonda oyun', () => {
+    expect(TEMALAR.map((t) => t.no)).toEqual([1, 2, 3, 4, 5, 6, 7])
+    const acts = TEMALAR.flatMap((t) => t.acts.filter((a) => !a.oyun))
+    expect(acts.length).toBeGreaterThanOrEqual(70)
+    for (const t of TEMALAR) expect(t.acts.some((a) => a.oyun), t.id).toBe(true)
+  })
+  for (const t of TEMALAR) {
+    it(`${t.no}. tema: her etkinlik geçerli ve odaklı`, () => {
+      for (const a of t.acts) {
+        const id = `my-${t.id}-${a.kind}`
+        expect(GAMES.find((g) => g.id === id), id).toBeTruthy()
+        expect(GENERATORS[id], id).toBeTypeOf('function')
+        const prompts = new Set<string>()
+        for (let run = 0; run < 4; run++) {
+          const rng = makeRng(run * 101 + a.kind.length * 7 + t.no)
+          const hist: Question[] = []
+          for (let i = 0; i < a.total; i++) {
+            const q = GENERATORS[id](rng, 1, 1, hist)
+            validate(q, `${id} #${i}`)
+            prompts.add(q.prompt.replace(/\d+/g, '#'))
+            // 4. tema: işlemlerde kitabın 20 sınırı
+            if (t.id === 't4' && q.type === 'choice' && q.visual?.kind === 'equation')
+              for (const n of q.visual.text.match(/\d+/g) ?? []) expect(Number(n), `${id}: ${q.visual.text}`).toBeLessThanOrEqual(20)
+            hist.push(q)
+          }
+        }
+        expect(prompts.size, `${id} en az bir soru biçimi`).toBeGreaterThanOrEqual(1)
+      }
+    })
+  }
+  it('odaklı etkinlikler gerçekten o bölümün sorusunu sorar', () => {
+    const want: Record<string, RegExp> = {
+      'my-t4-eksik-sayi': /Verilmeyen/, 'my-t4-alt-alta': /Alt alta/, 'my-t4-artma-azalma': /artma mı/, 'my-t4-tahmin': /EN YAKIN/,
+      'my-t3-atas': /ataş/, 'my-t3-birim': /birim/, 'my-t1-es-yok': /Eşi olmayan/, 'my-t5-odeme': /hangi paraları/, 'my-t6-sekil-ad': /adı nedir/,
+      'my-t7-en-cok-az': /EN /, 'my-t2-oruntu-sekil': /Örüntüde/,
+    }
+    for (const [id, re] of Object.entries(want)) {
+      const rng = makeRng(5)
+      for (let i = 0; i < 12; i++) expect(GENERATORS[id](rng, 1, 1, []).prompt, id).toMatch(re)
+    }
+  })
 })

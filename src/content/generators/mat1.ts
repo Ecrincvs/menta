@@ -10,15 +10,15 @@ import { choice, fromBank, numChoice, order, sort, type BankItem, type Gen } fro
 import type { Option, Question, Relation, ShapeKind } from '../../games/quiz/types'
 import type { Level } from '../../learning/mastery'
 
-const DY = (rng: Rng, p: { prompt: string; truth: boolean; explain: string; visual?: Parameters<typeof choice>[1]['visual'] }) =>
+export const DY = (rng: Rng, p: { prompt: string; truth: boolean; explain: string; visual?: Parameters<typeof choice>[1]['visual'] }) =>
   choice(rng, { prompt: p.prompt, correct: p.truth ? 'Doğru' : 'Yanlış', wrong: [p.truth ? 'Yanlış' : 'Doğru'], explain: p.explain, visual: p.visual, keepOrder: false, max: 2 })
 
 /* ============================ 1. TEMA · NESNELERİN GEOMETRİSİ 1 ============================ */
-const ANIMALS: [string, string][] = [
+export const ANIMALS: [string, string][] = [
   ['cat', 'Kedi'], ['dog', 'Köpek'], ['rabbit', 'Tavşan'], ['duck', 'Ördek'], ['chick', 'Civciv'], ['ball', 'Top'], ['teddy', 'Oyuncak ayı'], ['frog', 'Kurbağa'],
 ]
 // referans nesne: [görsel, ad (tamlayan ekiyle)], uygun ilişkiler
-const REFS: { img: string; gen: string; rels: Relation[] }[] = [
+export const REFS: { img: string; gen: string; rels: Relation[] }[] = [
   { img: 'basket', gen: 'sepetin', rels: ['icinde', 'disinda', 'ustunde', 'onunde', 'arkasinda', 'saginda', 'solunda'] },
   { img: 'tree', gen: 'ağacın', rels: ['altinda', 'onunde', 'arkasinda', 'saginda', 'solunda'] },
   { img: 'house', gen: 'evin', rels: ['onunde', 'arkasinda', 'saginda', 'solunda', 'ustunde'] },
@@ -26,10 +26,10 @@ const REFS: { img: string; gen: string; rels: Relation[] }[] = [
   { img: 'bed', gen: 'yatağın', rels: ['ustunde', 'altinda', 'onunde', 'saginda', 'solunda'] },
   { img: 'umbrella', gen: 'şemsiyenin', rels: ['altinda', 'saginda', 'solunda'] },
 ]
-const REL_TXT: Record<Relation, string> = {
+export const REL_TXT: Record<Relation, string> = {
   ustunde: 'üstünde', altinda: 'altında', icinde: 'içinde', disinda: 'dışında', onunde: 'önünde', arkasinda: 'arkasında', saginda: 'sağında', solunda: 'solunda', yaninda: 'yanında', arasinda: 'arasında',
 }
-const OPP: Partial<Record<Relation, Relation>> = { ustunde: 'altinda', altinda: 'ustunde', icinde: 'disinda', disinda: 'icinde', onunde: 'arkasinda', arkasinda: 'onunde', saginda: 'solunda', solunda: 'saginda' }
+export const OPP: Partial<Record<Relation, Relation>> = { ustunde: 'altinda', altinda: 'ustunde', icinde: 'disinda', disinda: 'icinde', onunde: 'arkasinda', arkasinda: 'onunde', saginda: 'solunda', solunda: 'saginda' }
 const cap = (s: string) => s.charAt(0).toLocaleUpperCase('tr-TR') + s.slice(1)
 
 export const konumKasifi: Gen = (rng, _g, level) => {
@@ -161,7 +161,7 @@ export const esiniBul: Gen = (rng, _g, level) => {
 }
 
 /* ============================ 2. TEMA · SAYILAR VE NİCELİKLER 1 ============================ */
-const OBJ = ['apple', 'strawberry', 'star', 'fish', 'duck', 'balloon', 'flower', 'ball', 'cupcake', 'bee']
+export const OBJ = ['apple', 'strawberry', 'star', 'fish', 'duck', 'balloon', 'flower', 'ball', 'cupcake', 'bee']
 const consecutive = (n: number) => [n - 1, n + 1].filter((x) => x >= 0)
 
 export const sayiAvcisi1: Gen = (rng, _g, level) => {
@@ -334,7 +334,7 @@ export const uzunluk: Gen = (rng, _g, level) => {
   return choice(rng, { prompt: `${u[0]} ölçmek için en uygun birim hangisi?`, correct: u[1], wrong: ['Parmak', 'Karış', 'Adım', 'Kulaç'].filter((x) => x !== u[1]), max: 3, explain: 'Küçük şeyleri parmakla, orta büyüklükteki şeyleri karışla, uzun mesafeleri adımla ölçeriz.' })
 }
 
-const MASS: [string, string, number][] = [['elephant', 'Fil', 9], ['horse', 'At', 8], ['cow', 'İnek', 8], ['dog', 'Köpek', 5], ['cat', 'Kedi', 4], ['rabbit', 'Tavşan', 3], ['mouse', 'Fare', 1], ['watermelon', 'Karpuz', 6], ['apple', 'Elma', 2], ['strawberry', 'Çilek', 1]]
+export const MASS: [string, string, number][] = [['elephant', 'Fil', 9], ['horse', 'At', 8], ['cow', 'İnek', 8], ['dog', 'Köpek', 5], ['cat', 'Kedi', 4], ['rabbit', 'Tavşan', 3], ['mouse', 'Fare', 1], ['watermelon', 'Karpuz', 6], ['apple', 'Elma', 2], ['strawberry', 'Çilek', 1]]
 export const terazi: Gen = (rng) => {
   const t = rng()
   const [a, b] = shuffle(rng, MASS).filter((x, i, arr) => arr.findIndex((y) => y[2] === x[2]) === i).slice(0, 2)

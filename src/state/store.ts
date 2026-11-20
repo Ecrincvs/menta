@@ -17,6 +17,8 @@ export type Screen =
   | { name: 'parent' }
   | { name: 'okuma-yazma' }
   | { name: 'harf'; letter: string }
+  | { name: 'matematik-yolu' }
+  | { name: 'tema'; tema: string }
   | { name: 'hazine'; tab?: 'rozet' | 'album' }
 
 export type Quality = 'low' | 'medium' | 'high'

@@ -122,6 +122,8 @@ export interface PopQ extends Base {
   items: string[]
   /** kaç doğru balon patlatılınca biter */
   need: number
+  /** doğru balon etiketleri (verilirse hedef-içerme kuralı yerine bu liste kullanılır; ör. sonucu 10 olan işlemler) */
+  hits?: string[]
 }
 
 /** Kelime Avı (harf oyunu): tabloda yatay/dikey saklanan kelimeleri bul */

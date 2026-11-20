@@ -10,6 +10,7 @@ import { AvatarScreen } from './screens/AvatarScreen'
 import { ParentScreen } from './screens/ParentScreen'
 import { OkumaYazmaScreen } from './screens/OkumaYazmaScreen'
 import { HarfScreen } from './screens/HarfScreen'
+import { MatYoluScreen, TemaScreen } from './screens/MatYoluScreen'
 import { TreasureScreen } from './screens/TreasureScreen'
 import { BadgeToast } from './components/BadgeToast'
 import { ScreenTimeGuard } from './components/ScreenTimeGuard'
@@ -26,6 +27,7 @@ function screenKey(s: Screen) {
   if (s.name === 'subject') return `subject-${s.subject}`
   if (s.name === 'game') return `game-${s.gameId}`
   if (s.name === 'harf') return `harf-${s.letter}`
+  if (s.name === 'tema') return `tema-${s.tema}`
   return s.name
 }
 
@@ -99,6 +101,8 @@ export default function App() {
               {screen.name === 'parent' && <ParentScreen />}
               {screen.name === 'okuma-yazma' && <OkumaYazmaScreen />}
               {screen.name === 'harf' && <HarfScreen letter={screen.letter} />}
+              {screen.name === 'matematik-yolu' && <MatYoluScreen />}
+              {screen.name === 'tema' && <TemaScreen temaId={screen.tema} />}
               {screen.name === 'hazine' && <TreasureScreen initialTab={screen.tab} />}
             </div>
           </motion.div>

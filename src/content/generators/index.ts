@@ -1,6 +1,7 @@
 import { vary, type Gen } from './helpers'
 import * as x from './g1extra'
 import { harfEtkinlikleri, harfGen } from './harfEtkinlik'
+import { TEMALAR } from './matYolu'
 import { problemMix } from './problem1'
 import { STAGES } from '../okumaYazma'
 import { G1_MATEMATIK } from '../gamesG1'
@@ -110,5 +111,7 @@ for (const [id, [extras, p]] of Object.entries(V)) GENERATORS[id] = vary(GENERAT
 for (const g of G1_MATEMATIK) if (g.mix) GENERATORS[g.id] = temaDegerlendirme(g.mix.map((id) => GENERATORS[id]))
 
 // Okuma Yazma Yolu: her harf durağı
+// Matematik Yolu: 7 tema adası (my-<tema>-<tür>)
+for (const t of TEMALAR) for (const a of t.acts) GENERATORS[`my-${t.id}-${a.kind}`] = a.gen
 // Okuma Yazma Yolu: her harf için etkinlikler + harf oyunu (oy-<harf>-<tür>)
 for (const st of STAGES) for (const k of harfEtkinlikleri(st.letter)) GENERATORS[`oy-${st.letter}-${k}`] = harfGen(st.letter, k)

@@ -17,7 +17,7 @@ const BALLOON = ['#ff5d6c', '#ff9a2e', '#ffd23f', '#5bc236', '#2ec4c9', '#4f9bff
 
 // ───────────────────────── BALON PATLAT
 export function PopView({ q, answer }: { q: PopQ; answer: Answer }) {
-  const isHit = (label: string) => (q.target.length === 1 && label.length === 1 ? label === q.target : label.toLocaleLowerCase('tr-TR').includes(q.target.toLocaleLowerCase('tr-TR')))
+  const isHit = (label: string) => (q.hits ? q.hits.includes(label) : q.target.length === 1 && label.length === 1 ? label === q.target : label.toLocaleLowerCase('tr-TR').includes(q.target.toLocaleLowerCase('tr-TR')))
   const layout = useMemo(() => {
     const r = makeRng(q.items.length * 97 + q.target.charCodeAt(0))
     const cols = Math.min(5, q.items.length)
