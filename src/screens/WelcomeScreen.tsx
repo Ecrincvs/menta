@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Mascot, type MascotPose } from '../characters/Mascot'
 import { Logo } from '../components/Logo'
-import { CandyButton } from '../components/ui/Controls'
 import { useGame } from '../state/store'
 import { sfx } from '../audio/sfx'
 
@@ -57,17 +56,18 @@ export function WelcomeScreen() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.3, type: 'spring', stiffness: 160, damping: 16 }}
       >
-        <motion.div animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 1.6, repeat: Infinity }}>
-          <CandyButton color="green" onClick={start} className="!min-h-[88px] !px-12 !text-[clamp(26px,3.2vw,40px)]" aria-label="Maceraya başla">
-            Maceraya Başla
-            <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden>
-              <path d="M8 4 L 18 12 L 8 20 Z" fill="#fff" stroke="rgba(0,0,0,0.15)" strokeWidth="1.5" strokeLinejoin="round" />
-            </svg>
-          </CandyButton>
-        </motion.div>
-        <CandyButton color="purple" onClick={() => go({ name: 'avatar' })} className="!min-h-[60px] !text-[20px]">
-          Kaşifimi Tasarla
-        </CandyButton>
+        {/* görsel buton (kullanıcının verdiği tasarım: public/assets/art/ui/maceraya-basla.webp) */}
+        <motion.button
+          onClick={start}
+          aria-label="Maceraya başla"
+          animate={{ scale: [1, 1.04, 1] }}
+          transition={{ duration: 1.6, repeat: Infinity }}
+          whileHover={{ scale: 1.07 }}
+          whileTap={{ scale: 0.94 }}
+          className="block w-[min(560px,86vw,calc(36dvh*3.05))] cursor-pointer border-0 bg-transparent p-0 drop-shadow-[0_10px_18px_rgba(60,20,110,0.35)]"
+        >
+          <img src="/assets/art/ui/maceraya-basla.webp" alt="" draggable={false} className="block h-auto w-full select-none" />
+        </motion.button>
       </motion.div>
     </div>
   )

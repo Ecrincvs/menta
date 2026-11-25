@@ -11,7 +11,8 @@
     "test": "vitest run",
     "smoke": "node scripts/smoke.mjs",
     "shots": "node scripts/smoke.mjs",
-    "art": "node scripts/art/generate.mjs"
+    "art": "node scripts/art/generate.mjs",
+    "sinif": "node scripts/yarisma-sunucu.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
@@ -19,16 +20,20 @@
     "@react-three/postprocessing": "^3.2.2",
     "framer-motion": "^14.14.0",
     "postprocessing": "^6.39.6",
+    "qrcode": "^1.5.4",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "three": "^0.187.0",
+    "ws": "^8.23.0",
     "zustand": "^5.1.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.5",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/three": "^0.187.0",
+    "@types/ws": "^8.18.2",
     "@vitejs/plugin-react": "^6.3.0",
     "playwright-core": "^1.65.1",
     "sharp": "^0.35.5",

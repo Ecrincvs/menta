@@ -70,7 +70,6 @@ export function AvatarScreen() {
     sfx('fanfare')
     setAvatar(draft)
     setNickname(name.trim() || 'Kaşif')
-    speak('Harika görünüyorsun kaşif!')
     if (grade === null) go({ name: 'grade' })
     else back()
   }

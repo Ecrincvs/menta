@@ -128,7 +128,7 @@ export function GameShell({
         {phase !== 'play' && (
           <motion.div
             key={phase}
-            className="absolute inset-0 z-40 grid place-items-center bg-[rgba(40,30,80,0.35)] p-4 backdrop-blur-[2px]"
+            className="absolute inset-0 z-40 grid place-items-center overflow-y-auto bg-[rgba(40,30,80,0.35)] p-4 pt-9 backdrop-blur-[2px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -138,7 +138,7 @@ export function GameShell({
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-              className="mk-card relative flex w-[min(820px,96vw)] flex-col items-center gap-4 p-5 pt-10 sm:flex-row sm:items-end sm:p-7"
+              className="mk-card relative flex w-[min(820px,96vw)] flex-col items-center gap-4 p-5 pt-10 sm:flex-row sm:items-end sm:p-7 [@media(max-height:560px)]:gap-2 [@media(max-height:560px)]:p-3 [@media(max-height:560px)]:pt-8"
             >
               <div className="absolute -top-7 left-1/2 -translate-x-1/2">
                 <div className="mk-wood flex items-center gap-2 rounded-2xl px-5 py-1">
@@ -149,12 +149,12 @@ export function GameShell({
               <div className="hidden shrink-0 sm:block">
                 <HostView host={host} pose={phase === 'reteach' ? 'think' : 'wave'} size={170} />
               </div>
-              <div className="flex flex-1 flex-col items-center gap-4">
-                <div className="grid min-h-[180px] w-full place-items-center rounded-2xl bg-white/70 p-3">{phase === 'reteach' ? reteach!.demo : intro.demo}</div>
-                <SpeechBubble tail="none" text={phase === 'reteach' ? reteach!.text : intro.text} className="w-full" />
+              <div className="flex flex-1 flex-col items-center gap-4 [@media(max-height:560px)]:gap-2">
+                <div className="grid min-h-[180px] w-full place-items-center rounded-2xl bg-white/70 p-3 [@media(max-height:560px)]:min-h-0 [@media(max-height:560px)]:p-1 [@media(max-height:560px)]:[zoom:0.6]">{phase === 'reteach' ? reteach!.demo : intro.demo}</div>
+                <SpeechBubble autoSpeak tail="none" text={phase === 'reteach' ? reteach!.text : intro.text} className="w-full" />
                 <CandyButton
                   color="green"
-                  className="!min-h-[80px] !px-12"
+                  className="!min-h-[80px] !px-12 [@media(max-height:560px)]:!min-h-[56px]"
                   onClick={() => setPhase(phase === 'reteach' ? 'intro' : 'play')}
                   aria-label={phase === 'reteach' ? 'Anladım' : 'Başla'}
                 >

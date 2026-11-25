@@ -130,7 +130,7 @@ export default function ElmaToplama({ onReplay }: { onReplay: () => void }) {
     >
       {/* hikâye balonu */}
       <div className="absolute left-[3%] top-[92px] z-20 w-[min(560px,52vw)] sm:top-[100px]">
-        <SpeechBubble key={eng.index} text={q.story} tail="none" />
+        <SpeechBubble soru key={eng.index} text={q.story} tail="none" />
       </div>
 
       {/* işlem tahtası */}

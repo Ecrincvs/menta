@@ -2,15 +2,20 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
 import { speak } from '../../audio/speech'
 import { sfx } from '../../audio/sfx'
+import { useGame } from '../../state/store'
 
 /**
- * Krem konuşma balonu + 🔊 sesli okuma butonu.
- * `autoSpeak` ile metin ekrana gelince otomatik seslendirilir (okuma bilmeyen çocuklar için).
+ * Krem konuşma balonu + 🔊 sesli okuma butonu (dokununca her zaman okur).
+ * Kendiliğinden okuma az tutulur (kullanıcı isteği: "her adımda konuşmasın"):
+ * - `soru`: oyun soruları — yalnızca 1. sınıfta (okuma bilmeyenler) kendiliğinden okunur
+ * - `autoSpeak`: açıkça istenirse (ör. etkinlik tanıtımı) her sınıfta okunur
+ * - diğer balonlar (menü, harita selamları) sessizdir
  */
 export function SpeechBubble({
   text,
   spoken,
-  autoSpeak = true,
+  autoSpeak = false,
+  soru = false,
   tail = 'left',
   className = '',
   size = 'md',
@@ -19,16 +24,20 @@ export function SpeechBubble({
   /** Seslendirilecek metin (görünen metinden farklı olabilir) */
   spoken?: string
   autoSpeak?: boolean
+  /** oyun sorusu: 1. sınıfta kendiliğinden okunur */
+  soru?: boolean
   tail?: 'left' | 'right' | 'bottom' | 'none'
   className?: string
   size?: 'sm' | 'md' | 'lg'
 }) {
   const say = spoken ?? text
+  const grade = useGame((st) => st.grade)
+  const oku = autoSpeak || (soru && grade === 1)
   useEffect(() => {
-    if (!autoSpeak) return
+    if (!oku) return
     const t = setTimeout(() => speak(say), 250)
     return () => clearTimeout(t)
-  }, [say, autoSpeak])
+  }, [say, oku])
 
   const fs = size === 'lg' ? 'text-[clamp(22px,2.6vw,32px)]' : size === 'sm' ? 'text-[clamp(16px,1.8vw,20px)]' : 'text-[clamp(19px,2.2vw,26px)]'
 

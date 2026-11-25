@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Hud } from '../components/Hud'
 import { Logo } from '../components/Logo'
 import { SpeechBubble } from '../components/ui/SpeechBubble'
@@ -10,7 +10,7 @@ import type { SubjectId } from '../content/types'
 import { useGame } from '../state/store'
 import { sfx } from '../audio/sfx'
 import { GRADES } from '../content/grades'
-import { gameById, gamesFor } from '../content/games'
+import { gameById } from '../content/games'
 import { ENTER_MS } from '../world/enter'
 import type { ReactNode } from 'react'
 
@@ -19,12 +19,27 @@ import type { ReactNode } from 'react'
  * Bina seçimi (3D'deki bina veya etiket) → kamera yaklaşır → ders dünyasına geçiş.
  */
 export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; setFocus: (s: SubjectId | null) => void }) {
-  const { go, grade, sessions } = useGame()
+  const { go, grade, sessions, setGrade } = useGame()
   const gm = GRADES.find((g) => g.grade === grade)
   const [msg, setMsg] = useState(gm ? `${gm.world}'ne hoş geldin! Bir binaya dokun ve keşfe başla.` : 'Bir binaya dokun ve keşfe başla!')
   const [pose, setPose] = useState<MascotPose>('wave')
+  // balon binaların önünü kapatmasın: birkaç saniye görünür, sonra kaybolur (Fındık'a dokununca tekrar çıkar)
+  const [balon, setBalon] = useState(true)
+  useEffect(() => {
+    setBalon(true)
+    const t = setTimeout(() => setBalon(false), 6000)
+    return () => clearTimeout(t)
+  }, [msg])
   const [menuOpen, setMenuOpen] = useState(false)
   const world3d = useGame((s) => s.settings.world3d)
+  // menüden sınıf değişince Fındık yeni dünyayı karşılasın
+  const ilkSinif = useRef(grade)
+  useEffect(() => {
+    if (ilkSinif.current === grade || !gm) return
+    ilkSinif.current = grade
+    setPose('cheer')
+    setMsg(`${gm.label}! ${gm.world}'ne hoş geldin! Bir binaya dokun ve keşfe başla.`)
+  }, [grade]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const onSel = (e: Event) => {
@@ -114,13 +129,24 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
             sfx('pop')
             setPose('jump')
             setTimeout(() => setPose('idle'), 1100)
+            setBalon((b) => !b)
           }}
         >
           <Mascot pose={pose} size={Math.min(190, window.innerWidth * 0.17)} />
         </button>
-        <div className="mb-[clamp(90px,14vh,150px)] -ml-2 max-w-[min(420px,48vw)]">
-          <SpeechBubble tail="left" text={msg} />
-        </div>
+        <AnimatePresence>
+          {balon && (
+            <motion.div
+              key="balon"
+              initial={{ opacity: 0, scale: 0.85, x: -10 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.85, x: -10 }}
+              className="mb-[clamp(40px,7vh,80px)] -ml-3 w-max max-w-[min(300px,40vw)] origin-left"
+            >
+              <SpeechBubble tail="left" text={msg} size="sm" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
 
       {/* YAN MENÜ: sağ kenardaki "Menü" düğmesi → yandan açılan panel (dünyalar, hazine, görevler, kaşif) */}
@@ -188,14 +214,43 @@ export function WorldOverlay({ focus, setFocus }: { focus: SubjectId | null; set
                 </button>
               </div>
 
-              <MenuGroup title="Dünyalar">
-                {grade === 1 && <MenuItem icon="abc" bg="#ffe3d9" label="Okuma Yazma Yolu" sub="29 harf adası" onClick={() => open(() => go({ name: 'okuma-yazma' }))} />}
-                {grade === 1 && <MenuItem icon="abacus" bg="#efe6ff" label="Matematik Yolu" sub="7 tema adası" onClick={() => open(() => go({ name: 'matematik-yolu' }))} />}
-                {grade === 1 && <MenuItem icon="housegarden" bg="#ffe9d6" label="Hayat Bilgisi Yolu" sub="6 öğrenme alanı adası" onClick={() => open(() => go({ name: 'hayat-yolu' }))} />}
-                {SUBJECTS.filter((s) => subjectOpenFor(s.id, grade)).map((s) => (
-                  <MenuItem key={s.id} icon={s.icon} bg={s.pastel} label={s.name} sub={`${gamesFor(s.id, grade ?? 1).length} etkinlik`} onClick={() => open(() => window.dispatchEvent(new CustomEvent('mk-select', { detail: s.id })))} />
-                ))}
+              <MenuGroup title="Sınıfım">
+                <div className="grid grid-cols-4 gap-2" role="radiogroup" aria-label="Sınıf seç">
+                  {GRADES.map((g) => {
+                    const aktif = g.grade === grade
+                    return (
+                      <motion.button
+                        key={g.grade}
+                        role="radio"
+                        aria-checked={aktif}
+                        aria-label={`${g.label} · ${g.world}`}
+                        whileTap={{ scale: 0.92 }}
+                        onClick={() => {
+                          if (aktif) return
+                          sfx('unlock')
+                          setGrade(g.grade)
+                          setMenuOpen(false)
+                        }}
+                        className="flex flex-col items-center gap-0.5 rounded-2xl px-1 py-2 text-center"
+                        style={{
+                          background: aktif ? g.color : '#fff',
+                          color: aktif ? '#fff' : 'var(--mk-ink)',
+                          boxShadow: aktif ? `0 4px 0 ${g.colorDark}, 0 0 0 3px #fff, 0 0 0 5px ${g.color}` : '0 3px 0 #e2cfa6',
+                        }}
+                      >
+                        <span className="mk-display text-[24px] leading-none">{g.grade}.</span>
+                        <span className="mk-display text-[15px] leading-none">Sınıf</span>
+                        <span className="mt-0.5 text-[10px] font-bold leading-tight opacity-80">{g.world}</span>
+                      </motion.button>
+                    )
+                  })}
+                </div>
               </MenuGroup>
+
+              <MenuGroup title="Yarış">
+                <MenuItem icon="trophy" bg="#ece2ff" label="Yarışma Modu" sub="Arkadaşlarınla bilgi yarışması" onClick={() => open(() => go({ name: 'yarisma' }))} />
+              </MenuGroup>
+
 
               <MenuGroup title="Günlük Görevler" right={`${doneN}/3`}>
                 <div className="flex flex-col gap-1.5 rounded-2xl bg-white/70 p-2">

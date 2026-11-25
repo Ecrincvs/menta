@@ -12,6 +12,8 @@ import { OkumaYazmaScreen } from './screens/OkumaYazmaScreen'
 import { HarfScreen } from './screens/HarfScreen'
 import { MatYoluScreen, TemaScreen } from './screens/MatYoluScreen'
 import { AlanScreen, HayatYoluScreen } from './screens/HayatYoluScreen'
+import { YarismaScreen } from './screens/yarisma/YarismaScreen'
+import { KitapAdaScreen, KitapYoluScreen } from './screens/KitapYoluScreen'
 import { TreasureScreen } from './screens/TreasureScreen'
 import { BadgeToast } from './components/BadgeToast'
 import { ScreenTimeGuard } from './components/ScreenTimeGuard'
@@ -30,6 +32,8 @@ function screenKey(s: Screen) {
   if (s.name === 'harf') return `harf-${s.letter}`
   if (s.name === 'tema') return `tema-${s.tema}`
   if (s.name === 'hb-alan') return `hb-alan-${s.alan}`
+  if (s.name === 'yol') return `yol-${s.yol}`
+  if (s.name === 'ada') return `ada-${s.yol}-${s.ada}`
   return s.name
 }
 
@@ -47,6 +51,14 @@ export default function App() {
   const stepIn = screen.name === 'subject' && !!useGame.getState().veil
 
   // ilk açılış: önceki ilerlemeden hak edilmiş rozetleri sessizce ver (eski kayıtlar için)
+  useEffect(() => {
+    // QR ile gelindiyse (…/?kod=1234) doğrudan yarışmaya katılma ekranı
+    const kod = new URLSearchParams(location.search).get('kod')
+    if (kod && /^\d{4,5}$/.test(kod)) {
+      history.replaceState(null, '', location.pathname)
+      useGame.getState().go({ name: 'yarisma', kod })
+    }
+  }, [])
   useEffect(() => {
     useGame.getState().checkBadges(true)
   }, [])
@@ -107,6 +119,9 @@ export default function App() {
               {screen.name === 'tema' && <TemaScreen temaId={screen.tema} />}
               {screen.name === 'hayat-yolu' && <HayatYoluScreen />}
               {screen.name === 'hb-alan' && <AlanScreen alanId={screen.alan} />}
+              {screen.name === 'yarisma' && <YarismaScreen kod={screen.kod} />}
+              {screen.name === 'yol' && <KitapYoluScreen yolId={screen.yol} />}
+              {screen.name === 'ada' && <KitapAdaScreen yolId={screen.yol} adaId={screen.ada} />}
               {screen.name === 'hazine' && <TreasureScreen initialTab={screen.tab} />}
             </div>
           </motion.div>

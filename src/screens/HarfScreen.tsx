@@ -1,7 +1,7 @@
 /**
  * HARF ADASI — bir harfin bütün okuma yazma etkinlikleri (sıralı) + sonda harf oyunu.
  * Kitaptaki akış: ses → harf → yazma → hece → kelime → cümle → metin → oyun.
- * Etkinlikler sırayla açılır; oyun, bütün etkinlikler bitince açılır. Harf, oyun bitince "öğrenildi" sayılır.
+ * Etkinlikler sırayla açılır; oyun baştan açık. Harf, oyun bitince "öğrenildi" sayılır.
  */
 import { motion } from 'framer-motion'
 import { Backdrop } from '../components/Backdrop'
@@ -51,8 +51,10 @@ export function HarfScreen({ letter }: { letter: string }) {
   const doneN = acts.filter((g) => done(g.id)).length
   // ilk bitmemiş etkinlik = sıradaki
   const nextIdx = acts.findIndex((g) => !done(g.id))
-  const gameOpen = nextIdx === -1
-  const msg = gameOpen
+  const allDone = nextIdx === -1
+  // oyun etkinlikleri beklemeden her zaman açık
+  const gameOpen = true
+  const msg = allDone
     ? done(game.id)
       ? `Harika! “${letter}” harfini öğrendin. İstediğin etkinliği tekrar oynayabilirsin.`
       : `Bütün etkinlikleri bitirdin! Şimdi ödül oyunu: ${game.title}!`
@@ -119,7 +121,7 @@ export function HarfScreen({ letter }: { letter: string }) {
               <div className="w-full">
                 <SpeechBubble tail="bottom" text={msg} size="sm" />
               </div>
-              <Mascot pose={gameOpen ? 'cheer' : 'wave'} size={130} />
+              <Mascot pose={allDone ? 'cheer' : 'wave'} size={130} />
             </div>
             <div className="lg:hidden">
               <SpeechBubble tail="none" text={msg} size="sm" />

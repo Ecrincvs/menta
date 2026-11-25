@@ -66,7 +66,7 @@ export function PopView({ q, answer }: { q: PopQ; answer: Answer }) {
     <div className="flex h-full flex-col items-center gap-2 px-3">
       <div className="flex w-[min(760px,94vw)] items-center gap-3">
         <div className="flex-1">
-          <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+          <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" />
         </div>
         <div className="mk-card flex shrink-0 items-center gap-1 rounded-full px-4 py-2" aria-live="polite" aria-label={`${hits} / ${q.need}`}>
           <span className="mk-display text-[30px] text-[var(--mk-red)]">{hits}</span>
@@ -217,7 +217,7 @@ export function SearchView({ q, answer }: { q: SearchQ; answer: Answer }) {
   return (
     <div className="flex h-full flex-col items-center gap-3 px-3 md:flex-row md:justify-center md:gap-8">
       <div className="flex w-[min(360px,92vw)] flex-col gap-3">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" />
         <div className="mk-card flex flex-wrap justify-center gap-2 p-3" aria-label="Aranan kelimeler">
           {q.words.map((w) => {
             const ok = found.includes(w)

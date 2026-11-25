@@ -14,6 +14,7 @@ import { VisualView } from './Visuals'
 import { InputView, LessonView, MatchView, MemoryView } from './InteractiveViews'
 import { TraceView } from './TraceView'
 import { PopView, SearchView } from './GameViews'
+import { ModelView } from './ModelView'
 import { Obj } from '../../components/ui/Obj'
 import { SpeechBubble } from '../../components/ui/SpeechBubble'
 import { StarBurst } from '../../components/fx/Confetti'
@@ -30,6 +31,11 @@ type Answer = (correct: boolean, opts?: { explain?: string; hint?: string; delay
 export default function QuizGame({ gameId, onReplay }: { gameId: string; onReplay: () => void }) {
   const meta = gameById(gameId)!
   const gen = GENERATORS[gameId]
+  // yeni etkinlikte dinleme metni baştan okunsun
+  useState(() => {
+    sonMetin = ''
+    return 0
+  })
   const grade = (useGame.getState().grade ?? meta.grades[0]) as Grade
   const needsReview = useGame((s) => s.skills[meta.skill]?.needsReview ?? false)
   const make = useCallback((rng: Parameters<typeof gen>[0], g: Grade, l: Parameters<typeof gen>[2], h: Question[]) => gen(rng, g, l, h), [gen])
@@ -71,7 +77,7 @@ export default function QuizGame({ gameId, onReplay }: { gameId: string; onRepla
           : null
       }
     >
-      <div key={eng.index} className="absolute inset-x-0 bottom-[56px] top-[86px] z-10 sm:top-[96px]">
+      <div key={eng.index} className="absolute inset-x-0 bottom-[56px] top-[86px] z-10 overflow-y-auto overflow-x-hidden pb-2 sm:top-[96px]">
         {q.type === 'choice' && <ChoiceView q={q} feedback={eng.feedback} answer={eng.answer} />}
         {q.type === 'order' && <OrderView q={q} feedback={eng.feedback} answer={eng.answer} />}
         {q.type === 'sort' && <SortView q={q} feedback={eng.feedback} answer={eng.answer} />}
@@ -81,6 +87,7 @@ export default function QuizGame({ gameId, onReplay }: { gameId: string; onRepla
         {q.type === 'trace' && <TraceView q={q} feedback={eng.feedback} answer={eng.answer} />}
         {q.type === 'pop' && <PopView q={q} answer={eng.answer} />}
         {q.type === 'search' && <SearchView q={q} answer={eng.answer} />}
+        {q.type === 'model' && <ModelView q={q} answer={eng.answer} />}
       </div>
     </GameShell>
   )
@@ -135,6 +142,16 @@ function ExampleView({ q }: { q: Question }) {
       </div>
     )
   }
+  if (q.type === 'model')
+    return (
+      <div className="flex flex-wrap justify-center gap-2">
+        {q.yuvalar.map((y) => (
+          <span key={y.id} className="mk-display rounded-xl bg-[var(--mk-green)] px-3 py-1 text-[20px] text-white">
+            {y.dogru}
+          </span>
+        ))}
+      </div>
+    )
   if (q.type === 'pop' || q.type === 'search')
     return (
       <div className="flex flex-wrap justify-center gap-2">
@@ -187,11 +204,11 @@ function ChoiceView({ q, feedback, answer }: { q: ChoiceQ; feedback: Feedback; a
   return (
     <div className="flex h-full flex-col items-center justify-start gap-3 px-3">
       <div className="w-[min(760px,92vw)]">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" size={q.prompt.length > 60 ? 'md' : 'lg'} />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" size={q.prompt.length > 60 ? 'md' : 'lg'} />
       </div>
       <div className={`flex w-full flex-1 items-center justify-center gap-6 ${q.visual ? 'flex-col md:flex-row' : 'flex-col'}`}>
         {q.visual && (
-          <motion.div initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: 'spring', stiffness: 220, damping: 16 }} className="relative grid max-w-[min(560px,90vw)] place-items-center rounded-[28px] bg-white/55 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-[2px]">
+          <motion.div initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: 'spring', stiffness: 220, damping: 16 }} className="relative grid max-w-[min(560px,90vw)] place-items-center rounded-[28px] bg-white/55 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-[2px] [@media(max-height:560px)]:p-2 [@media(max-height:560px)]:[zoom:0.55]">
             <VisualView v={q.visual} />
             {feedback === 'correct' && <StarBurst />}
           </motion.div>
@@ -231,10 +248,10 @@ function OptionTile({ o, wide, big: bigProp, state, shake, delay, onClick }: { o
       whileTap={state === 'idle' ? { scale: 0.94 } : {}}
       onClick={onClick}
       disabled={state === 'wrong'}
-      className={`relative flex items-center justify-center gap-2 rounded-[22px] ${wide ? 'min-h-[66px] w-full px-5 py-3 text-left' : big ? 'h-[clamp(84px,10vw,120px)] min-w-[clamp(84px,10vw,120px)] px-4' : 'min-h-[clamp(84px,10vw,120px)] min-w-[clamp(120px,14vw,170px)] flex-col px-4 py-3'}`}
+      className={`relative flex items-center justify-center gap-2 rounded-[22px] ${wide ? 'min-h-[66px] w-full px-5 py-3 text-left' : big ? 'h-[clamp(84px,10vw,120px)] min-w-[clamp(84px,10vw,120px)] px-4' : 'min-h-[clamp(84px,10vw,120px)] min-w-[clamp(120px,14vw,170px)] flex-col px-4 py-3 [@media(max-height:560px)]:min-h-[64px] [@media(max-height:560px)]:py-1.5'}`}
       style={tileStyle(state)}
     >
-      {o.img && <Obj name={o.img} size={wide ? 44 : 72} shadow={false} />}
+      {o.img && <Obj name={o.img} size={wide ? 44 : 'clamp(36px, 9vh, 72px)'} shadow={false} />}
       {o.visual && <VisualView v={o.visual} size="sm" />}
       {o.label && (
         <span className={`mk-display leading-tight ${big ? 'text-[clamp(38px,5vw,60px)]' : wide ? 'text-[clamp(18px,2vw,23px)]' : 'text-[clamp(20px,2.3vw,28px)] text-center'}`} style={{ textShadow: state === 'win' ? '0 2px 0 #2f7a16' : undefined }}>
@@ -259,7 +276,7 @@ function BubbleView({ q, state, pick, shake, feedback }: { q: ChoiceQ; state: (i
   return (
     <div className="relative flex h-full flex-col items-center px-3">
       <div className="z-10 w-[min(640px,92vw)]">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" size="lg" />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" size="lg" />
       </div>
       {q.visual && (
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring', stiffness: 220, damping: 15 }} className="z-10 mt-2 rounded-[28px] bg-white/60 p-3 shadow-lg backdrop-blur-[2px]">
@@ -314,12 +331,25 @@ function BubbleView({ q, state, pick, shake, feedback }: { q: ChoiceQ; state: (i
 }
 
 /* ---------------- Okuma Hikâyesi: açık kitap ---------------- */
+/** en son seslendirilen metin (aynı dinleme metninin sonraki sorularında metni tekrar okumamak için) */
+let sonMetin = ''
 function StoryView({ q, state, pick, shake }: { q: ChoiceQ; state: (i: number) => TileState; pick: (i: number) => void; shake: number | null }) {
   const p = q.passage!
+  const grade = useGame((st) => st.grade)
   useEffect(() => {
-    const t = setTimeout(() => speak(`${p.title}. ${p.text}`), 400)
+    // dinleme: metin yeni geldiyse metin + soru, aynı metnin sonraki sorusunda yalnızca soru okunur.
+    // okuma metni: yalnızca 1. sınıfta kendiliğinden okunur (sonrasında çocuk kendisi okur; 🔊 ile dinleyebilir)
+    const soru = q.spoken ?? q.prompt
+    const t = setTimeout(() => {
+      // (StrictMode'un çift çalıştırmasından etkilenmemek için işaret seslendirme anında güncellenir)
+      const yeni = sonMetin !== p.text
+      sonMetin = p.text
+      const metin = p.dinle ? (yeni ? `${p.title}. ${p.text} Şimdi soruyu dinle. ${soru}` : soru) : grade === 1 ? `${p.title}. ${p.text}` : ''
+      if (metin) speak(metin)
+    }, 400)
     return () => clearTimeout(t)
-  }, [p])
+  }, [p, q.prompt, q.spoken, grade])
+  if (p.dinle) return <ListenView q={q} state={state} pick={pick} shake={shake} />
   return (
     <div className="flex h-full items-center justify-center px-3">
       <motion.div
@@ -357,6 +387,51 @@ function StoryView({ q, state, pick, shake }: { q: ChoiceQ; state: (i: number) =
   )
 }
 
+/* ---------------- Dinleme Metni: yazı yok, kulak ver ---------------- */
+function ListenView({ q, state, pick, shake }: { q: ChoiceQ; state: (i: number) => TileState; pick: (i: number) => void; shake: number | null }) {
+  const p = q.passage!
+  const [dinlendi, setDinlendi] = useState(1)
+  const replay = () => {
+    sfx('tap')
+    setDinlendi((n) => n + 1)
+    speak(`${p.title}. ${p.text}`, { force: true })
+  }
+  return (
+    <div className="flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-3 py-2">
+      <motion.div
+        initial={{ scale: 0.85, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        className="flex w-[min(760px,94vw)] items-center gap-4 rounded-[26px] border-4 border-[#2a7fd4] bg-[linear-gradient(135deg,#e6f4ff,#cfe8ff)] p-4 shadow-[0_8px_0_#1b5fa3,0_16px_28px_rgba(0,0,0,0.2)]"
+      >
+        <motion.div animate={{ rotate: [0, -6, 6, 0] }} transition={{ repeat: Infinity, duration: 2.4 }}>
+          <Obj name="headphone" size={84} />
+        </motion.div>
+        <div className="flex flex-1 flex-col">
+          <span className="text-[13px] font-black uppercase tracking-wide text-[#1b5fa3]">Dinleme metni</span>
+          <span className="mk-display text-[clamp(22px,2.6vw,30px)] leading-none text-[#123e6b]">{p.title}</span>
+          <span className="mt-1 text-[14px] font-bold text-[#355b80]">Metin yazılı değil, dikkatle dinle! Unutursan tekrar dinleyebilirsin.</span>
+        </div>
+        <button
+          onClick={replay}
+          aria-label="Metni tekrar dinle"
+          className="mk-candy !min-h-[60px] !px-5 !text-[19px]"
+          style={{ ['--c' as string]: 'var(--mk-sky)', ['--c-dark' as string]: '#1b5fa3' }}
+        >
+          {dinlendi > 1 ? 'Tekrar dinle' : 'Dinle'}
+        </button>
+      </motion.div>
+      <div className="w-[min(760px,94vw)]">
+        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+      </div>
+      <div className="grid w-[min(760px,94vw)] grid-cols-1 gap-2.5 sm:grid-cols-2" role="group" aria-label="Cevaplar">
+        {q.options.map((o, i) => (
+          <OptionTile key={i} o={o} wide state={state(i)} shake={shake === i} delay={0.3 + i * 0.07} onClick={() => pick(i)} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 /* ================================ SIRALAMA (TREN) ================================ */
 function OrderView({ q, feedback, answer }: { q: OrderQ; feedback: Feedback; answer: Answer }) {
   const tiles = useMemo(() => {
@@ -389,21 +464,46 @@ function OrderView({ q, feedback, answer }: { q: OrderQ; feedback: Feedback; ans
   const textOf = (key: string) => tiles.find((t) => t.key === key)!.p
 
   const train = q.style === 'train'
+  /* parçalar (zincirde boşlukların üstünde, trende altında) */
+  const tilesRow = (
+      <div className="mt-1 flex flex-wrap justify-center gap-2.5" role="group" aria-label="Parçalar">
+        {tiles.map((t) => {
+          const used = placed.includes(t.key) || revealed
+          return (
+            <motion.button
+              key={t.key}
+              aria-label={t.p}
+              onClick={() => tap(t.key, t.p)}
+              disabled={used}
+              initial={{ y: 40, opacity: 0 }}
+              animate={shake === t.key ? { x: [0, -12, 12, -8, 8, 0], y: 0, opacity: 1 } : { y: 0, opacity: used ? 0.25 : 1, scale: used ? 0.85 : 1 }}
+              whileHover={!used ? { y: -6 } : {}}
+              whileTap={!used ? { scale: 0.92 } : {}}
+              className={`mk-display rounded-[18px] ${train ? 'min-w-[86px] px-5 py-3 text-[clamp(26px,3vw,38px)]' : 'px-4 py-2 text-[clamp(15px,1.8vw,20px)]'}`}
+              style={tileStyle('idle')}
+            >
+              {t.p}
+            </motion.button>
+          )
+        })}
+      </div>
+  )
   return (
     <div className="flex h-full flex-col items-center justify-start gap-3 px-3">
       <div className="w-[min(720px,92vw)]">
-        <SpeechBubble text={train ? 'Resme bak, hece vagonlarını doğru sıraya diz!' : q.prompt} spoken={q.spoken} tail="none" />
+        <SpeechBubble soru text={train ? 'Resme bak, hece vagonlarını doğru sıraya diz!' : q.prompt} spoken={q.spoken} tail="none" />
       </div>
       {q.img && (
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="mk-wood rounded-[22px] p-2">
+        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className={`mk-wood rounded-[22px] p-2 ${train ? '' : 'hidden [@media(min-height:860px)]:block'}`}>
           <div className="rounded-xl bg-[#fff8e9] p-2">
             <Obj name={q.img} size={'clamp(80px,11vw,130px)'} />
           </div>
         </motion.div>
       )}
+      {!train && tilesRow}
       {/* tren / zincir */}
       <motion.div
-        className={`flex items-end ${train ? 'gap-1' : 'flex-col gap-2'}`}
+        className={`flex items-end ${train ? 'gap-1' : 'flex-col gap-1.5 [@media(max-height:560px)]:grid [@media(max-height:560px)]:grid-cols-2'}`}
         animate={done && train ? { x: [0, 30, 900] } : { x: 0 }}
         transition={done && train ? { duration: 2, times: [0, 0.3, 1], ease: 'easeIn', delay: 0.4 } : {}}
       >
@@ -411,9 +511,9 @@ function OrderView({ q, feedback, answer }: { q: OrderQ; feedback: Feedback; ans
         {q.pieces.map((_, i) => {
           const key = shown[i]
           return (
-            <div key={i} className={train ? 'flex flex-col items-center' : 'w-[min(560px,90vw)]'}>
+            <div key={i} className={train ? 'flex flex-col items-center' : 'w-[min(560px,90vw)] [@media(max-height:560px)]:w-[min(360px,44vw)]'}>
               <div
-                className={`grid place-items-center rounded-2xl border-4 ${train ? 'h-[clamp(68px,8vw,92px)] min-w-[clamp(84px,10vw,118px)] px-3' : 'min-h-[54px] w-full px-4'}`}
+                className={`grid place-items-center rounded-2xl border-4 ${train ? 'h-[clamp(68px,8vw,92px)] min-w-[clamp(84px,10vw,118px)] px-3' : 'min-h-[clamp(38px,6.4vh,52px)] w-full px-4 py-1'}`}
                 style={{
                   background: key ? (revealed ? '#bfe6ff' : ['#ffd23f', '#ff7aa8', '#2ec4c9', '#9b6ef3', '#5bc236', '#ff9a2e'][i % 6]) : 'rgba(255,255,255,0.65)',
                   borderColor: key ? 'rgba(0,0,0,0.25)' : '#d9c3a0',
@@ -441,28 +541,7 @@ function OrderView({ q, feedback, answer }: { q: OrderQ; feedback: Feedback; ans
         })}
       </motion.div>
       {train && <div className="h-2 w-[min(760px,92vw)] rounded-full bg-[repeating-linear-gradient(90deg,#7a4a22_0_14px,#a0673a_14px_28px)]" />}
-      {/* parçalar */}
-      <div className="mt-1 flex flex-wrap justify-center gap-3" role="group" aria-label="Parçalar">
-        {tiles.map((t) => {
-          const used = placed.includes(t.key) || revealed
-          return (
-            <motion.button
-              key={t.key}
-              aria-label={t.p}
-              onClick={() => tap(t.key, t.p)}
-              disabled={used}
-              initial={{ y: 40, opacity: 0 }}
-              animate={shake === t.key ? { x: [0, -12, 12, -8, 8, 0], y: 0, opacity: 1 } : { y: 0, opacity: used ? 0.25 : 1, scale: used ? 0.85 : 1 }}
-              whileHover={!used ? { y: -6 } : {}}
-              whileTap={!used ? { scale: 0.92 } : {}}
-              className={`mk-display rounded-[18px] ${train ? 'min-w-[86px] px-5 py-3 text-[clamp(26px,3vw,38px)]' : 'px-4 py-2.5 text-[clamp(16px,1.9vw,21px)]'}`}
-              style={tileStyle('idle')}
-            >
-              {t.p}
-            </motion.button>
-          )
-        })}
-      </div>
+      {train && tilesRow}
     </div>
   )
 }
@@ -532,10 +611,10 @@ function SortView({ q, feedback, answer }: { q: SortQ; feedback: Feedback; answe
   return (
     <div className="flex h-full flex-col items-center gap-3 px-3">
       <div className="w-[min(720px,92vw)]">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" />
       </div>
       {/* öğeler */}
-      <div className="flex min-h-[110px] max-w-[1000px] flex-wrap content-start justify-center gap-3">
+      <div className="flex min-h-[110px] max-w-[1000px] flex-wrap content-start justify-center gap-3 [@media(max-height:560px)]:min-h-0 [@media(max-height:560px)]:gap-2">
         {q.items.map((it, i) => {
           if (placed[i] || revealed) return null
           return (
@@ -558,7 +637,7 @@ function SortView({ q, feedback, answer }: { q: SortQ; feedback: Feedback; answe
               initial={{ scale: 0, y: -30 }}
               animate={shake === i ? { x: [0, -12, 12, -8, 8, 0], scale: 1, y: 0 } : { scale: selected === i ? 1.08 : 1, y: selected === i ? -8 : 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 18, delay: shake === i ? 0 : i * 0.05 }}
-              className="flex cursor-grab items-center gap-2 rounded-2xl px-3 py-2 active:cursor-grabbing"
+              className="flex cursor-grab items-center gap-2 rounded-2xl px-3 py-2 active:cursor-grabbing [@media(max-height:560px)]:py-1"
               style={{ ...tileStyle('idle'), touchAction: 'none', outline: selected === i ? '4px solid #2a7fd4' : 'none', maxWidth: 260 }}
             >
               {it.img && <Obj name={it.img} size={48} shadow={false} />}
@@ -581,7 +660,7 @@ function SortView({ q, feedback, answer }: { q: SortQ; feedback: Feedback; answe
               aria-label={`${b.label} kutusu`}
               onClick={() => selected !== null && drop(selected, b.id)}
               whileHover={selected !== null ? { scale: 1.04 } : {}}
-              className="relative flex min-h-[clamp(150px,24vh,220px)] flex-1 flex-col items-center rounded-[26px] border-4 p-2 pt-10"
+              className="relative flex min-h-[clamp(150px,24vh,220px)] flex-1 flex-col items-center rounded-[26px] border-4 p-2 pt-10 [@media(max-height:560px)]:min-h-[92px] [@media(max-height:560px)]:pt-7"
               style={{ borderColor: b.color, background: `linear-gradient(180deg, ${b.color}22, ${b.color}55)`, boxShadow: selected !== null ? `0 0 0 5px ${b.color}66` : '0 8px 20px rgba(0,0,0,0.12)', cursor: selected !== null ? 'pointer' : 'default' }}
             >
               <div className="absolute -top-5 flex items-center gap-1.5 rounded-full px-4 py-1.5 text-white shadow-[0_4px_0_rgba(0,0,0,0.2)]" style={{ background: b.color }}>

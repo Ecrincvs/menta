@@ -2,7 +2,7 @@
  * ADA YOLU — kitap temalarını/öğrenme alanlarını birer "ada" olarak gösteren ortak ekranlar
  * (Matematik Yolu, Hayat Bilgisi Yolu).
  * Harita: kıvrımlı yol üzerinde adalar (hepsi açık; kitap sırası önerilir).
- * Ada ekranı: sıralı etkinlikler (sırayla açılır) + sonda oyun(lar) (etkinlikler bitince açılır).
+ * Ada ekranı: sıralı etkinlikler (sırayla açılır) + sonda oyun(lar) (oyunlar baştan açık).
  */
 import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
@@ -155,14 +155,16 @@ export function YolAda({ cfg, temaId }: { cfg: YolConfig; temaId: string }) {
   const done = (id: string) => !!gameResults[id]
   const doneN = acts.filter((g) => done(g.id)).length
   const nextIdx = acts.findIndex((g) => !done(g.id))
-  const gamesOpen = nextIdx === -1
-  const msg = gamesOpen
+  const allDone = nextIdx === -1
+  // oyunlar etkinlikleri beklemeden her zaman açık
+  const gamesOpen = true
+  const msg = allDone
     ? games.every((g) => done(g.id))
       ? `Bu adayı tamamladın! İstediğin etkinliği tekrar oynayabilirsin.`
       : `Bütün etkinlikleri bitirdin! Şimdi oyun zamanı: ${games.map((g) => g.title).join(' ve ')}!`
     : doneN === 0
       ? `${t.title} adasına hoş geldin! İlk etkinlikle başlayalım.`
-      : `Harika gidiyorsun! Sıradaki: ${acts[nextIdx].title}.`
+      : `Harika gidiyorsun! Sıradaki: ${acts[nextIdx].title}. Oyunlar da açık!`
 
   const open = (id: string, locked: boolean) => {
     if (locked) {
@@ -217,7 +219,7 @@ export function YolAda({ cfg, temaId }: { cfg: YolConfig; temaId: string }) {
               <div className="w-full">
                 <SpeechBubble tail="bottom" text={msg} size="sm" />
               </div>
-              {cfg.host(gamesOpen ? 'cheer' : 'idle', 120)}
+              {cfg.host(allDone ? 'cheer' : 'idle', 120)}
             </div>
             <div className="lg:hidden">
               <SpeechBubble tail="none" text={msg} size="sm" />

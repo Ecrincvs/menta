@@ -23,8 +23,10 @@ function pickVoice() {
   if (!vs.length) return
   voicesReady = true
   const tr = vs.filter((v) => v.lang.toLowerCase().startsWith('tr'))
-  // Doğal sesler (Online/Natural) daha kaliteli
-  voice = tr.find((v) => /natural|online|neural/i.test(v.name)) ?? tr[0] ?? null
+  // Sıralama: doğal/sinir ağı sesleri (Edge: "Microsoft Emel Online (Natural)") > Google Türkçe (Chrome) >
+  // Windows'un eski yerel sesleri (ör. "Microsoft Tolga": robotik, en son çare)
+  const puan = (v: SpeechSynthesisVoice) => (/natural|neural/i.test(v.name) ? 4 : /online/i.test(v.name) ? 3 : /google/i.test(v.name) ? 2 : v.localService ? 0 : 1)
+  voice = [...tr].sort((a, b) => puan(b) - puan(a))[0] ?? null
 }
 
 if (typeof speechSynthesis !== 'undefined') {
@@ -47,7 +49,8 @@ export function speak(text: string, opts: { rate?: number; pitch?: number; force
     u.lang = 'tr-TR'
     if (voice) u.voice = voice
     u.rate = opts.rate ?? 0.92
-    u.pitch = opts.pitch ?? 1.15
+    // doğal seslerde fazla tiz ayar yapay duyulur; hafif sıcak bir ton
+    u.pitch = opts.pitch ?? 1.05
     speechSynthesis.speak(u)
   } catch {
     /* yok say */

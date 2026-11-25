@@ -110,7 +110,6 @@ export function useRoundEngine<Q>({
         setMessage(p)
         sfx('correct')
         setTimeout(() => sfx('star'), 250)
-        speak(p)
         setTimeout(() => next(cft), opts.delay ?? 1700)
       } else {
         const n = attempts + 1
@@ -127,7 +126,7 @@ export function useRoundEngine<Q>({
           setFeedback('wrong')
           const e = opts.hint ?? ENCOURAGE[Math.floor(Math.random() * ENCOURAGE.length)]
           setMessage(e)
-          speak(e)
+          if (opts.hint) speak(e)
           setTimeout(() => setFeedback((f) => (f === 'wrong' ? null : f)), 900)
         }
       }

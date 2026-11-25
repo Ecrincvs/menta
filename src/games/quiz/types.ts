@@ -63,7 +63,7 @@ export interface ChoiceQ extends Base {
   answer: number
   layout?: 'tiles' | 'bubbles' | 'wide'
   /** okuma metni (Okuma Hikâyesi) */
-  passage?: { title: string; text: string; img?: string }
+  passage?: { title: string; text: string; img?: string; /** dinleme metni: yazı gösterilmez, sesli okunur */ dinle?: boolean }
 }
 
 export interface OrderQ extends Base {
@@ -137,7 +137,18 @@ export interface SearchQ extends Base {
   placed: { word: string; cells: [number, number][] }[]
 }
 
-export type Question = ChoiceQ | OrderQ | SortQ | MatchQ | InputQ | MemoryQ | TraceQ | PopQ | SearchQ
+/** Model Kur (fen): çizimdeki yuvalara doğru etiketleri yerleştir */
+export interface ModelQ extends Base {
+  type: 'model'
+  /** çizim kimliği (src/games/quiz/modeller.tsx) */
+  sahne: string
+  /** yuva kimliği → doğru etiket */
+  yuvalar: { id: string; dogru: string }[]
+  /** gösterilecek etiketler (doğrular + çeldiriciler) */
+  etiketler: string[]
+}
+
+export type Question = ChoiceQ | OrderQ | SortQ | MatchQ | InputQ | MemoryQ | TraceQ | PopQ | SearchQ | ModelQ
 
 /** Etkinlik başındaki kısa konu anlatımı (kitaptaki ÖĞRENELİM kutusu gibi) */
 export interface Lesson {

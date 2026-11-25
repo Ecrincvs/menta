@@ -13,6 +13,8 @@ import { STAGES } from '../content/okumaYazma'
 import { harfEtkinlikleri } from '../content/generators/harfEtkinlik'
 import { TEMALAR } from '../content/generators/matYolu'
 import { ALANLAR } from '../content/generators/hbYolu'
+import { YOLLAR } from '../content/yollar'
+import { MODELLER } from '../games/quiz/modeller'
 
 const run = (seq: boolean[], start?: SkillStat) => seq.reduce<SkillStat>((s, c) => updateSkill(s, c), start ?? emptySkill())
 const imgExists = (n: string) => fs.existsSync(`public/assets/objects/${n}.png`)
@@ -123,6 +125,15 @@ function validate(q: Question, where: string) {
     expect(hit.length, `${where} balon: yeterli doğru balon`).toBeGreaterThanOrEqual(q.need)
     expect(q.need, where).toBeGreaterThanOrEqual(2)
     expect(q.items.length - hit.length, `${where} balon: çeldirici`).toBeGreaterThanOrEqual(2)
+  } else if (q.type === 'model') {
+    const m = MODELLER[q.sahne]
+    expect(m, `${where} model: ${q.sahne}`).toBeTruthy()
+    for (const y of q.yuvalar) {
+      expect(m.yuvalar[y.id], `${where} yuva ${y.id}`).toBeTruthy()
+      expect(q.etiketler, where).toContain(y.dogru)
+    }
+    expect(new Set(q.etiketler).size, `${where} etiketler benzersiz`).toBe(q.etiketler.length)
+    expect(q.etiketler.length, `${where} çeldirici`).toBeGreaterThan(q.yuvalar.length)
   } else if (q.type === 'search') {
     expect(q.words.length, where).toBeGreaterThanOrEqual(3)
     for (const p of q.placed) expect(p.cells.map(([r, c]) => q.grid[r][c]).join(''), `${where} kelime yerleşimi`).toBe(p.word)
@@ -483,5 +494,69 @@ describe('Hayat Bilgisi Yolu — 6 öğrenme alanı adası (1. sınıf kitabı)'
       h.push(q)
     }
     expect([...ans].sort()).toEqual([0, 1])
+  })
+})
+
+describe('Kitap yolları (1–3. sınıf)', () => {
+  it('her yolda adalar var; her adada en az 2 oyun ve 4 etkinlik', () => {
+    for (const y of YOLLAR) {
+      // 1. sınıf Türkçe ders kitabında 4 tema var (5–8); diğer kitaplarda en az 6
+      expect(y.adalar.length, y.id).toBeGreaterThanOrEqual(y.id === 'tr1' ? 4 : 6)
+      for (const t of y.adalar) {
+        expect(t.acts.filter((a) => a.oyun).length, `${y.id}/${t.id}`).toBeGreaterThanOrEqual(2)
+        expect(t.acts.filter((a) => !a.oyun).length, `${y.id}/${t.id}`).toBeGreaterThanOrEqual(4)
+        for (const a of t.acts) expect(GAMES.find((g) => g.id === `${y.onek}-${t.id}-${a.kind}`), `${y.onek}-${t.id}-${a.kind}`).toBeTruthy()
+      }
+    }
+  })
+  it('kazanım kodları doğru biçimde', () => {
+    const re: Record<string, RegExp> = {
+      tr1: /^T\.[A-ZÖÇŞİÜ]+\.1\./,
+      tr2: /^T\.[A-ZÖÇŞİÜ]+\.2\./,
+      mat2: /^MAT\.2\.\d\.\d+$/,
+      hb2: /^HB\.2\.\d\.\d$/,
+      tr3: /^T\.[A-ZÖÇŞİÜ]+\.3\./,
+      mat3: /^MAT\.3\.\d\.\d+$/,
+      hb3: /^HB\.3\.\d\.\d$/,
+      fen3: /^FB\.3\.\d\.\d$/,
+    }
+    for (const y of YOLLAR) for (const t of y.adalar) for (const a of t.acts) expect(a.meb, `${y.id}/${t.id}/${a.kind}`).toMatch(re[y.id])
+  })
+  it('Matematik: 2. sınıf sınırları (sayılar ≤ 100, çarpım ≤ 50, bölünen ≤ 20)', () => {
+    const y = YOLLAR.find((x) => x.id === 'mat2')!
+    for (const t of y.adalar)
+      for (const a of t.acts) {
+        const rng = makeRng(13)
+        const h: Question[] = []
+        for (let i = 0; i < 25; i++) {
+          const q = GENERATORS[`my2-${t.id}-${a.kind}`](rng, 2, (1 + (i % 3)) as Level, h)
+          h.push(q)
+          const s = q.prompt.replace(/\d+ TL/g, '')
+          for (const n of s.match(/\d+/g) ?? []) expect(Number(n), `${a.kind}: ${q.prompt}`).toBeLessThanOrEqual(100)
+          const m = q.prompt.match(/(\d+) × (\d+)/)
+          if (m) expect(Number(m[1]) * Number(m[2]), q.prompt).toBeLessThanOrEqual(50)
+          const d = q.prompt.match(/(\d+) ÷ (\d+)/)
+          if (d) {
+            expect(Number(d[1]), q.prompt).toBeLessThanOrEqual(20)
+            expect(Number(d[1]) % Number(d[2]), q.prompt).toBe(0)
+          }
+          expect(q.prompt, q.prompt).not.toMatch(/[<>]/)
+        }
+      }
+  })
+  it('Hayat Bilgisi 2: 112 dışında acil numara yok, yıl yok', () => {
+    const y = YOLLAR.find((x) => x.id === 'hb2')!
+    for (const t of y.adalar)
+      for (const a of t.acts) {
+        const rng = makeRng(5)
+        const h: Question[] = []
+        for (let i = 0; i < 10; i++) {
+          const q = GENERATORS[`hb2-${t.id}-${a.kind}`](rng, 2, 2, h)
+          h.push(q)
+          const s = JSON.stringify(q)
+          expect(s, a.kind).not.toMatch(/\b(155|110|156|177)\b/)
+          expect(s, a.kind).not.toMatch(/\b1[89]\d\d\b/)
+        }
+      }
   })
 })

@@ -18,6 +18,7 @@ import { mastery } from '../learning/mastery'
 import { HarfYolu } from '../components/HarfYolu'
 import { LETTER_ORDER } from '../content/letters'
 import { speak } from '../audio/speech'
+import { yolFor, type Yol } from '../content/yollar'
 import { Obj as LockIcon } from '../components/ui/Obj'
 
 const SUBJECT_BG: Record<SubjectId, BackdropKind> = { turkce: 'forest', matematik: 'park', fen: 'lab', hayat: 'town', tarih: 'history' }
@@ -167,6 +168,10 @@ export function SubjectScreen({ subject }: { subject: SubjectId }) {
               <span className="mk-candy !min-h-[56px] !px-6 !text-[20px]" style={{ ['--c' as string]: 'var(--mk-orange)', ['--c-dark' as string]: 'var(--mk-orange-dark)' }}>Başla</span>
             </motion.button>
           )}
+          {(() => {
+            const y = yolFor(subject, g)
+            return y ? <YolBandi y={y} /> : null
+          })()}
           {g === 1 && subject === 'turkce' && <HarfYolu />}
           {groups.map(([theme, list]) => (
             <section key={theme}>
@@ -236,5 +241,40 @@ export function SubjectScreen({ subject }: { subject: SubjectId }) {
         </div>
       </div>
     </div>
+  )
+}
+
+/** 2. sınıf ve sonrası: dersin kitap yolu bandı */
+function YolBandi({ y }: { y: Yol }) {
+  const go = useGame((st) => st.go)
+  const etkinlik = y.adalar.reduce((n, a) => n + a.acts.filter((x) => !x.oyun).length, 0)
+  const oyun = y.adalar.reduce((n, a) => n + a.acts.filter((x) => x.oyun).length, 0)
+  return (
+    <motion.button
+      onClick={() => {
+        sfx('whoosh')
+        go({ name: 'yol', yol: y.id })
+      }}
+      initial={{ y: 30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.97 }}
+      className="flex items-center gap-4 rounded-[28px] border-4 p-4 text-left"
+      style={{ borderColor: y.renk, background: `linear-gradient(135deg,#fffaf0,${y.renk}33)`, boxShadow: `0 8px 0 ${y.koyu},0 16px 28px rgba(0,0,0,0.25)` }}
+      aria-label={y.baslik}
+    >
+      <Obj name={y.icon} size={84} />
+      <span className="flex flex-1 flex-col">
+        <span className="mk-display text-[clamp(24px,3vw,34px)] leading-none" style={{ color: y.koyu }}>
+          {y.sinif}. Sınıf {y.baslik}
+        </span>
+        <span className="mt-1 text-[15px] font-extrabold text-[var(--mk-ink-soft)]">
+          {y.aciklama} {y.adalar.length} ada · {etkinlik} etkinlik · {oyun} oyun
+        </span>
+      </span>
+      <span className="mk-candy !min-h-[56px] !px-6 !text-[20px]" style={{ ['--c' as string]: y.renk, ['--c-dark' as string]: y.koyu }}>
+        Başla
+      </span>
+    </motion.button>
   )
 }

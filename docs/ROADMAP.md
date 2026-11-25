@@ -21,6 +21,25 @@
 - Hayat Bilgisi Yolu: kitabın 6 öğrenme alanı ve 23 konusu (HB.1.1.1–HB.1.6.3), 91 etkinlik + 12 alan sonu oyunu; analiz `docs/meb-kitaplar/analiz/hayat-bilgisi-1.md`
 - Ada ekranları ortak (`src/screens/YolScreen.tsx`); balonlar kelime ve simge gösterebiliyor
 
+## ✅ Aşama 4c — 2. sınıf kitap yolları
+- Türkçe Yolu: 8 tema, 105 etkinlik + 16 oyun (özgün okuma metinleri, noktalama, büyük harf, zıt anlam, hece, kısaltma, bağlaçlar, kelime avı)
+- Matematik Yolu: 6 tema, 62 etkinlik + 12 oyun (kitap sınırları testlerle korunur: sayılar ≤ 100, çarpım ≤ 50, kalansız bölme ≤ 20)
+- Hayat Bilgisi Yolu: 6 öğrenme alanı, 102 etkinlik + 12 oyun
+- Ortak kayıt src/content/yollar.ts + yolKit; menüden sınıf seçimi
+
+## ✅ Aşama 4d — 3. sınıf kitap yolları
+- Türkçe Yolu (8 tema), Matematik Yolu (6 tema, 80 etkinlik), Fen Bilimleri Yolu (8 ünite, 103 etkinlik), Hayat Bilgisi Yolu (6 alan, 93 etkinlik); her adada 2 oyun
+- Yeni etkinlik türü **Model Kur** (src/games/quiz/ModelView.tsx, modeller.tsx): kitaptaki modeller (duyu organları, Güneş-Dünya-Ay, kelebek, fosil, katı-sıvı-gaz, itme-çekme, toprak kavanozu, bitkinin ihtiyaçları, yaşam alanları)
+- Analizler: docs/meb-kitaplar/analiz/*-3.md
+
+## ✅ Aşama 5 — Yarışma Modu (Kahoot tarzı)
+- Modlar: Canlı Yarışma (karakter rakipler ya da kodla arkadaşlar), Takım Savaşı ve Düello (aynı ekranda bölünmüş), Sınıf Modu (öğretmen yönetir, ebeveyn/öğretmen kapısı), Turnuvalar (çeyrek–yarı–final, ilerleme kaydedilir), Hızlı Yarış
+- Lobi (oyun kodu + QR), hazır → soru (4 renkli + şekilli buton, geri sayım, sesli okuma) → cevap (açıklama, dağılım) → canlı podyum → sonuç (yıldız/XP/altın, öğrenilen konular, yanlışlarımı çalış, tekrar yarış)
+- Puan: doğru 500 + hız en çok 300 + seri bonusu; yanlışta eksi yok
+- Sınıf ağı: `npm run sinif` (WebSocket, okul içi; sohbet yok, takma ad temizlenir, öğretmen çıkarabilir/kilitleyebilir)
+- Kategoriler: Matematik, Türkçe, Fen (3–4), Hayat Bilgisi (1–3), Mantık, Genel Kültür (İngilizce sonra)
+- Sıradaki: internet üzerinden oynama (barındırma, onayla), öğretmen hazır soru seti yazma
+
 ## Aşama 4 — İlerleme ve profil (sıradaki)
 - Yeni bölge açılımları (ders içi patika haritası)
 - Ebeveyn paneli: haftalık özet, beceri bazlı öneri kartları

@@ -21,6 +21,9 @@ export type Screen =
   | { name: 'tema'; tema: string }
   | { name: 'hayat-yolu' }
   | { name: 'hb-alan'; alan: string }
+  | { name: 'yarisma'; kod?: string }
+  | { name: 'yol'; yol: string }
+  | { name: 'ada'; yol: string; ada: string }
   | { name: 'hazine'; tab?: 'rozet' | 'album' }
 
 export type Quality = 'low' | 'medium' | 'high'
@@ -67,6 +70,8 @@ interface PersistedState {
   /** kazanılan rozetler → tarih */
   badges: Record<string, string>
   treasureCount: number
+  /** turnuva ilerlemesi: `${kategori}-${sınıf}` → geçilen aşama sayısı (0–3) */
+  turnuva: Record<string, number>
   /** gün → oynanan saniye (son 14 gün) */
   usage: Record<string, number>
   /** ebeveynin bugün verdiği ek süre */
@@ -103,6 +108,7 @@ interface State extends PersistedState {
   takeBreak: () => void
   grantExtra: (min: number) => void
   setLimits: (p: Partial<Limits>) => void
+  turnuvaIlerle: (key: string, asama: number) => void
   /** binaya giriş geçişi: ekranı kaplayan ışık rengi (dünya kaybolurken boşluk görünmesin; kalıcı değil) */
   veil: string | null
   setVeil: (c: string | null) => void
@@ -125,6 +131,7 @@ const initial: PersistedState = {
   owned: [],
   badges: {},
   treasureCount: 0,
+  turnuva: {},
   usage: {},
   extra: { day: '', min: 0 },
   limits: DEFAULT_LIMITS,
@@ -224,6 +231,7 @@ export const useGame = create<State>()(
           return { extra: { day: d, min: (st.extra.day === d ? st.extra.min : 0) + min } }
         }),
       setLimits: (p) => set((st) => ({ limits: { ...st.limits, ...p } })),
+      turnuvaIlerle: (key, asama) => set((st) => ({ turnuva: { ...st.turnuva, [key]: Math.max(st.turnuva[key] ?? 0, asama) } })),
       // sıfırlama ilerlemeyi siler ama ebeveyn sınırlarını korur
       resetProgress: () => set((st) => ({ ...initial, limits: st.limits, screen: { name: 'welcome' }, history: [], badgeQueue: [], sinceBreak: 0 })),
     }),

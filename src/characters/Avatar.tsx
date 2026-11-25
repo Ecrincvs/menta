@@ -71,7 +71,7 @@ export function Avatar(props: Props) {
 function RasterBust({ src, size, className, style }: { src: string; size: number; className?: string; style?: CSSProperties }) {
   return (
     <span className={`relative block overflow-hidden ${className ?? ''}`} style={{ width: size, height: size, ...style }} role="img" aria-label="Kaşif avatarı">
-      <img src={src} alt="" draggable={false} style={{ position: 'absolute', left: '50%', top: '2%', height: size * 2.7, maxWidth: 'none', transform: 'translateX(-50%)' }} />
+      <img src={src} alt="" draggable={false} style={{ position: 'absolute', left: '50%', top: '4%', height: size * 1.85, maxWidth: 'none', transform: 'translateX(-50%)' }} />
     </span>
   )
 }

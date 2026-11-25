@@ -157,7 +157,7 @@ export function TraceView({ q, feedback, answer }: { q: TraceQ; feedback: Feedba
   return (
     <div className="flex h-full flex-col items-center gap-3 px-3">
       <div className="w-[min(720px,92vw)]">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" />
       </div>
       <div className="flex flex-1 flex-col items-center justify-center gap-3 md:flex-row md:gap-8">
         <motion.div

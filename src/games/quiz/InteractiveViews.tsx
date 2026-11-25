@@ -20,8 +20,8 @@ const PAIR_COLORS = ['#5bc236', '#2ec4c9', '#9b6ef3', '#ff9a2e', '#ff7aa8', '#2a
 
 function OptionFace({ o, size = 'md' }: { o: Option; size?: 'md' | 'sm' }) {
   return (
-    <span className="flex flex-col items-center justify-center gap-1">
-      {o.img && <Obj name={o.img} size={size === 'sm' ? 44 : 60} shadow={false} />}
+    <span className="flex flex-col items-center justify-center gap-1 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:gap-2">
+      {o.img && <Obj name={o.img} size={size === 'sm' ? 'clamp(28px, 7vh, 44px)' : 'clamp(36px, 9vh, 60px)'} shadow={false} />}
       {o.visual && <VisualView v={o.visual} size="sm" />}
       {o.label && <span className={`mk-display leading-tight ${(o.label.length ?? 0) <= 3 ? 'text-[clamp(30px,3.6vw,44px)]' : 'text-[clamp(17px,2vw,24px)]'}`}>{o.label}</span>}
     </span>
@@ -80,7 +80,7 @@ export function MatchView({ q, feedback, answer }: { q: MatchQ; feedback: Feedba
         animate={shake === i && side === 'r' ? { x: [0, -10, 10, -6, 6, 0], opacity: 1 } : { x: 0, opacity: 1, scale: selected ? 1.06 : 1 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20, delay: shake === i ? 0 : i * 0.05 }}
         whileHover={!m ? { y: -4 } : {}}
-        className="relative flex min-h-[clamp(64px,9vh,96px)] w-full items-center justify-center rounded-[20px] px-3 py-2"
+        className="relative flex min-h-[clamp(48px,9vh,96px)] w-full items-center justify-center rounded-[20px] px-3 py-2 [@media(max-height:560px)]:py-1"
         style={{
           background: m ? `linear-gradient(180deg, ${color}33, ${color}66)` : 'linear-gradient(180deg,#fff3d1 0%,#f6cf86 62%,#e9b866 100%)',
           border: `4px solid ${m ? color : selected ? '#2a7fd4' : '#b97b3f'}`,
@@ -101,14 +101,14 @@ export function MatchView({ q, feedback, answer }: { q: MatchQ; feedback: Feedba
   return (
     <div className="flex h-full flex-col items-center gap-3 px-3">
       <div className="w-[min(720px,92vw)]">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" />
       </div>
       <p className="mk-display rounded-full bg-white/80 px-4 py-1 text-[15px] text-[var(--mk-ink-soft)] shadow">
         {sel === null ? 'Önce soldan birine dokun' : 'Şimdi sağda eşine dokun'}
       </p>
-      <div className="relative grid w-[min(760px,94vw)] grid-cols-2 gap-x-[clamp(24px,8vw,110px)] gap-y-3">
-        <div className="flex flex-col gap-3">{q.pairs.map((p, i) => tile(p.left, i, 'l'))}</div>
-        <div className="flex flex-col gap-3">{right.map(({ o, i }) => tile(o, i, 'r'))}</div>
+      <div className="relative grid w-[min(760px,94vw)] grid-cols-2 gap-x-[clamp(24px,8vw,110px)] gap-y-3 [@media(max-height:560px)]:gap-y-2">
+        <div className="flex flex-col gap-3 [@media(max-height:560px)]:gap-1.5">{q.pairs.map((p, i) => tile(p.left, i, 'l'))}</div>
+        <div className="flex flex-col gap-3 [@media(max-height:560px)]:gap-1.5">{right.map(({ o, i }) => tile(o, i, 'r'))}</div>
         {done.length === q.pairs.length && <StarBurst x="50%" y="40%" />}
       </div>
     </div>
@@ -148,7 +148,7 @@ export function InputView({ q, feedback, answer }: { q: InputQ; feedback: Feedba
   return (
     <div className="flex h-full flex-col items-center gap-3 px-3">
       <div className="w-[min(720px,92vw)]">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" />
       </div>
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 md:flex-row md:gap-8">
         {q.visual && (
@@ -239,7 +239,7 @@ export function MemoryView({ q, answer }: { q: MemoryQ; answer: Answer }) {
   return (
     <div className="flex h-full flex-col items-center gap-3 px-3">
       <div className="w-[min(720px,92vw)]">
-        <SpeechBubble text={q.prompt} spoken={q.spoken} tail="none" />
+        <SpeechBubble soru text={q.prompt} spoken={q.spoken} tail="none" />
       </div>
       <p className="mk-display rounded-full bg-white/80 px-4 py-1 text-[15px] text-[var(--mk-ink-soft)] shadow">
         Bulunan eş: {found.length} / {q.pairs.length} · Hamle: {moves}

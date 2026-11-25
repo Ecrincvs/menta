@@ -9,6 +9,7 @@ import { LESSONS_G1 } from './lessonsG1'
 import { OY_GAMES } from './okumaYazmaGames'
 import { MY_GAMES } from './matYoluGames'
 import { HB_GAMES } from './hbYoluGames'
+import { YOL_GAMES } from './yollar'
 
 type G = Omit<GameMeta, 'available'> & { available?: boolean }
 const A = (g: G): GameMeta => ({ available: true, total: 6, ...g })
@@ -180,7 +181,7 @@ const BASE: GameMeta[] = [
 /** 1. sınıf: kitap sırasıyla; Okuma Hikâyesi 1. sınıfta tüm harfler öğrenildikten sonra (8. Tema) */
 const G1_OKUMA: GameMeta = { ...BASE.find((x) => x.id === 'okuma-hikayesi')!, lesson: LESSONS_G1['okuma-hikayesi-1'], id: 'okuma-hikayesi-1', grades: [1], theme: '8. Tema · Sorumluluklarımızın Farkındayız', minLetter: 'j', meb: { 1: ['T.O.1.3.a'] } }
 
-export const GAMES: GameMeta[] = [...G1_TURKCE, G1_OKUMA, ...G1_MATEMATIK, ...OY_GAMES, ...MY_GAMES, ...HB_GAMES, ...BASE]
+export const GAMES: GameMeta[] = [...G1_TURKCE, G1_OKUMA, ...G1_MATEMATIK, ...OY_GAMES, ...MY_GAMES, ...HB_GAMES, ...YOL_GAMES, ...BASE]
 
 export const gamesFor = (subject: SubjectId, grade: Grade) => GAMES.filter((g) => g.subject === subject && g.grades.includes(grade) && !g.hidden)
 

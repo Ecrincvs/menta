@@ -33,7 +33,7 @@ interface Spot {
 export const WORLD_SPOTS: Spot[] = [
   { id: 'turkce', x: 26, y: 31, r: 11, lx: 24, ly: 13 },
   { id: 'matematik', x: 49.5, y: 20, r: 10, lx: 49.5, ly: 3.5 },
-  { id: 'fen', x: 73, y: 28, r: 10.5, lx: 76, ly: 10 },
+  { id: 'fen', x: 73, y: 28, r: 10.5, lx: 85, ly: 31 },
   { id: 'hayat', x: 29, y: 63, r: 10, lx: 22, ly: 48 },
   { id: 'tarih', x: 72, y: 62, r: 11, lx: 79, ly: 47 },
 ]
@@ -287,38 +287,40 @@ export default function PaintedWorld({ src, focus, showLabels, onSelect }: { src
   )
 }
 
+/** Bina tabelası: kompakt, tek satır "cam" hap (simge rozeti + ad); kilitliyse soluk + küçük kilit rozeti */
 function Sign({ spot, open, hover, delay, onClick, onHover }: { spot: Spot; open: boolean; hover: boolean; delay: number; onClick: () => void; onHover: (h: boolean) => void }) {
   const s = SUBJECTS.find((x) => x.id === spot.id)!
-  const [first, ...rest] = s.name.replace(' Dünyası', '').split(' ')
-  const title = [first, ...rest].join(' ')
+  const title = s.name.replace(' Dünyası', '')
   return (
     <motion.button
-      className="pointer-events-auto absolute flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-[18px] px-4 py-1.5"
+      className="pointer-events-auto absolute flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full py-[3px] pl-[3px] pr-3 backdrop-blur-md"
       style={{
         left: `${spot.lx}%`,
         top: `${spot.ly}%`,
-        background: open ? 'linear-gradient(180deg,#fffdf6,#fff1d6)' : 'linear-gradient(180deg,#f3efe8,#ddd6ca)',
-        border: `4px solid ${open ? s.accent : '#a59a8a'}`,
-        boxShadow: `inset 0 3px 0 #fff, 0 6px 0 ${open ? s.accentDark : '#7d7466'}, 0 12px 22px rgba(0,0,0,0.3)`,
+        background: open ? 'rgba(255,255,255,0.9)' : 'rgba(240,236,230,0.78)',
+        border: `2px solid ${open ? s.accent : 'rgba(150,140,125,0.6)'}`,
+        boxShadow: open ? `0 3px 0 ${s.accentDark}, 0 8px 16px rgba(20,30,60,0.22)` : '0 2px 0 rgba(110,100,90,0.5), 0 6px 12px rgba(20,30,60,0.15)',
       }}
-      initial={{ y: -30, opacity: 0, scale: 0.6 }}
-      animate={{ y: hover ? -8 : 0, opacity: 1, scale: hover ? 1.12 : 1 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 16, delay: hover ? 0 : delay }}
+      initial={{ y: -16, opacity: 0, scale: 0.8 }}
+      animate={{ y: hover ? -4 : 0, opacity: 1, scale: hover ? 1.08 : 1 }}
+      transition={{ type: 'spring', stiffness: 320, damping: 20, delay: hover ? 0 : delay }}
       onClick={onClick}
       onPointerEnter={() => onHover(true)}
       onPointerLeave={() => onHover(false)}
+      title={open ? s.name : `${s.name}: ${s.grades[0]}. sınıfta açılır`}
       aria-label={`${s.name}${open ? '' : ', bu sınıfta kilitli'}`}
     >
-      <Obj name={s.icon} size={34} shadow={false} style={{ filter: open ? 'none' : 'grayscale(1)' }} />
-      <span className="flex flex-col items-start leading-[0.95]">
-        <span className="mk-display text-[clamp(16px,1.6vw,22px)]" style={{ color: open ? '#4a2c17' : '#7d7466' }}>
-          {title}
-        </span>
-        <span className="text-[11px] font-black" style={{ color: open ? s.accentDark : '#8d8476' }}>
-          {open ? 'DÜNYASI' : `${s.grades[0]}. sınıfta açılır`}
-        </span>
+      <span className="relative grid h-[clamp(26px,2.4vw,32px)] w-[clamp(26px,2.4vw,32px)] place-items-center rounded-full" style={{ background: open ? s.accent : '#b9b0a2' }}>
+        <Obj name={s.icon} size={20} shadow={false} style={{ filter: open ? 'none' : 'grayscale(1) opacity(0.8)' }} />
+        {!open && (
+          <span className="absolute -bottom-1 -right-1 grid h-[15px] w-[15px] place-items-center rounded-full bg-white shadow">
+            <Obj name="lock" size={11} shadow={false} />
+          </span>
+        )}
       </span>
-      {!open && <Obj name="lock" size={24} shadow={false} />}
+      <span className="mk-display text-[clamp(13px,1.25vw,17px)] leading-none" style={{ color: open ? '#2e2140' : '#7d7466' }}>
+        {title}
+      </span>
     </motion.button>
   )
 }
